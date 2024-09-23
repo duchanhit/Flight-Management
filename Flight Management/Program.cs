@@ -11,6 +11,7 @@ namespace Flight_Management
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
+        /// Hai
         [STAThread]
         static void Main()
         {
