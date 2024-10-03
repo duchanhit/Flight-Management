@@ -111,5 +111,29 @@
   <ItemGroup>
     <None Include="Resources\hinh-anh-may-bay.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eye-slashed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wave.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eps10-green-user-icon-or-logo-in-simple-flat-trendy-modern-style-isolated-on-white-background-free-vector.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\th %282%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\maybay9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lovepik-blue-cartoon-airliner-png-image_401643305_wh1200-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eps10-green-user-icon-or-logo-in-simple-flat-trendy-modern-style-isolated-on-white-background-free-vector-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pngtree-hand-drawn-simple-cloud-sun-illustration-png-image_3692529-removebg-preview.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

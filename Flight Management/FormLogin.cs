@@ -26,5 +26,35 @@ namespace Flight_Management
         {
 
         }
+
+        private void guna2TextBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FormLogin_Load(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void txtPass_IconRightClick(object sender, EventArgs e)
+        {
+            if (txtPassword.PasswordChar == '•') // Nếu đang ẩn mật khẩu
+            {
+                txtPassword.PasswordChar = '\0'; // Hiển thị mật khẩu
+                txtPassword.IconRight = Properties.Resources.eye_slashed; // Đổi icon thành mắt đóng
+            }
+            else
+            {
+                txtPassword.PasswordChar = '•'; // Ẩn mật khẩu
+                txtPassword.IconRight = Properties.Resources.eye; // Đổi icon thành mắt mở
+            }
+        }
+
+        private void guna2HtmlLabel2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -63,9 +63,41 @@ namespace Flight_Management.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap eps10_green_user_icon_or_logo_in_simple_flat_trendy_modern_style_isolated_on_white_background_free_vector {
+            get {
+                object obj = ResourceManager.GetObject("eps10-green-user-icon-or-logo-in-simple-flat-trendy-modern-style-isolated-on-whit" +
+                        "e-background-free-vector", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap eps10_green_user_icon_or_logo_in_simple_flat_trendy_modern_style_isolated_on_white_background_free_vector_removebg_preview {
+            get {
+                object obj = ResourceManager.GetObject("eps10-green-user-icon-or-logo-in-simple-flat-trendy-modern-style-isolated-on-whit" +
+                        "e-background-free-vector-removebg-preview", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap eye {
             get {
                 object obj = ResourceManager.GetObject("eye", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap eye_slashed {
+            get {
+                object obj = ResourceManager.GetObject("eye-slashed", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,6 +135,37 @@ namespace Flight_Management.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap lovepik_blue_cartoon_airliner_png_image_401643305_wh1200_removebg_preview {
+            get {
+                object obj = ResourceManager.GetObject("lovepik-blue-cartoon-airliner-png-image_401643305_wh1200-removebg-preview", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap maybay9 {
+            get {
+                object obj = ResourceManager.GetObject("maybay9", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pngtree_hand_drawn_simple_cloud_sun_illustration_png_image_3692529_removebg_preview {
+            get {
+                object obj = ResourceManager.GetObject("pngtree-hand-drawn-simple-cloud-sun-illustration-png-image_3692529-removebg-previ" +
+                        "ew", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap profile_user_round_red_icon_symbol_download_png_11639594337tco5j3n0ix {
             get {
                 object obj = ResourceManager.GetObject("profile-user-round-red-icon-symbol-download-png-11639594337tco5j3n0ix", resourceCulture);
@@ -133,9 +196,29 @@ namespace Flight_Management.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap th__2_ {
+            get {
+                object obj = ResourceManager.GetObject("th (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap user_gradient_icon_button_free_png {
             get {
                 object obj = ResourceManager.GetObject("user-gradient-icon-button-free-png", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap wave {
+            get {
+                object obj = ResourceManager.GetObject("wave", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
