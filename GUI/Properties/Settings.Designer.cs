@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DXApplication1.Properties
+namespace GUI.Properties
 {
 
 
