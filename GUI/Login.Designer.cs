@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.signupLabel = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.guna2GradientButton1 = new Guna.UI2.WinForms.Guna2GradientButton();
             this.label1 = new System.Windows.Forms.Label();
@@ -42,7 +43,6 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.signupLabel = new System.Windows.Forms.Label();
             this.guna2CustomGradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.guna2Panel1.SuspendLayout();
@@ -60,10 +60,22 @@
             this.guna2CustomGradientPanel1.Controls.Add(this.txtPassWord);
             this.guna2CustomGradientPanel1.Controls.Add(this.txtUser);
             this.guna2CustomGradientPanel1.Controls.Add(this.label1);
-            this.guna2CustomGradientPanel1.Location = new System.Drawing.Point(322, 50);
+            this.guna2CustomGradientPanel1.Location = new System.Drawing.Point(422, 39);
             this.guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
-            this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(325, 344);
+            this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(325, 408);
             this.guna2CustomGradientPanel1.TabIndex = 1;
+            // 
+            // signupLabel
+            // 
+            this.signupLabel.AutoSize = true;
+            this.signupLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.signupLabel.ForeColor = System.Drawing.Color.Blue;
+            this.signupLabel.Location = new System.Drawing.Point(67, 313);
+            this.signupLabel.Name = "signupLabel";
+            this.signupLabel.Size = new System.Drawing.Size(206, 13);
+            this.signupLabel.TabIndex = 6;
+            this.signupLabel.Text = "Don\'t have account? Create your account";
+            this.signupLabel.Click += new System.EventHandler(this.signupLabel_Click);
             // 
             // label2
             // 
@@ -110,7 +122,7 @@
             this.guna2ControlBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2ControlBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(192)))), ((int)(((byte)(145)))));
             this.guna2ControlBox1.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox1.Location = new System.Drawing.Point(625, 1);
+            this.guna2ControlBox1.Location = new System.Drawing.Point(725, 1);
             this.guna2ControlBox1.Name = "guna2ControlBox1";
             this.guna2ControlBox1.Size = new System.Drawing.Size(22, 22);
             this.guna2ControlBox1.TabIndex = 2;
@@ -181,16 +193,16 @@
             this.guna2Panel1.Controls.Add(this.pictureBox2);
             this.guna2Panel1.Location = new System.Drawing.Point(0, 1);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(314, 402);
+            this.guna2Panel1.Size = new System.Drawing.Size(416, 446);
             this.guna2Panel1.TabIndex = 0;
             // 
             // pictureBox4
             // 
             this.pictureBox4.BackgroundImage = global::GUI.Properties.Resources.UI;
             this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox4.Location = new System.Drawing.Point(149, 145);
+            this.pictureBox4.Location = new System.Drawing.Point(152, 136);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(167, 205);
+            this.pictureBox4.Size = new System.Drawing.Size(202, 219);
             this.pictureBox4.TabIndex = 2;
             this.pictureBox4.TabStop = false;
             // 
@@ -199,9 +211,9 @@
             this.pictureBox3.BackColor = System.Drawing.Color.White;
             this.pictureBox3.BackgroundImage = global::GUI.Properties.Resources.MAYBAY;
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox3.Location = new System.Drawing.Point(207, 11);
+            this.pictureBox3.Location = new System.Drawing.Point(225, 11);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(104, 100);
+            this.pictureBox3.Size = new System.Drawing.Size(129, 119);
             this.pictureBox3.TabIndex = 1;
             this.pictureBox3.TabStop = false;
             // 
@@ -209,30 +221,18 @@
             // 
             this.pictureBox2.BackgroundImage = global::GUI.Properties.Resources.May;
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox2.Location = new System.Drawing.Point(53, 0);
+            this.pictureBox2.Location = new System.Drawing.Point(58, 0);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(173, 139);
+            this.pictureBox2.Size = new System.Drawing.Size(180, 163);
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
-            // 
-            // signupLabel
-            // 
-            this.signupLabel.AutoSize = true;
-            this.signupLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.signupLabel.ForeColor = System.Drawing.Color.Blue;
-            this.signupLabel.Location = new System.Drawing.Point(67, 313);
-            this.signupLabel.Name = "signupLabel";
-            this.signupLabel.Size = new System.Drawing.Size(206, 13);
-            this.signupLabel.TabIndex = 6;
-            this.signupLabel.Text = "Don\'t have account? Create your account";
-            this.signupLabel.Click += new System.EventHandler(this.signupLabel_Click);
             // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(650, 394);
+            this.ClientSize = new System.Drawing.Size(750, 447);
             this.Controls.Add(this.guna2CustomGradientPanel1);
             this.Controls.Add(this.guna2ControlBox1);
             this.Controls.Add(this.guna2Panel1);

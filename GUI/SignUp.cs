@@ -56,5 +56,10 @@ namespace GUI
                 txtPassWord.IconRight = Properties.Resources.icons_eye_white_;
             }
         }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
