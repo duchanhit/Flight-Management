@@ -55,16 +55,34 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DashBoard.cs">
+    <Compile Include="Control\FlightControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\FlightControl.Designer.cs">
+      <DependentUpon>FlightControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Control\SellTicketControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\SellTicketControl.Designer.cs">
+      <DependentUpon>SellTicketControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\DashBoard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DashBoard.Designer.cs">
+    <Compile Include="Form\DashBoard.Designer.cs">
       <DependentUpon>DashBoard.cs</DependentUpon>
     </Compile>
-    <Compile Include="Login.cs">
+    <Compile Include="Control\DashboardControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\DashboardControl.Designer.cs">
+      <DependentUpon>DashboardControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login.Designer.cs">
+    <Compile Include="Form\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -74,16 +92,25 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="SignUp.cs">
+    <Compile Include="Form\SignUp.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SignUp.Designer.cs">
+    <Compile Include="Form\SignUp.Designer.cs">
       <DependentUpon>SignUp.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="DashBoard.resx">
+    <EmbeddedResource Include="Control\FlightControl.resx">
+      <DependentUpon>FlightControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Control\SellTicketControl.resx">
+      <DependentUpon>SellTicketControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\DashBoard.resx">
       <DependentUpon>DashBoard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login.resx">
+    <EmbeddedResource Include="Control\DashboardControl.resx">
+      <DependentUpon>DashboardControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -91,7 +118,7 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="SignUp.resx">
+    <EmbeddedResource Include="Form\SignUp.resx">
       <DependentUpon>SignUp.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
