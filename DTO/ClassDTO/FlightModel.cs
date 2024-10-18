@@ -3,12 +3,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Linq;
 
-namespace DAL.Entites
+namespace DTO
 {
     public partial class FlightModel : DbContext
     {
         public FlightModel()
-            : base("name=FlightModel")
+            : base("name=FlightModel1")
         {
         }
 

@@ -1,4 +1,4 @@
-namespace DAL.Entites
+namespace DTO
 {
     using System;
     using System.Collections.Generic;
@@ -6,23 +6,31 @@ namespace DAL.Entites
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("Permission")]
-    public partial class Permission
+    [Table("Passenger")]
+    public partial class Passenger
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Permission()
+        public Passenger()
         {
-            Accounts = new HashSet<Account>();
+            Tickets = new HashSet<Ticket>();
         }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int PermissionId { get; set; }
+        [StringLength(100)]
+        public string PassengerId { get; set; }
 
         [Required]
         [StringLength(50)]
-        public string PermissionName { get; set; }
+        public string PassengerName { get; set; }
+
+        [Required]
+        [StringLength(50)]
+        public string PassengerIDCard { get; set; }
+
+        [Required]
+        [StringLength(50)]
+        public string PassenserTel { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Account> Accounts { get; set; }
+        public virtual ICollection<Ticket> Tickets { get; set; }
     }
 }

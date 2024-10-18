@@ -33,12 +33,12 @@
             this.signupLabel = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.guna2GradientButton1 = new Guna.UI2.WinForms.Guna2GradientButton();
-            this.label1 = new System.Windows.Forms.Label();
-            this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
-            this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtPassWord = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtUser = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -60,9 +60,10 @@
             this.guna2CustomGradientPanel1.Controls.Add(this.txtPassWord);
             this.guna2CustomGradientPanel1.Controls.Add(this.txtUser);
             this.guna2CustomGradientPanel1.Controls.Add(this.label1);
-            this.guna2CustomGradientPanel1.Location = new System.Drawing.Point(422, 39);
+            this.guna2CustomGradientPanel1.Location = new System.Drawing.Point(563, 48);
+            this.guna2CustomGradientPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
-            this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(325, 408);
+            this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(433, 502);
             this.guna2CustomGradientPanel1.TabIndex = 1;
             // 
             // signupLabel
@@ -70,9 +71,10 @@
             this.signupLabel.AutoSize = true;
             this.signupLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.signupLabel.ForeColor = System.Drawing.Color.Blue;
-            this.signupLabel.Location = new System.Drawing.Point(67, 313);
+            this.signupLabel.Location = new System.Drawing.Point(89, 385);
+            this.signupLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.signupLabel.Name = "signupLabel";
-            this.signupLabel.Size = new System.Drawing.Size(206, 13);
+            this.signupLabel.Size = new System.Drawing.Size(270, 17);
             this.signupLabel.TabIndex = 6;
             this.signupLabel.Text = "Don\'t have account? Create your account";
             this.signupLabel.Click += new System.EventHandler(this.signupLabel_Click);
@@ -81,14 +83,16 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(191, 241);
+            this.label2.Location = new System.Drawing.Point(255, 297);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(92, 13);
+            this.label2.Size = new System.Drawing.Size(122, 17);
             this.label2.TabIndex = 5;
             this.label2.Text = "Forgot Password?";
             // 
             // guna2GradientButton1
             // 
+            this.guna2GradientButton1.BorderRadius = 15;
             this.guna2GradientButton1.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.ToogleButton;
             this.guna2GradientButton1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.guna2GradientButton1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -97,48 +101,27 @@
             this.guna2GradientButton1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.guna2GradientButton1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2GradientButton1.ForeColor = System.Drawing.Color.White;
-            this.guna2GradientButton1.Location = new System.Drawing.Point(122, 270);
+            this.guna2GradientButton1.Location = new System.Drawing.Point(163, 332);
+            this.guna2GradientButton1.Margin = new System.Windows.Forms.Padding(4);
             this.guna2GradientButton1.Name = "guna2GradientButton1";
-            this.guna2GradientButton1.Size = new System.Drawing.Size(97, 31);
+            this.guna2GradientButton1.Size = new System.Drawing.Size(129, 38);
             this.guna2GradientButton1.TabIndex = 4;
             this.guna2GradientButton1.Text = "LOGIN";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(128, 95);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(80, 20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "WELCOM";
-            // 
-            // guna2Elipse1
-            // 
-            this.guna2Elipse1.TargetControl = this;
-            // 
-            // guna2ControlBox1
-            // 
-            this.guna2ControlBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2ControlBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(192)))), ((int)(((byte)(145)))));
-            this.guna2ControlBox1.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox1.Location = new System.Drawing.Point(725, 1);
-            this.guna2ControlBox1.Name = "guna2ControlBox1";
-            this.guna2ControlBox1.Size = new System.Drawing.Size(22, 22);
-            this.guna2ControlBox1.TabIndex = 2;
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImage = global::GUI.Properties.Resources.icons8_user_100;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(103, 8);
+            this.pictureBox1.Location = new System.Drawing.Point(154, 10);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(130, 84);
+            this.pictureBox1.Size = new System.Drawing.Size(147, 103);
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
             // txtPassWord
             // 
+            this.txtPassWord.BorderRadius = 15;
             this.txtPassWord.BorderThickness = 2;
             this.txtPassWord.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtPassWord.DefaultText = "";
@@ -151,12 +134,13 @@
             this.txtPassWord.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtPassWord.IconLeft = global::GUI.Properties.Resources.icons8_lock_white;
             this.txtPassWord.IconRight = global::GUI.Properties.Resources.icons8_hide_eye;
-            this.txtPassWord.Location = new System.Drawing.Point(57, 202);
+            this.txtPassWord.Location = new System.Drawing.Point(76, 249);
+            this.txtPassWord.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtPassWord.Name = "txtPassWord";
             this.txtPassWord.PasswordChar = '\0';
             this.txtPassWord.PlaceholderText = "PassWord";
             this.txtPassWord.SelectedText = "";
-            this.txtPassWord.Size = new System.Drawing.Size(226, 36);
+            this.txtPassWord.Size = new System.Drawing.Size(301, 44);
             this.txtPassWord.TabIndex = 2;
             this.txtPassWord.IconRightClick += new System.EventHandler(this.txtPassWord_IconRightClick);
             this.txtPassWord.Enter += new System.EventHandler(this.txtPassWord_Enter);
@@ -164,6 +148,7 @@
             // 
             // txtUser
             // 
+            this.txtUser.BorderRadius = 15;
             this.txtUser.BorderThickness = 2;
             this.txtUser.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtUser.DefaultText = "";
@@ -175,15 +160,43 @@
             this.txtUser.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtUser.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtUser.IconLeft = global::GUI.Properties.Resources.icons8_user_White;
-            this.txtUser.Location = new System.Drawing.Point(57, 141);
+            this.txtUser.Location = new System.Drawing.Point(76, 174);
+            this.txtUser.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtUser.Name = "txtUser";
             this.txtUser.PasswordChar = '\0';
             this.txtUser.PlaceholderText = "UserName";
             this.txtUser.SelectedText = "";
-            this.txtUser.Size = new System.Drawing.Size(226, 36);
+            this.txtUser.Size = new System.Drawing.Size(301, 44);
             this.txtUser.TabIndex = 1;
             this.txtUser.Enter += new System.EventHandler(this.txtUser_Enter);
             this.txtUser.Leave += new System.EventHandler(this.txtUser_Leave);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(171, 117);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(117, 25);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "WELCOME";
+            // 
+            // guna2Elipse1
+            // 
+            this.guna2Elipse1.TargetControl = this;
+            // 
+            // guna2ControlBox1
+            // 
+            this.guna2ControlBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2ControlBox1.BorderRadius = 5;
+            this.guna2ControlBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(192)))), ((int)(((byte)(145)))));
+            this.guna2ControlBox1.IconColor = System.Drawing.Color.White;
+            this.guna2ControlBox1.Location = new System.Drawing.Point(967, 1);
+            this.guna2ControlBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.guna2ControlBox1.Name = "guna2ControlBox1";
+            this.guna2ControlBox1.Size = new System.Drawing.Size(29, 27);
+            this.guna2ControlBox1.TabIndex = 2;
             // 
             // guna2Panel1
             // 
@@ -192,17 +205,19 @@
             this.guna2Panel1.Controls.Add(this.pictureBox3);
             this.guna2Panel1.Controls.Add(this.pictureBox2);
             this.guna2Panel1.Location = new System.Drawing.Point(0, 1);
+            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(4);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(416, 446);
+            this.guna2Panel1.Size = new System.Drawing.Size(555, 549);
             this.guna2Panel1.TabIndex = 0;
             // 
             // pictureBox4
             // 
             this.pictureBox4.BackgroundImage = global::GUI.Properties.Resources.UI;
             this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox4.Location = new System.Drawing.Point(152, 136);
+            this.pictureBox4.Location = new System.Drawing.Point(203, 167);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(202, 219);
+            this.pictureBox4.Size = new System.Drawing.Size(269, 270);
             this.pictureBox4.TabIndex = 2;
             this.pictureBox4.TabStop = false;
             // 
@@ -211,9 +226,10 @@
             this.pictureBox3.BackColor = System.Drawing.Color.White;
             this.pictureBox3.BackgroundImage = global::GUI.Properties.Resources.MAYBAY;
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox3.Location = new System.Drawing.Point(225, 11);
+            this.pictureBox3.Location = new System.Drawing.Point(300, 14);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(129, 119);
+            this.pictureBox3.Size = new System.Drawing.Size(172, 146);
             this.pictureBox3.TabIndex = 1;
             this.pictureBox3.TabStop = false;
             // 
@@ -221,22 +237,24 @@
             // 
             this.pictureBox2.BackgroundImage = global::GUI.Properties.Resources.May;
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox2.Location = new System.Drawing.Point(58, 0);
+            this.pictureBox2.Location = new System.Drawing.Point(77, 0);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(180, 163);
+            this.pictureBox2.Size = new System.Drawing.Size(240, 201);
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
             // 
             // Login
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(750, 447);
+            this.ClientSize = new System.Drawing.Size(1000, 550);
             this.Controls.Add(this.guna2CustomGradientPanel1);
             this.Controls.Add(this.guna2ControlBox1);
             this.Controls.Add(this.guna2Panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";

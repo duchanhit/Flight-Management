@@ -62,5 +62,7 @@ namespace GUI
             SignUp signUpForm = new SignUp(); 
             signUpForm.Show();
         }
+
+
     }
 }
