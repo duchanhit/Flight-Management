@@ -1,4 +1,4 @@
-namespace BAL.Models
+namespace DAL.Entites
 {
     using System;
     using System.Collections.Generic;

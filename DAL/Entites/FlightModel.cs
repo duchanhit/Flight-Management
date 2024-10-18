@@ -3,12 +3,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Linq;
 
-namespace BAL.Models
+namespace DAL.Entites
 {
-    public partial class FlightDBContext : DbContext
+    public partial class FlightModel : DbContext
     {
-        public FlightDBContext()
-            : base("name=FlightDBContext")
+        public FlightModel()
+            : base("name=FlightModel")
         {
         }
 
@@ -21,7 +21,7 @@ namespace BAL.Models
         public virtual DbSet<Flight> Flights { get; set; }
         public virtual DbSet<Passenger> Passengers { get; set; }
         public virtual DbSet<Permission> Permissions { get; set; }
-        public virtual DbSet<sysdiagram> SysDiagrams { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<Ticket> Tickets { get; set; }
         public virtual DbSet<Transit> Transits { get; set; }
 

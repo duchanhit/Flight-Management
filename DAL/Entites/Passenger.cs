@@ -1,4 +1,4 @@
-namespace BAL.Models
+namespace DAL.Entites
 {
     using System;
     using System.Collections.Generic;
@@ -6,23 +6,29 @@ namespace BAL.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("Class")]
-    public partial class Class
+    [Table("Passenger")]
+    public partial class Passenger
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Class()
+        public Passenger()
         {
             Tickets = new HashSet<Ticket>();
         }
 
         [StringLength(100)]
-        public string ClassId { get; set; }
+        public string PassengerId { get; set; }
 
         [Required]
         [StringLength(50)]
-        public string ClassName { get; set; }
+        public string PassengerName { get; set; }
 
-        public double PriceRatio { get; set; }
+        [Required]
+        [StringLength(50)]
+        public string PassengerIDCard { get; set; }
+
+        [Required]
+        [StringLength(50)]
+        public string PassenserTel { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Ticket> Tickets { get; set; }
