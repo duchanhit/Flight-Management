@@ -55,17 +55,41 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Control\DonateControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\DonateControl.Designer.cs">
+      <DependentUpon>DonateControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Control\FlightControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Control\FlightControl.Designer.cs">
       <DependentUpon>FlightControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Control\ReportControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\ReportControl.Designer.cs">
+      <DependentUpon>ReportControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Control\SchedulingControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\SchedulingControl.Designer.cs">
+      <DependentUpon>SchedulingControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Control\SellTicketControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Control\SellTicketControl.Designer.cs">
       <DependentUpon>SellTicketControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Control\SettingControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\SettingControl.Designer.cs">
+      <DependentUpon>SettingControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\DashBoard.cs">
       <SubType>Form</SubType>
@@ -98,11 +122,23 @@
     <Compile Include="UI\SignUp.Designer.cs">
       <DependentUpon>SignUp.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Control\DonateControl.resx">
+      <DependentUpon>DonateControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Control\FlightControl.resx">
       <DependentUpon>FlightControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Control\ReportControl.resx">
+      <DependentUpon>ReportControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Control\SchedulingControl.resx">
+      <DependentUpon>SchedulingControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Control\SellTicketControl.resx">
       <DependentUpon>SellTicketControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Control\SettingControl.resx">
+      <DependentUpon>SettingControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\DashBoard.resx">
       <DependentUpon>DashBoard.cs</DependentUpon>

@@ -63,6 +63,9 @@ namespace GUI
             signUpForm.Show();
         }
 
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }

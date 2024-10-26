@@ -30,6 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.panelDashBoard = new System.Windows.Forms.Panel();
+            this.flightControl1 = new GUI.Control.FlightControl();
+            this.dashboardControl1 = new GUI.DashboardControl();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.pannelSettingHighlight = new Guna.UI2.WinForms.Guna2Panel();
             this.pannelDonateHighlight = new Guna.UI2.WinForms.Guna2Panel();
@@ -48,18 +51,39 @@
             this.btnSellTicket = new Guna.UI2.WinForms.Guna2Button();
             this.btnSetting = new Guna.UI2.WinForms.Guna2Button();
             this.btnDashBoard = new Guna.UI2.WinForms.Guna2Button();
-            this.panelDashBoard = new System.Windows.Forms.Panel();
-            this.flightControl1 = new GUI.Control.FlightControl();
-            this.dashboardControl1 = new GUI.DashboardControl();
+            this.panelDashBoard.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            this.panelDashBoard.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2Elipse1
             // 
             this.guna2Elipse1.TargetControl = this;
+            // 
+            // panelDashBoard
+            // 
+            this.panelDashBoard.Controls.Add(this.flightControl1);
+            this.panelDashBoard.Controls.Add(this.dashboardControl1);
+            this.panelDashBoard.Location = new System.Drawing.Point(121, 2);
+            this.panelDashBoard.Name = "panelDashBoard";
+            this.panelDashBoard.Size = new System.Drawing.Size(727, 496);
+            this.panelDashBoard.TabIndex = 11;
+            // 
+            // flightControl1
+            // 
+            this.flightControl1.Location = new System.Drawing.Point(112, 11);
+            this.flightControl1.Name = "flightControl1";
+            this.flightControl1.Size = new System.Drawing.Size(67, 89);
+            this.flightControl1.TabIndex = 10;
+            this.flightControl1.Load += new System.EventHandler(this.flightControl1_Load);
+            // 
+            // dashboardControl1
+            // 
+            this.dashboardControl1.Location = new System.Drawing.Point(0, 11);
+            this.dashboardControl1.Name = "dashboardControl1";
+            this.dashboardControl1.Size = new System.Drawing.Size(97, 89);
+            this.dashboardControl1.TabIndex = 9;
             // 
             // guna2Panel2
             // 
@@ -83,7 +107,7 @@
             this.guna2Panel2.FillColor = System.Drawing.Color.Transparent;
             this.guna2Panel2.Location = new System.Drawing.Point(-1, 0);
             this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(120, 446);
+            this.guna2Panel2.Size = new System.Drawing.Size(120, 498);
             this.guna2Panel2.TabIndex = 8;
             // 
             // pannelSettingHighlight
@@ -319,37 +343,12 @@
             this.btnDashBoard.TextOffset = new System.Drawing.Point(14, 0);
             this.btnDashBoard.Click += new System.EventHandler(this.btnDashBoard_Click);
             // 
-            // panelDashBoard
-            // 
-            this.panelDashBoard.Controls.Add(this.flightControl1);
-            this.panelDashBoard.Controls.Add(this.dashboardControl1);
-            this.panelDashBoard.Location = new System.Drawing.Point(111, 0);
-            this.panelDashBoard.Name = "panelDashBoard";
-            this.panelDashBoard.Size = new System.Drawing.Size(648, 446);
-            this.panelDashBoard.TabIndex = 11;
-            // 
-            // flightControl1
-            // 
-            this.flightControl1.Location = new System.Drawing.Point(112, 11);
-            this.flightControl1.Name = "flightControl1";
-            this.flightControl1.Size = new System.Drawing.Size(67, 89);
-            this.flightControl1.TabIndex = 10;
-            this.flightControl1.Load += new System.EventHandler(this.flightControl1_Load);
-            // 
-            // dashboardControl1
-            // 
-            this.dashboardControl1.Location = new System.Drawing.Point(0, 11);
-            this.dashboardControl1.Name = "dashboardControl1";
-            this.dashboardControl1.Size = new System.Drawing.Size(97, 89);
-            this.dashboardControl1.TabIndex = 9;
-            // 
             // DashBoard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(756, 447);
+            this.ClientSize = new System.Drawing.Size(850, 500);
             this.Controls.Add(this.panelDashBoard);
             this.Controls.Add(this.guna2Panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -357,11 +356,11 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DashBoard";
             this.Load += new System.EventHandler(this.DashBoard_Load);
+            this.panelDashBoard.ResumeLayout(false);
             this.guna2Panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            this.panelDashBoard.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
