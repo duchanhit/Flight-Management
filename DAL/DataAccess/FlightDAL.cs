@@ -1,4 +1,6 @@
-﻿using DTO;
+﻿using DAL.IAccess;
+using DTO;
+using DTO.Entites;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,34 +9,70 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class FlightDAL
+    public class FlightDAL : IRepository<Flight>
     {
-        public List<Flight> GetAllFlights()
+        // Lấy tất cả các chuyến bay từ cơ sở dữ liệu
+        public IEnumerable<Flight> GetAll()
         {
-            // Truy xuất dữ liệu từ cơ sở dữ liệu (dữ liệu giả lập để minh họa)
-            return new List<Flight>();
+            using (FlightModel context = new FlightModel())
+            {
+                return context.Flights.ToList();
+            }
         }
 
-        public Flight GetFlightById(int flightId)
+        // Lấy thông tin chuyến bay theo ID
+        public Flight GetById(int flightId)
         {
-            // Truy xuất thông tin chuyến bay theo ID từ cơ sở dữ liệu
-           
+            using (FlightModel context = new FlightModel())
+            {
+                return context.Flights.SingleOrDefault(f => f.FlightId == flightId.ToString());
+            }
         }
 
-        public void AddFlight(Flight flight)
+        // Thêm chuyến bay vào cơ sở dữ liệu
+        public void Add(Flight flight)
         {
-            // Thêm mới chuyến bay vào cơ sở dữ liệu
+            using (FlightModel context = new FlightModel())
+            {
+                context.Flights.Add(flight);
+                context.SaveChanges();
+            }
         }
 
-        public void UpdateFlight(Flight flight)
+        // Cập nhật thông tin chuyến bay
+        public void Update(Flight flight)
         {
-            // Cập nhật thông tin chuyến bay trong cơ sở dữ liệu
+            using (FlightModel context = new FlightModel())
+            {
+                var existingFlight = context.Flights.SingleOrDefault(f => f.FlightId == flight.FlightId);
+                if (existingFlight != null)
+                {
+                    // Cập nhật các thuộc tính cần thiết
+                    existingFlight.Price = flight.Price;
+                    existingFlight.OriginAP = flight.OriginAP;
+                    existingFlight.DestinationAP = flight.DestinationAP;
+                    existingFlight.TotalSeat = flight.TotalSeat;
+                    existingFlight.isActive = flight.isActive;
+                    existingFlight.Duration = flight.Duration;
+                    context.SaveChanges();
+                }
+            }
         }
 
-        public void DeleteFlight(int flightId)
+        // Xóa chuyến bay khỏi cơ sở dữ liệu
+        public void Delete(int flightId)
         {
-            // Xóa chuyến bay khỏi cơ sở dữ liệu
+            using (FlightModel context = new FlightModel())
+            {
+                var flightToDelete = context.Flights.SingleOrDefault(f => f.FlightId == flightId.ToString());
+                if (flightToDelete != null)
+                {
+                    context.Flights.Remove(flightToDelete);
+                    context.SaveChanges();
+                }
+            }
         }
     }
+
 
 }

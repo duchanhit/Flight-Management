@@ -41,9 +41,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Service\AccountBUS.cs" />
+    <Compile Include="Service\AirportBUS.cs" />
+    <Compile Include="Service\ChairBookedBUS.cs" />
+    <Compile Include="Service\CityBUS.cs" />
+    <Compile Include="Service\ClassBUS.cs" />
+    <Compile Include="Service\DefineSizeFlightBUS.cs" />
     <Compile Include="Service\FlightBUS.cs" />
     <Compile Include="Service\PassengerBUS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\PermissionBUS.cs" />
+    <Compile Include="Service\TicketBUS.cs" />
+    <Compile Include="Service\TransitBUS.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">

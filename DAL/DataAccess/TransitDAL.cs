@@ -1,4 +1,6 @@
-﻿using DTO;
+﻿using DAL.IAccess;
+using DTO;
+using DTO.Entites;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,35 +9,67 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class TransitDAL
+    public class TransitDAL : IRepository<Transit>
     {
-        // Lấy tất cả các trạm trung chuyển từ cơ sở dữ liệu
-        public List<Transit> GetAllTransits()
+        public IEnumerable<Transit> GetAll()
         {
-            return new List<Transit>();
+            using (FlightModel context = new FlightModel())
+            {
+                return context.Transits.ToList();
+            }
         }
 
         // Lấy thông tin trạm trung chuyển theo ID
-        public Transit GetTransitById(int transitId)
+        public Transit GetById(int transitId)
         {
+            using (FlightModel context = new FlightModel())
+            {
+                return context.Transits.SingleOrDefault(t => t.transitID == transitId.ToString());
+            }
         }
 
         // Thêm trạm trung chuyển vào cơ sở dữ liệu
-        public void AddTransit(Transit transit)
+        public void Add(Transit transit)
         {
-            // Thực hiện câu lệnh SQL để thêm trạm trung chuyển
+            using (FlightModel context = new FlightModel())
+            {
+                context.Transits.Add(transit);
+                context.SaveChanges();
+            }
         }
 
         // Cập nhật thông tin trạm trung chuyển
-        public void UpdateTransit(Transit transit)
+        public void Update(Transit transit)
         {
-            // Thực hiện câu lệnh SQL để cập nhật thông tin
+            using (FlightModel context = new FlightModel())
+            {
+                var existingTransit = context.Transits.SingleOrDefault(t => t.transitID == transit.transitID.ToString());
+                if (existingTransit != null)
+                {
+                    // Cập nhật các thuộc tính cần thiết
+                    existingTransit.flightID = transit.flightID;
+                    existingTransit.airportID = transit.airportID;
+                    existingTransit.transitOrder = transit.transitOrder;
+                    existingTransit.transitTime = transit.transitTime;
+                    existingTransit.transitNote = transit.transitNote;
+                    existingTransit.isActive = transit.isActive;
+                    context.SaveChanges();
+                }
+            }
         }
 
         // Xóa trạm trung chuyển khỏi cơ sở dữ liệu
-        public void DeleteTransit(int transitId)
+        public void Delete(int transitId)
         {
-            // Thực hiện câu lệnh SQL để xóa trạm trung chuyển
+            using (FlightModel context = new FlightModel())
+            {
+                var transitToDelete = context.Transits.SingleOrDefault(t => t.transitID == transitId.ToString());
+                if (transitToDelete != null)
+                {
+                    context.Transits.Remove(transitToDelete);
+                    context.SaveChanges();
+                }
+            }
         }
     }
 

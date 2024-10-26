@@ -1,4 +1,6 @@
-﻿using DTO;
+﻿using DAL.IAccess;
+using DTO;
+using DTO.Entites;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,33 +9,75 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class PassengerDAL
+    public class PassengerDAL : IRepository<Passenger>
     {
-        public List<Passenger> GetAllPassengers()
+        // Lấy tất cả hành khách từ cơ sở dữ liệu
+        public IEnumerable<Passenger> GetAll()
         {
-            // Truy xuất tất cả hành khách từ cơ sở dữ liệu
-            return new List<Passenger>();
-
+            using (FlightModel context = new FlightModel())
+            {
+                return context.Passengers.ToList();
+            }
         }
 
-        public Passenger GetPassengerById(int passengerId)
+        // Lấy thông tin hành khách theo ID từ cơ sở dữ liệu
+        public Passenger GetById(int passengerId)
         {
+            using (FlightModel context = new FlightModel())
+            {
+                string passengerIdString = passengerId.ToString();
+                return context.Passengers.SingleOrDefault(p => p.PassengerId == passengerIdString);
+            }
         }
 
-        public void AddPassenger(Passenger passenger)
+        // Thêm hành khách mới vào cơ sở dữ liệu
+        public void Add(Passenger passenger)
         {
-            // Thêm hành khách mới vào cơ sở dữ liệu
+            using (FlightModel context = new FlightModel())
+            {
+                context.Passengers.Add(passenger);
+                context.SaveChanges();
+            }
         }
 
-        public void UpdatePassenger(Passenger passenger)
+        // Cập nhật thông tin hành khách trong cơ sở dữ liệu
+        public void Update(Passenger passenger)
         {
-            // Cập nhật thông tin hành khách trong cơ sở dữ liệu
+            using (FlightModel context = new FlightModel())
+            {
+                var existingPassenger = context.Passengers.SingleOrDefault(p => p.PassengerId == passenger.PassengerId);
+                if (existingPassenger != null)
+                {
+                    // Cập nhật các thuộc tính cần thiết
+                    existingPassenger.PassengerName = passenger.PassengerName;
+                    existingPassenger.PassengerIDCard = passenger.PassengerIDCard;
+                    existingPassenger.PassenserTel = passenger.PassenserTel;
+
+                    context.SaveChanges();
+                }
+            }
         }
 
-        public void DeletePassenger(int passengerId)
+        // Xóa hành khách khỏi cơ sở dữ liệu
+        public void Delete(int passengerId)
         {
-            // Xóa hành khách khỏi cơ sở dữ liệu
+            using (FlightModel context = new FlightModel())
+            {
+                string passengerIdString = passengerId.ToString();
+                var passengerToDelete = context.Passengers.SingleOrDefault(p => p.PassengerId == passengerIdString);
+                if (passengerToDelete != null)
+                {
+                    context.Passengers.Remove(passengerToDelete);
+                    context.SaveChanges();
+                }
+            }
         }
+
+
+
+
+
     }
+
 
 }

@@ -1,4 +1,4 @@
-namespace DTO
+namespace DTO.Entites
 {
     using System;
     using System.Collections.Generic;
@@ -6,27 +6,26 @@ namespace DTO
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("Account")]
-    public partial class Account
+    [Table("City")]
+    public partial class City
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Account()
+        public City()
         {
-            Permissions = new HashSet<Permission>();
+            Airports = new HashSet<Airport>();
         }
 
         [StringLength(100)]
-        public string AccountId { get; set; }
+        public string CityId { get; set; }
 
         [Required]
         [StringLength(50)]
-        public string AccountUser { get; set; }
+        public string CityName { get; set; }
 
-        [Required]
         [StringLength(50)]
-        public string AccountPass { get; set; }
+        public string countryname { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Permission> Permissions { get; set; }
+        public virtual ICollection<Airport> Airports { get; set; }
     }
 }

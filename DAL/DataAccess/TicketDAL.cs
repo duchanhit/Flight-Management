@@ -1,4 +1,6 @@
-﻿using DTO;
+﻿using DAL.IAccess;
+using DTO;
+using DTO.Entites;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,37 +9,71 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class TicketDAL
+    public class TicketDAL : IRepository<Ticket>
     {
-        // Lấy tất cả các vé từ cơ sở dữ liệu
-        public List<Ticket> GetAllTickets()
+        // Lấy tất cả vé từ cơ sở dữ liệu
+        public IEnumerable<Ticket> GetAll()
         {
-            return new List<Ticket>();
+            using (FlightModel context = new FlightModel())
+            {
+                return context.Tickets.ToList();
+            }
         }
 
-        // Lấy thông tin vé theo ID
-        public Ticket GetTicketById(int ticketId)
+        // Lấy thông tin vé theo ID từ cơ sở dữ liệu
+        public Ticket GetById(int ticketId)
         {
-
+            using (FlightModel context = new FlightModel())
+            {
+                string ticketIdString = ticketId.ToString();
+                return context.Tickets.SingleOrDefault(t => t.TicketId == ticketIdString);
+            }
         }
 
         // Thêm vé mới vào cơ sở dữ liệu
-        public void AddTicket(Ticket ticket)
+        public void Add(Ticket ticket)
         {
-            // Thực hiện câu lệnh SQL để thêm vé
+            using (FlightModel context = new FlightModel())
+            {
+                context.Tickets.Add(ticket);
+                context.SaveChanges();
+            }
         }
 
-        // Cập nhật thông tin vé
-        public void UpdateTicket(Ticket ticket)
+        // Cập nhật thông tin vé trong cơ sở dữ liệu
+        public void Update(Ticket ticket)
         {
-            // Thực hiện câu lệnh SQL để cập nhật vé
+            using (FlightModel context = new FlightModel())
+            {
+                var existingTicket = context.Tickets.SingleOrDefault(t => t.TicketId == ticket.TicketId);
+                if (existingTicket != null)
+                {
+                    // Cập nhật các thuộc tính cần thiết
+                    existingTicket.TicketIDPassenger = ticket.TicketIDPassenger;
+                    existingTicket.ClassId = ticket.ClassId;
+                    existingTicket.FlightId = ticket.FlightId;
+                    existingTicket.timeFlight = ticket.timeFlight;
+                    existingTicket.TimeBooking = ticket.TimeBooking;
+                    existingTicket.isPaid = ticket.isPaid;
+                    context.SaveChanges();
+                }
+            }
         }
 
         // Xóa vé khỏi cơ sở dữ liệu
-        public void DeleteTicket(int ticketId)
+        public void Delete(int ticketId)
         {
-            // Thực hiện câu lệnh SQL để xóa vé
+            using (FlightModel context = new FlightModel())
+            {
+                string ticketIdString = ticketId.ToString();
+                var ticketToDelete = context.Tickets.SingleOrDefault(t => t.TicketId == ticketIdString);
+                if (ticketToDelete != null)
+                {
+                    context.Tickets.Remove(ticketToDelete);
+                    context.SaveChanges();
+                }
+            }
         }
-    }
 
+    }
 }

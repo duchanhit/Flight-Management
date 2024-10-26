@@ -50,21 +50,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ClassDTO\Account.cs" />
-    <Compile Include="ClassDTO\Airport.cs" />
-    <Compile Include="ClassDTO\ChairBooked.cs" />
-    <Compile Include="ClassDTO\City.cs" />
-    <Compile Include="ClassDTO\Class.cs" />
-    <Compile Include="ClassDTO\Class1.cs" />
-    <Compile Include="ClassDTO\DefineSizeFlight.cs" />
-    <Compile Include="ClassDTO\Flight.cs" />
-    <Compile Include="ClassDTO\FlightModel.cs" />
-    <Compile Include="ClassDTO\Passenger.cs" />
-    <Compile Include="ClassDTO\Permission.cs" />
+    <Compile Include="Entites\Account.cs" />
+    <Compile Include="Entites\Airport.cs" />
+    <Compile Include="Entites\ChairBooked.cs" />
+    <Compile Include="Entites\City.cs" />
+    <Compile Include="Entites\Class.cs" />
+    <Compile Include="Entites\DefineSizeFlight.cs" />
+    <Compile Include="Entites\Flight.cs" />
+    <Compile Include="Entites\FlightModel.cs" />
+    <Compile Include="Entites\Passenger.cs" />
+    <Compile Include="Entites\Permission.cs" />
+    <Compile Include="Entites\Ticket.cs" />
+    <Compile Include="Entites\Transit.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ClassDTO\sysdiagram.cs" />
-    <Compile Include="ClassDTO\Ticket.cs" />
-    <Compile Include="ClassDTO\Transit.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

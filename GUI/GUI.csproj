@@ -67,10 +67,10 @@
     <Compile Include="Control\SellTicketControl.Designer.cs">
       <DependentUpon>SellTicketControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form\DashBoard.cs">
+    <Compile Include="UI\DashBoard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form\DashBoard.Designer.cs">
+    <Compile Include="UI\DashBoard.Designer.cs">
       <DependentUpon>DashBoard.cs</DependentUpon>
     </Compile>
     <Compile Include="Control\DashboardControl.cs">
@@ -79,10 +79,10 @@
     <Compile Include="Control\DashboardControl.Designer.cs">
       <DependentUpon>DashboardControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form\Login.cs">
+    <Compile Include="UI\Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form\Login.Designer.cs">
+    <Compile Include="UI\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -92,10 +92,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Form\SignUp.cs">
+    <Compile Include="UI\SignUp.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form\SignUp.Designer.cs">
+    <Compile Include="UI\SignUp.Designer.cs">
       <DependentUpon>SignUp.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Control\FlightControl.resx">
@@ -104,13 +104,13 @@
     <EmbeddedResource Include="Control\SellTicketControl.resx">
       <DependentUpon>SellTicketControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form\DashBoard.resx">
+    <EmbeddedResource Include="UI\DashBoard.resx">
       <DependentUpon>DashBoard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Control\DashboardControl.resx">
       <DependentUpon>DashboardControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form\Login.resx">
+    <EmbeddedResource Include="UI\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -118,7 +118,7 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form\SignUp.resx">
+    <EmbeddedResource Include="UI\SignUp.resx">
       <DependentUpon>SignUp.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />

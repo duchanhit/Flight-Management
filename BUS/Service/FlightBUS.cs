@@ -1,5 +1,7 @@
 ﻿using DAL;
+using DAL.IAccess;
 using DTO;
+using DTO.Entites;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,33 +12,42 @@ namespace BUS
 {
     public class FlightBUS
     {
-        private FlightDAL flightDAL = new FlightDAL();
+        private readonly IRepository<Flight> _flightRepository;
 
-        public List<Flight> GetAllFlights()
+        // Constructor Injection
+        public FlightBUS(IRepository<Flight> flightRepository)
         {
-            // Xử lý logic nghiệp vụ nếu cần, ví dụ kiểm tra điều kiện
-            return flightDAL.GetAllFlights();
+            _flightRepository = flightRepository;
         }
 
-        public Flight GetFlightById(int flightId)
+        // Method to get all flights
+        public IEnumerable<Flight> GetAllFlights()
         {
-            return flightDAL.GetFlightById(flightId);
+            return _flightRepository.GetAll();
         }
 
+        // Method to get flight by ID
+        public Flight GetFlightById(int id)
+        {
+            return _flightRepository.GetById(id);
+        }
+
+        // Method to add a new flight
         public void AddFlight(Flight flight)
         {
-            // Kiểm tra dữ liệu đầu vào trước khi thêm chuyến bay
-            flightDAL.AddFlight(flight);
+            _flightRepository.Add(flight);
         }
 
+        // Method to update an existing flight
         public void UpdateFlight(Flight flight)
         {
-            flightDAL.UpdateFlight(flight);
+            _flightRepository.Update(flight);
         }
 
-        public void DeleteFlight(int flightId)
+        // Method to delete a flight
+        public void DeleteFlight(int id)
         {
-            flightDAL.DeleteFlight(flightId);
+            _flightRepository.Delete(id);
         }
     }
 

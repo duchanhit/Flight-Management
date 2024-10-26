@@ -1,4 +1,4 @@
-namespace DTO
+namespace DTO.Entites
 {
     using System;
     using System.Collections.Generic;
@@ -6,25 +6,27 @@ namespace DTO
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("Class")]
-    public partial class Class
+    [Table("Account")]
+    public partial class Account
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Class()
+        public Account()
         {
-            Tickets = new HashSet<Ticket>();
+            Permissions = new HashSet<Permission>();
         }
 
         [StringLength(100)]
-        public string ClassId { get; set; }
+        public string AccountId { get; set; }
 
         [Required]
         [StringLength(50)]
-        public string ClassName { get; set; }
+        public string AccountUser { get; set; }
 
-        public double PriceRatio { get; set; }
+        [Required]
+        [StringLength(50)]
+        public string AccountPass { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Ticket> Tickets { get; set; }
+        public virtual ICollection<Permission> Permissions { get; set; }
     }
 }

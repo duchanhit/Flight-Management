@@ -1,5 +1,7 @@
 ﻿using DAL;
+using DAL.IAccess;
 using DTO;
+using DTO.Entites;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,31 +12,42 @@ namespace BUS
 {
     public class PassengerBUS
     {
-        private PassengerDAL passengerDAL = new PassengerDAL();
+        private readonly IRepository<Passenger> _passengerRepository;
 
-        public List<Passenger> GetAllPassengers()
+        // Constructor Injection
+        public PassengerBUS(IRepository<Passenger> passengerRepository)
         {
-            return passengerDAL.GetAllPassengers();
+            _passengerRepository = passengerRepository;
         }
 
-        public Passenger GetPassengerById(int passengerId)
+        // Method to get all passengers
+        public IEnumerable<Passenger> GetAllPassengers()
         {
-            return passengerDAL.GetPassengerById(passengerId);
+            return _passengerRepository.GetAll();
         }
 
+        // Method to get passenger by ID
+        public Passenger GetPassengerById(int id)
+        {
+            return _passengerRepository.GetById(id);
+        }
+
+        // Method to add a new passenger
         public void AddPassenger(Passenger passenger)
         {
-            passengerDAL.AddPassenger(passenger);
+            _passengerRepository.Add(passenger);
         }
 
+        // Method to update an existing passenger
         public void UpdatePassenger(Passenger passenger)
         {
-            passengerDAL.UpdatePassenger(passenger);
+            _passengerRepository.Update(passenger);
         }
 
-        public void DeletePassenger(int passengerId)
+        // Method to delete a passenger
+        public void DeletePassenger(int id)
         {
-            passengerDAL.DeletePassenger(passengerId);
+            _passengerRepository.Delete(id);
         }
     }
 

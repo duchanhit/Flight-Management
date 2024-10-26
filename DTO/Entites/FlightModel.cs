@@ -3,12 +3,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Linq;
 
-namespace DTO
+namespace DTO.Entites
 {
     public partial class FlightModel : DbContext
     {
         public FlightModel()
-            : base("name=FlightModel1")
+            : base("name=FlightModel")
         {
         }
 
@@ -21,7 +21,6 @@ namespace DTO
         public virtual DbSet<Flight> Flights { get; set; }
         public virtual DbSet<Passenger> Passengers { get; set; }
         public virtual DbSet<Permission> Permissions { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<Ticket> Tickets { get; set; }
         public virtual DbSet<Transit> Transits { get; set; }
 

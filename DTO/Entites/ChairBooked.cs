@@ -1,4 +1,4 @@
-namespace DTO
+namespace DTO.Entites
 {
     using System;
     using System.Collections.Generic;
