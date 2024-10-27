@@ -1,4 +1,5 @@
-﻿using DAL.IAccess;
+﻿using DAL.DataAccess;
+using DAL.IAccess;
 using DTO.Entites;
 using System;
 using System.Collections.Generic;
@@ -10,12 +11,18 @@ namespace BUS.Service
 {
     public class AccountBUS
     {
+        
         private readonly IRepository<Account> _accountRepository;
 
         // Constructor Injection
         public AccountBUS(IRepository<Account> accountRepository)
         {
             _accountRepository = accountRepository;
+        }
+
+        public AccountBUS()
+        {
+            _accountRepository = new AccountDAL();
         }
 
         // Method to get all accounts
@@ -47,5 +54,20 @@ namespace BUS.Service
         {
             _accountRepository.Delete(id);
         }
+
+
+        public bool Login(string username, string password)
+        {
+            AccountDAL accountDAL = new AccountDAL(); 
+            return accountDAL.CheckLogin(username, password); 
+        }
+
+
+        public bool InsertAccount(string userId, string username, string password, int permissionId)
+        {
+            AccountDAL accountDAL = new AccountDAL();
+            return accountDAL.InsertAccount(userId, username, password, permissionId);
+        }
+
     }
 }

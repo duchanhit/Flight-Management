@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BUS.Service;
+using DTO.Entites;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -65,7 +67,26 @@ namespace GUI
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            string username = txtUser.Text;
+            string password = txtPassWord.Text;
 
+            // Chỉ tạo AccountBUS mà không cần IRepository
+            AccountBUS accountBLL = new AccountBUS();
+            bool isAuthenticated = accountBLL.Login(username, password);
+
+            if (isAuthenticated)
+            {
+                MessageBox.Show("Login success!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DashBoard mainForm = new DashBoard();
+                mainForm.Show();
+                this.Hide(); // Ẩn form đăng nhập hiện tại
+            }
+            else
+            {
+                MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtPassWord.Clear();
+                txtPassWord.Focus();
+            }
         }
     }
 }

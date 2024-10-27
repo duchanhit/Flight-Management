@@ -1,12 +1,15 @@
-﻿using System;
+﻿using BUS.Service;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 
 namespace GUI
 {
@@ -15,7 +18,9 @@ namespace GUI
         public SignUp()
         {
             InitializeComponent();
+            _accountBUS = new AccountBUS();
         }
+        private readonly AccountBUS _accountBUS;
 
         private void SignUp_Load(object sender, EventArgs e)
         {
@@ -62,6 +67,49 @@ namespace GUI
             this.Close();
         }
 
+        private void btnSignUp_Click(object sender, EventArgs e)
+        {
+            // Lấy thông tin từ các trường nhập liệu
+            string userId = Guid.NewGuid().ToString(); // Tạo ID duy nhất cho tài khoản
+            string username = txtUser.Text.Trim();
+            string password = txtPassWord.Text.Trim();
+            int permissionId;
 
+            // Kiểm tra các trường bắt buộc đã được nhập chưa
+            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(txtAccountType.Text))
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Xác định quyền truy cập từ `txtAccountType`
+            if (!int.TryParse(txtAccountType.Text, out permissionId))
+            {
+                MessageBox.Show("Loại quyền phải là số!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Gọi phương thức InsertAccount trong lớp AccountBUS
+            bool isInserted = _accountBUS.InsertAccount(userId, username, password, permissionId);
+
+            if (isInserted)
+            {
+                MessageBox.Show("Đăng ký thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                // Bạn có thể reset form hoặc đóng form sau khi đăng ký thành công
+                ClearFields();
+            }
+            else
+            {
+                MessageBox.Show("Đăng ký thất bại. Vui lòng thử lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+        private void ClearFields()
+        {
+            txtUser.Text = "";
+            txtPassWord.Text = "";
+            txtAccountType.Text = "";
+        }
     }
 }

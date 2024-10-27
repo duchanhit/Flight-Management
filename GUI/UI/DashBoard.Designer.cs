@@ -112,49 +112,49 @@
             // 
             // pannelSettingHighlight
             // 
-            this.pannelSettingHighlight.Location = new System.Drawing.Point(1, 330);
+            this.pannelSettingHighlight.Location = new System.Drawing.Point(1, 406);
             this.pannelSettingHighlight.Name = "pannelSettingHighlight";
             this.pannelSettingHighlight.Size = new System.Drawing.Size(11, 28);
             this.pannelSettingHighlight.TabIndex = 20;
             // 
             // pannelDonateHighlight
             // 
-            this.pannelDonateHighlight.Location = new System.Drawing.Point(1, 286);
+            this.pannelDonateHighlight.Location = new System.Drawing.Point(1, 347);
             this.pannelDonateHighlight.Name = "pannelDonateHighlight";
             this.pannelDonateHighlight.Size = new System.Drawing.Size(11, 28);
             this.pannelDonateHighlight.TabIndex = 20;
             // 
             // pannelReportHighlight
             // 
-            this.pannelReportHighlight.Location = new System.Drawing.Point(1, 241);
+            this.pannelReportHighlight.Location = new System.Drawing.Point(1, 288);
             this.pannelReportHighlight.Name = "pannelReportHighlight";
             this.pannelReportHighlight.Size = new System.Drawing.Size(11, 28);
             this.pannelReportHighlight.TabIndex = 20;
             // 
             // pannelFilghtHighlight
             // 
-            this.pannelFilghtHighlight.Location = new System.Drawing.Point(1, 197);
+            this.pannelFilghtHighlight.Location = new System.Drawing.Point(1, 228);
             this.pannelFilghtHighlight.Name = "pannelFilghtHighlight";
             this.pannelFilghtHighlight.Size = new System.Drawing.Size(11, 28);
             this.pannelFilghtHighlight.TabIndex = 20;
             // 
             // pannelTicketHighlight
             // 
-            this.pannelTicketHighlight.Location = new System.Drawing.Point(1, 152);
+            this.pannelTicketHighlight.Location = new System.Drawing.Point(1, 171);
             this.pannelTicketHighlight.Name = "pannelTicketHighlight";
             this.pannelTicketHighlight.Size = new System.Drawing.Size(11, 28);
             this.pannelTicketHighlight.TabIndex = 20;
             // 
             // panelSchedulingHighlight
             // 
-            this.panelSchedulingHighlight.Location = new System.Drawing.Point(1, 106);
+            this.panelSchedulingHighlight.Location = new System.Drawing.Point(1, 115);
             this.panelSchedulingHighlight.Name = "panelSchedulingHighlight";
             this.panelSchedulingHighlight.Size = new System.Drawing.Size(11, 28);
             this.panelSchedulingHighlight.TabIndex = 19;
             // 
             // PanelDashBoardHighlight
             // 
-            this.PanelDashBoardHighlight.Location = new System.Drawing.Point(1, 62);
+            this.PanelDashBoardHighlight.Location = new System.Drawing.Point(1, 63);
             this.PanelDashBoardHighlight.Name = "PanelDashBoardHighlight";
             this.PanelDashBoardHighlight.Size = new System.Drawing.Size(11, 28);
             this.PanelDashBoardHighlight.TabIndex = 18;
@@ -201,11 +201,11 @@
             this.btnFlight.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnFlight.FillColor = System.Drawing.Color.Transparent;
             this.btnFlight.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFlight.ForeColor = System.Drawing.Color.Black;
+            this.btnFlight.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.btnFlight.Image = global::GUI.Properties.Resources.dashboard_white;
             this.btnFlight.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnFlight.IndicateFocus = true;
-            this.btnFlight.Location = new System.Drawing.Point(4, 196);
+            this.btnFlight.Location = new System.Drawing.Point(4, 227);
             this.btnFlight.Name = "btnFlight";
             this.btnFlight.PressedColor = System.Drawing.Color.White;
             this.btnFlight.Size = new System.Drawing.Size(116, 29);
@@ -223,11 +223,11 @@
             this.btnScheduling.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnScheduling.FillColor = System.Drawing.Color.Transparent;
             this.btnScheduling.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnScheduling.ForeColor = System.Drawing.Color.Black;
+            this.btnScheduling.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.btnScheduling.Image = global::GUI.Properties.Resources.dashboard_white;
             this.btnScheduling.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnScheduling.IndicateFocus = true;
-            this.btnScheduling.Location = new System.Drawing.Point(4, 106);
+            this.btnScheduling.Location = new System.Drawing.Point(4, 115);
             this.btnScheduling.Name = "btnScheduling";
             this.btnScheduling.PressedColor = System.Drawing.Color.White;
             this.btnScheduling.Size = new System.Drawing.Size(116, 29);
@@ -245,11 +245,11 @@
             this.btnReport.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnReport.FillColor = System.Drawing.Color.Transparent;
             this.btnReport.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReport.ForeColor = System.Drawing.Color.Black;
+            this.btnReport.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.btnReport.Image = global::GUI.Properties.Resources.dashboard_white;
             this.btnReport.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnReport.IndicateFocus = true;
-            this.btnReport.Location = new System.Drawing.Point(4, 240);
+            this.btnReport.Location = new System.Drawing.Point(4, 287);
             this.btnReport.Name = "btnReport";
             this.btnReport.PressedColor = System.Drawing.Color.White;
             this.btnReport.Size = new System.Drawing.Size(116, 29);
@@ -266,11 +266,11 @@
             this.btnDonate.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnDonate.FillColor = System.Drawing.Color.Transparent;
             this.btnDonate.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDonate.ForeColor = System.Drawing.Color.Black;
+            this.btnDonate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.btnDonate.Image = global::GUI.Properties.Resources.dashboard_white;
             this.btnDonate.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnDonate.IndicateFocus = true;
-            this.btnDonate.Location = new System.Drawing.Point(4, 286);
+            this.btnDonate.Location = new System.Drawing.Point(4, 347);
             this.btnDonate.Name = "btnDonate";
             this.btnDonate.PressedColor = System.Drawing.Color.White;
             this.btnDonate.Size = new System.Drawing.Size(116, 29);
@@ -287,11 +287,11 @@
             this.btnSellTicket.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnSellTicket.FillColor = System.Drawing.Color.Transparent;
             this.btnSellTicket.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSellTicket.ForeColor = System.Drawing.Color.Black;
+            this.btnSellTicket.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.btnSellTicket.Image = global::GUI.Properties.Resources.dashboard_white;
             this.btnSellTicket.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnSellTicket.IndicateFocus = true;
-            this.btnSellTicket.Location = new System.Drawing.Point(4, 151);
+            this.btnSellTicket.Location = new System.Drawing.Point(4, 170);
             this.btnSellTicket.Name = "btnSellTicket";
             this.btnSellTicket.PressedColor = System.Drawing.Color.White;
             this.btnSellTicket.Size = new System.Drawing.Size(116, 29);
@@ -309,11 +309,11 @@
             this.btnSetting.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnSetting.FillColor = System.Drawing.Color.Transparent;
             this.btnSetting.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSetting.ForeColor = System.Drawing.Color.Black;
+            this.btnSetting.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.btnSetting.Image = global::GUI.Properties.Resources.dashboard_white;
             this.btnSetting.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnSetting.IndicateFocus = true;
-            this.btnSetting.Location = new System.Drawing.Point(4, 330);
+            this.btnSetting.Location = new System.Drawing.Point(4, 406);
             this.btnSetting.Name = "btnSetting";
             this.btnSetting.PressedColor = System.Drawing.Color.White;
             this.btnSetting.Size = new System.Drawing.Size(116, 29);
@@ -330,11 +330,11 @@
             this.btnDashBoard.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnDashBoard.FillColor = System.Drawing.Color.Transparent;
             this.btnDashBoard.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDashBoard.ForeColor = System.Drawing.Color.Black;
+            this.btnDashBoard.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.btnDashBoard.Image = global::GUI.Properties.Resources.dashboard_white;
             this.btnDashBoard.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnDashBoard.IndicateFocus = true;
-            this.btnDashBoard.Location = new System.Drawing.Point(4, 62);
+            this.btnDashBoard.Location = new System.Drawing.Point(4, 63);
             this.btnDashBoard.Name = "btnDashBoard";
             this.btnDashBoard.PressedColor = System.Drawing.Color.Transparent;
             this.btnDashBoard.Size = new System.Drawing.Size(112, 29);
