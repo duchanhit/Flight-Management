@@ -16,6 +16,7 @@ namespace DTO.Entites
         }
 
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        
         public int PermissionId { get; set; }
 
         [Required]
