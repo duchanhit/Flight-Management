@@ -1,5 +1,5 @@
 ﻿using DAL.IAccess;
-using DTO.Entites;
+using DTO.Entities;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -83,33 +83,34 @@ namespace DAL.DataAccess
 
 
 
-        public bool InsertAccount(string userId, string username, string password, int permissionId)
+        public bool InsertAccount(string userId, string username, string password, int permissionId, string gmail)
         {
-            // Câu truy vấn SQL để chèn dữ liệu vào bảng Account
-            string queryAccount = "INSERT INTO Account (AccountId, AccountUser, AccountPass) VALUES (@userId, @username, @password)";
+            // SQL query to insert data into the Account table
+            string queryAccount = "INSERT INTO Account (AccountId, AccountUser, AccountPass, Gmail) VALUES (@userId, @username, @password, @gmail)";
 
-            // Câu truy vấn SQL để chèn dữ liệu vào bảng Per_Acc, tạo liên kết quyền truy cập
+            // SQL query to insert data into Per_Acc table to link permissions
             string queryPermission = "INSERT INTO Per_Acc (AccId, PerID) VALUES (@userId, @permissionId)";
 
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["FlightModel"].ConnectionString))
             {
                 conn.Open();
 
-                // Sử dụng transaction để đảm bảo cả hai thao tác đều thành công hoặc đều thất bại
+                // Use transaction to ensure both operations either succeed or fail together
                 using (SqlTransaction transaction = conn.BeginTransaction())
                 {
                     try
                     {
-                        // Chèn tài khoản mới vào bảng Account
+                        // Insert new account into the Account table
                         using (SqlCommand cmdAccount = new SqlCommand(queryAccount, conn, transaction))
                         {
                             cmdAccount.Parameters.AddWithValue("@userId", userId);
                             cmdAccount.Parameters.AddWithValue("@username", username);
                             cmdAccount.Parameters.AddWithValue("@password", password);
+                            cmdAccount.Parameters.AddWithValue("@gmail", gmail);
                             cmdAccount.ExecuteNonQuery();
                         }
 
-                        // Thêm bản ghi vào bảng Per_Acc để liên kết quyền truy cập
+                        // Add record in Per_Acc table to link access permission
                         using (SqlCommand cmdPermission = new SqlCommand(queryPermission, conn, transaction))
                         {
                             cmdPermission.Parameters.AddWithValue("@userId", userId);
@@ -117,18 +118,19 @@ namespace DAL.DataAccess
                             cmdPermission.ExecuteNonQuery();
                         }
 
-                        // Commit transaction nếu cả hai thao tác thành công
+                        // Commit transaction if both operations succeed
                         transaction.Commit();
                         return true;
                     }
                     catch
                     {
-                        // Rollback transaction nếu xảy ra lỗi
+                        // Rollback transaction if an error occurs
                         transaction.Rollback();
                         return false;
                     }
                 }
             }
         }
+
     }
 }

@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Linq;
 
-namespace DTO.Entites
+namespace DTO.Entities
 {
     public partial class FlightModel : DbContext
     {
@@ -26,6 +26,10 @@ namespace DTO.Entites
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Account>()
+                .Property(e => e.Gmail)
+                .IsUnicode(false);
+
             modelBuilder.Entity<Account>()
                 .HasMany(e => e.Permissions)
                 .WithMany(e => e.Accounts)

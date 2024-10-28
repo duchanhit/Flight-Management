@@ -1,4 +1,4 @@
-namespace DTO.Entites
+namespace DTO.Entities
 {
     using System;
     using System.Collections.Generic;
@@ -6,48 +6,41 @@ namespace DTO.Entites
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("Flight")]
-    public partial class Flight
+    [Table("Airport")]
+    public partial class Airport
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Flight()
+        public Airport()
         {
-            ChairBookeds = new HashSet<ChairBooked>();
-            Tickets = new HashSet<Ticket>();
+            Flights = new HashSet<Flight>();
+            Flights1 = new HashSet<Flight>();
             Transits = new HashSet<Transit>();
         }
 
         [StringLength(100)]
-        public string FlightId { get; set; }
+        public string AirportId { get; set; }
 
-        [Column(TypeName = "money")]
-        public decimal Price { get; set; }
+        [StringLength(100)]
+        public string AirportName { get; set; }
 
         [Required]
         [StringLength(100)]
-        public string OriginAP { get; set; }
+        public string CityId { get; set; }
 
-        [Required]
-        [StringLength(100)]
-        public string DestinationAP { get; set; }
+        public double? lat { get; set; }
 
-        public int TotalSeat { get; set; }
+        public double? lon { get; set; }
 
-        public int? isActive { get; set; }
+        [StringLength(50)]
+        public string timezone { get; set; }
 
-        public TimeSpan? Duration { get; set; }
-
-        public virtual Airport Airport { get; set; }
-
-        public virtual Airport Airport1 { get; set; }
+        public virtual City City { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ChairBooked> ChairBookeds { get; set; }
-
-        public virtual DefineSizeFlight DefineSizeFlight { get; set; }
+        public virtual ICollection<Flight> Flights { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Ticket> Tickets { get; set; }
+        public virtual ICollection<Flight> Flights1 { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Transit> Transits { get; set; }
