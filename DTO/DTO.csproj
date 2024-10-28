@@ -57,18 +57,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entites\Account.cs" />
-    <Compile Include="Entites\Airport.cs" />
-    <Compile Include="Entites\ChairBooked.cs" />
-    <Compile Include="Entites\City.cs" />
-    <Compile Include="Entites\Class.cs" />
-    <Compile Include="Entites\DefineSizeFlight.cs" />
-    <Compile Include="Entites\Flight.cs" />
-    <Compile Include="Entites\FlightModel.cs" />
-    <Compile Include="Entites\Passenger.cs" />
-    <Compile Include="Entites\Permission.cs" />
-    <Compile Include="Entites\Ticket.cs" />
-    <Compile Include="Entites\Transit.cs" />
+    <Compile Include="Entities\Account.cs" />
+    <Compile Include="Entities\Airport.cs" />
+    <Compile Include="Entities\ChairBooked.cs" />
+    <Compile Include="Entities\City.cs" />
+    <Compile Include="Entities\Class.cs" />
+    <Compile Include="Entities\DefineSizeFlight.cs" />
+    <Compile Include="Entities\Flight.cs" />
+    <Compile Include="Entities\FlightModel.cs" />
+    <Compile Include="Entities\Passenger.cs" />
+    <Compile Include="Entities\Permission.cs" />
+    <Compile Include="Entities\Ticket.cs" />
+    <Compile Include="Entities\Transit.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

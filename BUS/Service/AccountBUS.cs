@@ -1,6 +1,6 @@
 ﻿using DAL.DataAccess;
 using DAL.IAccess;
-using DTO.Entites;
+using DTO.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -63,10 +63,10 @@ namespace BUS.Service
         }
 
 
-        public bool InsertAccount(string userId, string username, string password, int permissionId)
+        public bool InsertAccount(string userId, string username, string password, int permissionId, string gmail)
         {
             AccountDAL accountDAL = new AccountDAL();
-            return accountDAL.InsertAccount(userId, username, password, permissionId);
+            return accountDAL.InsertAccount(userId, username, password, permissionId, gmail);
         }
 
     }

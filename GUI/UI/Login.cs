@@ -1,5 +1,5 @@
 ﻿using BUS.Service;
-using DTO.Entites;
+using DTO.Entities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,11 +15,87 @@ namespace GUI
 {
     public partial class Login : Form
     {
+        private Queue<string> messageQueue = new Queue<string>();
+        private bool isShowingMessage = false;
+        #region Methods
         public Login()
         {
             InitializeComponent();
         }
+        private void EnqueueMessage(string message, int duration)
+        {
+            messageQueue.Enqueue(message);
+            ShowNextMessage(duration);
+        }
 
+        private void ShowNextMessage(int duration)
+        {
+            if (isShowingMessage || messageQueue.Count == 0)
+            {
+                return;
+            }
+
+            isShowingMessage = true;
+            string message = messageQueue.Dequeue();
+            ShowAutoCloseMessage(message, duration);
+        }
+
+
+        private void ShowAutoCloseMessage(string message, int duration)
+        {
+            Form messageForm = new Form
+            {
+                Text = "Cảnh Báo",
+                FormBorderStyle = FormBorderStyle.FixedDialog,
+                StartPosition = FormStartPosition.CenterScreen,
+                Size = new Size(300, 120),
+                BackColor = Color.White,
+                ControlBox = true,
+                Icon = SystemIcons.Warning,
+                ShowInTaskbar = false
+            };
+
+            PictureBox iconPictureBox = new PictureBox
+            {
+                Image = SystemIcons.Warning.ToBitmap(),
+                Location = new Point(15, 30),
+                Size = new Size(32, 32),
+                SizeMode = PictureBoxSizeMode.StretchImage
+            };
+            messageForm.Controls.Add(iconPictureBox);
+
+            Label messageLabel = new Label
+            {
+                Text = message,
+                AutoSize = false,
+                Location = new Point(55, 30),
+                Size = new Size(220, 32),
+                TextAlign = ContentAlignment.MiddleCenter,
+                Font = new Font("Arial", 10),
+                ForeColor = Color.Black
+            };
+            messageForm.Controls.Add(messageLabel);
+
+            Timer timer = new Timer
+            {
+                Interval = duration
+            };
+            timer.Tick += (s, e) =>
+            {
+                messageForm.Close();
+                timer.Stop();
+                isShowingMessage = false;
+                ShowNextMessage(duration); 
+            };
+
+            messageForm.Show();
+            timer.Start();
+        }
+
+
+        #endregion
+
+        #region Events
         private void Login_Load(object sender, EventArgs e)
         {
             txtPassWord.UseSystemPasswordChar = true;
@@ -66,101 +142,46 @@ namespace GUI
             signUpForm.Show();
         }
 
-        private void ShowAutoCloseMessage(string message, int duration)
-        {
-            Form messageForm = new Form
-            {
-                Text = "Warning",
-                FormBorderStyle = FormBorderStyle.FixedDialog,
-                StartPosition = FormStartPosition.CenterScreen,
-                Size = new Size(300, 120), // Increased width for better text fit
-                BackColor = Color.White,
-                ControlBox = true,
-                Icon = SystemIcons.Warning,
-                ShowInTaskbar = false
-            };
-
-            // Icon PictureBox
-            PictureBox iconPictureBox = new PictureBox
-            {
-                Image = SystemIcons.Warning.ToBitmap(),
-                Location = new Point(15, 30),
-                Size = new Size(32, 32), // Icon size for smaller form
-                SizeMode = PictureBoxSizeMode.StretchImage
-            };
-            messageForm.Controls.Add(iconPictureBox);
-
-            // Message Label - center aligned
-            Label messageLabel = new Label
-            {
-                Text = message,
-                AutoSize = false,
-                Location = new Point(55, 30),
-                Size = new Size(220, 32), // Increased width for text
-                TextAlign = ContentAlignment.MiddleCenter,
-                Font = new Font("Arial", 10), // Font size
-                ForeColor = Color.Black
-            };
-            messageForm.Controls.Add(messageLabel);
-
-            // Timer for auto-close
-            Timer timer = new Timer
-            {
-                Interval = duration
-            };
-            timer.Tick += (s, e) =>
-            {
-                messageForm.Close();
-                timer.Stop();
-            };
-
-            messageForm.Show();
-            timer.Start();
-        }
-
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            // Tạo đối tượng Account với dữ liệu từ người dùng
             var account = new Account
             {
                 AccountUser = txtUser.Text.Trim(),
                 AccountPass = txtPassWord.Text.Trim()
             };
 
-            // Tạo danh sách để lưu các kết quả kiểm tra tính hợp lệ
             var validationResults = new List<ValidationResult>();
             var validationContext = new ValidationContext(account, null, null);
-
-            // Kiểm tra tính hợp lệ của đối tượng Account
             bool isValid = Validator.TryValidateObject(account, validationContext, validationResults, true);
 
-            if (!isValid)
+            var filteredErrors = validationResults.Where(v => !v.MemberNames.Contains("Gmail")).ToList();
+
+            if (filteredErrors.Any())
             {
-                // Nếu có lỗi, hiển thị các thông báo lỗi cho người dùng
-                foreach (var validationResult in validationResults)
+                foreach (var validationResult in filteredErrors)
                 {
-                    ShowAutoCloseMessage(validationResult.ErrorMessage, 1500); 
+                    EnqueueMessage(validationResult.ErrorMessage, 1500);
                 }
                 return;
             }
 
-            // Nếu hợp lệ, tiến hành kiểm tra thông tin đăng nhập
             AccountBUS accountBLL = new AccountBUS();
             bool isAuthenticated = accountBLL.Login(account.AccountUser, account.AccountPass);
 
             if (isAuthenticated)
             {
-                ShowAutoCloseMessage("Login success!", 1500); 
+                EnqueueMessage("Đăng nhập thành công!", 1500);
                 DashBoard mainForm = new DashBoard();
                 mainForm.Show();
                 this.Hide();
             }
             else
             {
-                ShowAutoCloseMessage("Tên đăng nhập hoặc mật khẩu không đúng.", 1500); 
+                EnqueueMessage("Tên đăng nhập hoặc mật khẩu không đúng.", 4000);
                 txtPassWord.Clear();
                 txtPassWord.Focus();
             }
+            #endregion
         }
     }
 }

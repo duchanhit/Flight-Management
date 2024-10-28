@@ -1,5 +1,5 @@
 ﻿using DAL.IAccess;
-using DTO.Entites;
+using DTO.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
