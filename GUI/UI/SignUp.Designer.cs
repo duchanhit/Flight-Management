@@ -83,7 +83,7 @@
             this.txtGmail.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtGmail.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtGmail.IconLeft = global::GUI.Properties.Resources.icons8_user_White;
-            this.txtGmail.Location = new System.Drawing.Point(76, 170);
+            this.txtGmail.Location = new System.Drawing.Point(76, 150);
             this.txtGmail.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtGmail.Name = "txtGmail";
             this.txtGmail.PasswordChar = '\0';
@@ -107,12 +107,12 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(167, 107);
+            this.label1.Location = new System.Drawing.Point(175, 107);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(117, 25);
+            this.label1.Size = new System.Drawing.Size(101, 25);
             this.label1.TabIndex = 9;
-            this.label1.Text = "WELCOME";
+            this.label1.Text = "ĐĂNG KÝ";
             // 
             // pictureBox5
             // 
@@ -139,11 +139,11 @@
             this.txtAccountType.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(192)))), ((int)(((byte)(145)))));
             this.txtAccountType.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtAccountType.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtAccountType.Location = new System.Drawing.Point(76, 332);
+            this.txtAccountType.Location = new System.Drawing.Point(76, 312);
             this.txtAccountType.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtAccountType.Name = "txtAccountType";
             this.txtAccountType.PasswordChar = '\0';
-            this.txtAccountType.PlaceholderText = "AcountType";
+            this.txtAccountType.PlaceholderText = "Kiểu tài khoản";
             this.txtAccountType.SelectedText = "";
             this.txtAccountType.Size = new System.Drawing.Size(301, 44);
             this.txtAccountType.TabIndex = 6;
@@ -159,12 +159,12 @@
             this.btnSignUp.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnSignUp.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnSignUp.ForeColor = System.Drawing.Color.White;
-            this.btnSignUp.Location = new System.Drawing.Point(167, 397);
+            this.btnSignUp.Location = new System.Drawing.Point(167, 377);
             this.btnSignUp.Margin = new System.Windows.Forms.Padding(4);
             this.btnSignUp.Name = "btnSignUp";
             this.btnSignUp.Size = new System.Drawing.Size(129, 38);
             this.btnSignUp.TabIndex = 4;
-            this.btnSignUp.Text = "SIGN UP";
+            this.btnSignUp.Text = "ĐĂNG KÝ";
             this.btnSignUp.Click += new System.EventHandler(this.btnSignUp_Click);
             // 
             // txtPassWord
@@ -182,11 +182,11 @@
             this.txtPassWord.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtPassWord.IconLeft = global::GUI.Properties.Resources.icons8_lock_white;
             this.txtPassWord.IconRight = global::GUI.Properties.Resources.icons8_hide_eye;
-            this.txtPassWord.Location = new System.Drawing.Point(76, 278);
+            this.txtPassWord.Location = new System.Drawing.Point(76, 258);
             this.txtPassWord.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtPassWord.Name = "txtPassWord";
             this.txtPassWord.PasswordChar = '\0';
-            this.txtPassWord.PlaceholderText = "PassWord";
+            this.txtPassWord.PlaceholderText = "Mật khẩu";
             this.txtPassWord.SelectedText = "";
             this.txtPassWord.Size = new System.Drawing.Size(301, 44);
             this.txtPassWord.TabIndex = 2;
@@ -208,11 +208,11 @@
             this.txtUser.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtUser.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtUser.IconLeft = global::GUI.Properties.Resources.icons8_user_White;
-            this.txtUser.Location = new System.Drawing.Point(76, 224);
+            this.txtUser.Location = new System.Drawing.Point(76, 204);
             this.txtUser.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtUser.Name = "txtUser";
             this.txtUser.PasswordChar = '\0';
-            this.txtUser.PlaceholderText = "UserName";
+            this.txtUser.PlaceholderText = "Tên đăng nhập";
             this.txtUser.SelectedText = "";
             this.txtUser.Size = new System.Drawing.Size(301, 44);
             this.txtUser.TabIndex = 1;
