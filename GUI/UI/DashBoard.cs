@@ -8,92 +8,41 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WinFormsControl = System.Windows.Forms.Control;
 
 namespace GUI
 {
     public partial class DashBoard : Form
     {
         DashboardControl dashboardControl = new DashboardControl();
-        FlightControl flightControl = new FlightControl();
-
-
+        FlightControl flightControlMain = new FlightControl();
+        SchedulingControl schedulingControl = new SchedulingControl();
+        SellTicketControl sellTicketControl = new SellTicketControl();
+        ReportControl reportControl = new ReportControl();
+        SettingControl settingControl = new SettingControl();
+        DonateControl donateControl = new DonateControl();
+        #region Methods
         public DashBoard()
         {
             InitializeComponent();
 
         }
-
-        private void DashBoard_Load(object sender, EventArgs e)
+        private void ShowControl(UserControl controlToShow)
         {
-            PanelDashBoardHighlight.BackColor = Color.Blue;
-            dashboardControl.Dock = DockStyle.Fill;
-            flightControl.Dock = DockStyle.Fill;
+            // Ẩn tất cả các UserControl
+            foreach (WinFormsControl control in this.Controls)
+            {
+                if (control is UserControl)
+                {
+                    control.Hide();
+                }
+            }
 
-            panelDashBoard.Controls.Add(dashboardControl); 
-            panelDashBoard.Controls.Add(flightControl);
 
-
-            dashboardControl.BringToFront();
-
-
+            // Hiển thị UserControl được chọn
+            controlToShow.Show();
+            controlToShow.BringToFront();
         }
-
-        private void btnDashBoard_Click(object sender, EventArgs e)
-        {
-            PanelDashBoardHighlight.BackColor = Color.Blue;
-            SetHighlightPanel("dashboard");
-
-            flightControl.Hide();
-            dashboardControl.Show();
-            dashboardControl.BringToFront();
-
-        }
-
-        private void btnScheduling_Click(object sender, EventArgs e)
-        {
-            panelSchedulingHighlight.BackColor = Color.Blue;
-            SetHighlightPanel("scheduling");
-        }
-
-        private void btnSellTicket_Click(object sender, EventArgs e)
-        {
-            pannelTicketHighlight.BackColor = Color.Blue;
-            SetHighlightPanel("sellTicket");
-        }
-
-        private void btnFlight_Click(object sender, EventArgs e)
-        {
-            pannelFilghtHighlight.BackColor = Color.Blue;
-            SetHighlightPanel("flight");
-
-            dashboardControl.Hide();
-            flightControl.Show();
-            flightControl.BringToFront();
-
-
-
-
-        }
-
-        private void btnReport_Click(object sender, EventArgs e)
-        {
-            pannelReportHighlight.BackColor = Color.Blue;
-            SetHighlightPanel("report");
-        }
-
-        private void btnDonate_Click(object sender, EventArgs e)
-        {
-            pannelDonateHighlight.BackColor = Color.Blue;
-            SetHighlightPanel("donate");
-        }
-
-        private void btnSetting_Click(object sender, EventArgs e)
-        {
-            pannelSettingHighlight.BackColor = Color.Blue;
-            SetHighlightPanel("setting");
-           
-        }
-
         // Hàm để đặt các highlight cho nút
         private void SetHighlightPanel(string panelName)
         {
@@ -133,9 +82,98 @@ namespace GUI
             }
         }
 
+        #endregion
+
+        #region Events
+        private void DashBoard_Load(object sender, EventArgs e)
+        {
+            PanelDashBoardHighlight.BackColor = Color.Blue;
+            // Đặt DockStyle.Fill cho tất cả các UserControl
+            dashboardControl.Dock = DockStyle.Fill;
+            flightControlMain.Dock = DockStyle.Fill;
+            schedulingControl.Dock = DockStyle.Fill;
+            sellTicketControl.Dock = DockStyle.Fill;
+            reportControl.Dock = DockStyle.Fill;
+            settingControl.Dock = DockStyle.Fill;
+            donateControl.Dock = DockStyle.Fill;
+
+            // Thêm tất cả các UserControl vào panelDashBoard
+            panelDashBoard.Controls.Add(dashboardControl);
+            panelDashBoard.Controls.Add(flightControlMain);
+            panelDashBoard.Controls.Add(schedulingControl);
+            panelDashBoard.Controls.Add(sellTicketControl);
+            panelDashBoard.Controls.Add(reportControl);
+            panelDashBoard.Controls.Add(settingControl);
+            panelDashBoard.Controls.Add(donateControl);
+
+            // Hiển thị UserControl đầu tiên
+            ShowControl(dashboardControl);
+
+
+
+
+
+        }
+
+        private void btnDashBoard_Click(object sender, EventArgs e)
+        {
+            SetHighlightPanel("dashboard");
+            ShowControl(dashboardControl);
+
+        }
+
+        private void btnScheduling_Click(object sender, EventArgs e)
+        {
+            SetHighlightPanel("scheduling");
+            ShowControl(schedulingControl);
+
+        }
+
+        private void btnSellTicket_Click(object sender, EventArgs e)
+        {
+            SetHighlightPanel("sellTicket");
+            ShowControl(sellTicketControl);
+
+        }
+
+        private void btnFlight_Click(object sender, EventArgs e)
+        {
+            SetHighlightPanel("flight");
+            ShowControl(flightControlMain);
+        }
+
+        private void btnReport_Click(object sender, EventArgs e)
+        {
+            SetHighlightPanel("report");
+            ShowControl(reportControl);
+
+        }
+
+        private void btnDonate_Click(object sender, EventArgs e)
+        {
+            SetHighlightPanel("donate");
+            ShowControl(donateControl);
+
+        }
+
+        private void btnSetting_Click(object sender, EventArgs e)
+        {
+            SetHighlightPanel("setting");
+            ShowControl(settingControl);
+
+        }
+
+
+
         private void flightControl1_Load(object sender, EventArgs e)
         {
 
         }
+
+        private void panelDashBoard_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+        #endregion
     }
 }

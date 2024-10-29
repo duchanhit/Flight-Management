@@ -3,6 +3,7 @@ using DTO.Entities;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -85,52 +86,33 @@ namespace DAL.DataAccess
 
         public bool InsertAccount(string userId, string username, string password, int permissionId, string gmail)
         {
-            // SQL query to insert data into the Account table
-            string queryAccount = "INSERT INTO Account (AccountId, AccountUser, AccountPass, Gmail) VALUES (@userId, @username, @password, @gmail)";
-
-            // SQL query to insert data into Per_Acc table to link permissions
-            string queryPermission = "INSERT INTO Per_Acc (AccId, PerID) VALUES (@userId, @permissionId)";
-
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["FlightModel"].ConnectionString))
             {
                 conn.Open();
 
-                // Use transaction to ensure both operations either succeed or fail together
-                using (SqlTransaction transaction = conn.BeginTransaction())
+                using (SqlCommand cmd = new SqlCommand("InsertAccountWithPermission", conn))
                 {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@userId", userId);
+                    cmd.Parameters.AddWithValue("@username", username);
+                    cmd.Parameters.AddWithValue("@password", password);
+                    cmd.Parameters.AddWithValue("@gmail", gmail);
+                    cmd.Parameters.AddWithValue("@permissionId", permissionId);
+
                     try
                     {
-                        // Insert new account into the Account table
-                        using (SqlCommand cmdAccount = new SqlCommand(queryAccount, conn, transaction))
-                        {
-                            cmdAccount.Parameters.AddWithValue("@userId", userId);
-                            cmdAccount.Parameters.AddWithValue("@username", username);
-                            cmdAccount.Parameters.AddWithValue("@password", password);
-                            cmdAccount.Parameters.AddWithValue("@gmail", gmail);
-                            cmdAccount.ExecuteNonQuery();
-                        }
-
-                        // Add record in Per_Acc table to link access permission
-                        using (SqlCommand cmdPermission = new SqlCommand(queryPermission, conn, transaction))
-                        {
-                            cmdPermission.Parameters.AddWithValue("@userId", userId);
-                            cmdPermission.Parameters.AddWithValue("@permissionId", permissionId);
-                            cmdPermission.ExecuteNonQuery();
-                        }
-
-                        // Commit transaction if both operations succeed
-                        transaction.Commit();
+                        cmd.ExecuteNonQuery();
                         return true;
                     }
                     catch
                     {
-                        // Rollback transaction if an error occurs
-                        transaction.Rollback();
                         return false;
                     }
                 }
             }
         }
+
 
     }
 }
