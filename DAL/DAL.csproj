@@ -69,6 +69,7 @@
     <Compile Include="DataAccess\CityDAL.cs" />
     <Compile Include="DataAccess\ClassDAL.cs" />
     <Compile Include="DataAccess\DefineSizeFlightDAL.cs" />
+    <Compile Include="DataAccess\DurationFlightDAL.cs" />
     <Compile Include="DataAccess\FlightDAL.cs" />
     <Compile Include="DataAccess\PassengerDAL.cs" />
     <Compile Include="DataAccess\PermissionDAL.cs" />

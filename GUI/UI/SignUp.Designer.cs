@@ -84,10 +84,14 @@
             this.txtGmail.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtGmail.IconLeft = global::GUI.Properties.Resources.icons8_user_White;
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.txtGmail.Location = new System.Drawing.Point(76, 170);
 =======
             this.txtGmail.Location = new System.Drawing.Point(76, 150);
 >>>>>>> hanh
+=======
+            this.txtGmail.Location = new System.Drawing.Point(76, 150);
+>>>>>>> ten-branch-moi
             this.txtGmail.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtGmail.Name = "txtGmail";
             this.txtGmail.PasswordChar = '\0';
@@ -112,6 +116,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.label1.Location = new System.Drawing.Point(167, 107);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
@@ -122,6 +127,12 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(101, 25);
 >>>>>>> hanh
+=======
+            this.label1.Location = new System.Drawing.Point(175, 107);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(101, 25);
+>>>>>>> ten-branch-moi
             this.label1.TabIndex = 9;
             this.label1.Text = "ĐĂNG KÝ";
             // 
@@ -151,10 +162,14 @@
             this.txtAccountType.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtAccountType.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.txtAccountType.Location = new System.Drawing.Point(76, 332);
 =======
             this.txtAccountType.Location = new System.Drawing.Point(76, 312);
 >>>>>>> hanh
+=======
+            this.txtAccountType.Location = new System.Drawing.Point(76, 312);
+>>>>>>> ten-branch-moi
             this.txtAccountType.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtAccountType.Name = "txtAccountType";
             this.txtAccountType.PasswordChar = '\0';
@@ -175,10 +190,14 @@
             this.btnSignUp.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnSignUp.ForeColor = System.Drawing.Color.White;
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.btnSignUp.Location = new System.Drawing.Point(167, 397);
 =======
             this.btnSignUp.Location = new System.Drawing.Point(167, 377);
 >>>>>>> hanh
+=======
+            this.btnSignUp.Location = new System.Drawing.Point(167, 377);
+>>>>>>> ten-branch-moi
             this.btnSignUp.Margin = new System.Windows.Forms.Padding(4);
             this.btnSignUp.Name = "btnSignUp";
             this.btnSignUp.Size = new System.Drawing.Size(129, 38);
@@ -202,10 +221,14 @@
             this.txtPassWord.IconLeft = global::GUI.Properties.Resources.icons8_lock_white;
             this.txtPassWord.IconRight = global::GUI.Properties.Resources.icons8_hide_eye;
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.txtPassWord.Location = new System.Drawing.Point(76, 278);
 =======
             this.txtPassWord.Location = new System.Drawing.Point(76, 258);
 >>>>>>> hanh
+=======
+            this.txtPassWord.Location = new System.Drawing.Point(76, 258);
+>>>>>>> ten-branch-moi
             this.txtPassWord.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtPassWord.Name = "txtPassWord";
             this.txtPassWord.PasswordChar = '\0';
@@ -232,10 +255,14 @@
             this.txtUser.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtUser.IconLeft = global::GUI.Properties.Resources.icons8_user_White;
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.txtUser.Location = new System.Drawing.Point(76, 224);
 =======
             this.txtUser.Location = new System.Drawing.Point(76, 204);
 >>>>>>> hanh
+=======
+            this.txtUser.Location = new System.Drawing.Point(76, 204);
+>>>>>>> ten-branch-moi
             this.txtUser.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtUser.Name = "txtUser";
             this.txtUser.PasswordChar = '\0';

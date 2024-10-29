@@ -69,6 +69,7 @@
     <Compile Include="Entities\City.cs" />
     <Compile Include="Entities\Class.cs" />
     <Compile Include="Entities\DefineSizeFlight.cs" />
+    <Compile Include="Entities\DurationFlight.cs" />
     <Compile Include="Entities\Flight.cs" />
     <Compile Include="Entities\FlightModel.cs" />
     <Compile Include="Entities\Passenger.cs" />

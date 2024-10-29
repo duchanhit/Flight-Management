@@ -15,9 +15,9 @@ namespace BUS
         private readonly IRepository<Flight> _flightRepository;
 
         // Constructor Injection
-        public FlightBUS(IRepository<Flight> flightRepository)
+        public FlightBUS()
         {
-            _flightRepository = flightRepository;
+            _flightRepository = new FlightDAL();
         }
 
         // Method to get all flights
@@ -27,7 +27,7 @@ namespace BUS
         }
 
         // Method to get flight by ID
-        public Flight GetFlightById(int id)
+        public Flight GetById(int id)
         {
             return _flightRepository.GetById(id);
         }

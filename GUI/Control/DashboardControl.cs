@@ -11,7 +11,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
 
-namespace GUI
+namespace GUI.Control
 {
     public partial class DashboardControl : UserControl
     {
