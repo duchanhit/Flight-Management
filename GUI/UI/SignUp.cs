@@ -215,7 +215,11 @@ namespace GUI
 
             if (isInserted)
             {
+<<<<<<< HEAD
                 EnqueueMessage("Đăng ký thành công!", 1500);
+=======
+                MessageBox.Show("Đăng ký thành công!", "Thông báo", MessageBoxButtons.OK);
+>>>>>>> hanh
                 ClearFields();
             }
             else

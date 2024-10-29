@@ -49,6 +49,7 @@
             this.btnSellTicket = new Guna.UI2.WinForms.Guna2Button();
             this.btnSetting = new Guna.UI2.WinForms.Guna2Button();
             this.btnDashBoard = new Guna.UI2.WinForms.Guna2Button();
+<<<<<<< HEAD
             this.flightControl1 = new GUI.Control.FlightControl();
             this.dashboardControl1 = new GUI.DashboardControl();
             this.donateControl1 = new GUI.Control.DonateControl();
@@ -57,6 +58,8 @@
             this.sellTicketControl1 = new GUI.Control.SellTicketControl();
             this.schedulingControl1 = new GUI.Control.SchedulingControl();
             this.panelDashBoard.SuspendLayout();
+=======
+>>>>>>> hanh
             this.guna2Panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -68,6 +71,7 @@
             // 
             // panelDashBoard
             // 
+<<<<<<< HEAD
             this.panelDashBoard.Controls.Add(this.schedulingControl1);
             this.panelDashBoard.Controls.Add(this.sellTicketControl1);
             this.panelDashBoard.Controls.Add(this.settingControl1);
@@ -77,6 +81,10 @@
             this.panelDashBoard.Controls.Add(this.dashboardControl1);
             this.panelDashBoard.Location = new System.Drawing.Point(161, 2);
             this.panelDashBoard.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+=======
+            this.panelDashBoard.Location = new System.Drawing.Point(161, 2);
+            this.panelDashBoard.Margin = new System.Windows.Forms.Padding(4);
+>>>>>>> hanh
             this.panelDashBoard.Name = "panelDashBoard";
             this.panelDashBoard.Size = new System.Drawing.Size(969, 610);
             this.panelDashBoard.TabIndex = 11;
@@ -103,7 +111,11 @@
             this.guna2Panel2.Controls.Add(this.btnDashBoard);
             this.guna2Panel2.FillColor = System.Drawing.Color.Transparent;
             this.guna2Panel2.Location = new System.Drawing.Point(-1, 0);
+<<<<<<< HEAD
             this.guna2Panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+=======
+            this.guna2Panel2.Margin = new System.Windows.Forms.Padding(4);
+>>>>>>> hanh
             this.guna2Panel2.Name = "guna2Panel2";
             this.guna2Panel2.Size = new System.Drawing.Size(160, 613);
             this.guna2Panel2.TabIndex = 8;
@@ -111,7 +123,11 @@
             // pannelSettingHighlight
             // 
             this.pannelSettingHighlight.Location = new System.Drawing.Point(1, 500);
+<<<<<<< HEAD
             this.pannelSettingHighlight.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+=======
+            this.pannelSettingHighlight.Margin = new System.Windows.Forms.Padding(4);
+>>>>>>> hanh
             this.pannelSettingHighlight.Name = "pannelSettingHighlight";
             this.pannelSettingHighlight.Size = new System.Drawing.Size(15, 34);
             this.pannelSettingHighlight.TabIndex = 20;
@@ -119,7 +135,11 @@
             // pannelDonateHighlight
             // 
             this.pannelDonateHighlight.Location = new System.Drawing.Point(1, 427);
+<<<<<<< HEAD
             this.pannelDonateHighlight.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+=======
+            this.pannelDonateHighlight.Margin = new System.Windows.Forms.Padding(4);
+>>>>>>> hanh
             this.pannelDonateHighlight.Name = "pannelDonateHighlight";
             this.pannelDonateHighlight.Size = new System.Drawing.Size(15, 34);
             this.pannelDonateHighlight.TabIndex = 20;
@@ -127,7 +147,11 @@
             // pannelReportHighlight
             // 
             this.pannelReportHighlight.Location = new System.Drawing.Point(1, 354);
+<<<<<<< HEAD
             this.pannelReportHighlight.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+=======
+            this.pannelReportHighlight.Margin = new System.Windows.Forms.Padding(4);
+>>>>>>> hanh
             this.pannelReportHighlight.Name = "pannelReportHighlight";
             this.pannelReportHighlight.Size = new System.Drawing.Size(15, 34);
             this.pannelReportHighlight.TabIndex = 20;
@@ -135,7 +159,11 @@
             // pannelFilghtHighlight
             // 
             this.pannelFilghtHighlight.Location = new System.Drawing.Point(1, 281);
+<<<<<<< HEAD
             this.pannelFilghtHighlight.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+=======
+            this.pannelFilghtHighlight.Margin = new System.Windows.Forms.Padding(4);
+>>>>>>> hanh
             this.pannelFilghtHighlight.Name = "pannelFilghtHighlight";
             this.pannelFilghtHighlight.Size = new System.Drawing.Size(15, 34);
             this.pannelFilghtHighlight.TabIndex = 20;
@@ -143,7 +171,11 @@
             // pannelTicketHighlight
             // 
             this.pannelTicketHighlight.Location = new System.Drawing.Point(1, 210);
+<<<<<<< HEAD
             this.pannelTicketHighlight.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+=======
+            this.pannelTicketHighlight.Margin = new System.Windows.Forms.Padding(4);
+>>>>>>> hanh
             this.pannelTicketHighlight.Name = "pannelTicketHighlight";
             this.pannelTicketHighlight.Size = new System.Drawing.Size(15, 34);
             this.pannelTicketHighlight.TabIndex = 20;
@@ -151,7 +183,11 @@
             // panelSchedulingHighlight
             // 
             this.panelSchedulingHighlight.Location = new System.Drawing.Point(1, 142);
+<<<<<<< HEAD
             this.panelSchedulingHighlight.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+=======
+            this.panelSchedulingHighlight.Margin = new System.Windows.Forms.Padding(4);
+>>>>>>> hanh
             this.panelSchedulingHighlight.Name = "panelSchedulingHighlight";
             this.panelSchedulingHighlight.Size = new System.Drawing.Size(15, 34);
             this.panelSchedulingHighlight.TabIndex = 19;
@@ -159,7 +195,11 @@
             // PanelDashBoardHighlight
             // 
             this.PanelDashBoardHighlight.Location = new System.Drawing.Point(1, 78);
+<<<<<<< HEAD
             this.PanelDashBoardHighlight.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+=======
+            this.PanelDashBoardHighlight.Margin = new System.Windows.Forms.Padding(4);
+>>>>>>> hanh
             this.PanelDashBoardHighlight.Name = "PanelDashBoardHighlight";
             this.PanelDashBoardHighlight.Size = new System.Drawing.Size(15, 34);
             this.PanelDashBoardHighlight.TabIndex = 18;
@@ -171,7 +211,11 @@
             this.panel1.Controls.Add(this.pictureBox4);
             this.panel1.ForeColor = System.Drawing.Color.White;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+<<<<<<< HEAD
             this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+=======
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
+>>>>>>> hanh
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(160, 55);
             this.panel1.TabIndex = 17;
@@ -194,7 +238,11 @@
             this.pictureBox4.BackgroundImage = global::GUI.Properties.Resources.planeicon;
             this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox4.Location = new System.Drawing.Point(0, 2);
+<<<<<<< HEAD
             this.pictureBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+=======
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4);
+>>>>>>> hanh
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(43, 49);
             this.pictureBox4.TabIndex = 16;
@@ -208,18 +256,22 @@
             this.btnFlight.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnFlight.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnFlight.FillColor = System.Drawing.Color.Transparent;
-            this.btnFlight.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFlight.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.btnFlight.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.btnFlight.Image = global::GUI.Properties.Resources.dashboard_white;
+            this.btnFlight.Image = global::GUI.Properties.Resources.Document;
             this.btnFlight.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnFlight.IndicateFocus = true;
             this.btnFlight.Location = new System.Drawing.Point(5, 279);
+<<<<<<< HEAD
             this.btnFlight.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+=======
+            this.btnFlight.Margin = new System.Windows.Forms.Padding(4);
+>>>>>>> hanh
             this.btnFlight.Name = "btnFlight";
             this.btnFlight.PressedColor = System.Drawing.Color.White;
             this.btnFlight.Size = new System.Drawing.Size(155, 36);
             this.btnFlight.TabIndex = 15;
-            this.btnFlight.Text = "Flight";
+            this.btnFlight.Text = "Chuyến bay";
             this.btnFlight.TextOffset = new System.Drawing.Point(-2, 0);
             this.btnFlight.Click += new System.EventHandler(this.btnFlight_Click);
             // 
@@ -231,18 +283,22 @@
             this.btnScheduling.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnScheduling.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnScheduling.FillColor = System.Drawing.Color.Transparent;
-            this.btnScheduling.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnScheduling.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnScheduling.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.btnScheduling.Image = global::GUI.Properties.Resources.dashboard_white;
+            this.btnScheduling.Image = global::GUI.Properties.Resources.Plane;
             this.btnScheduling.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnScheduling.IndicateFocus = true;
             this.btnScheduling.Location = new System.Drawing.Point(5, 142);
+<<<<<<< HEAD
             this.btnScheduling.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+=======
+            this.btnScheduling.Margin = new System.Windows.Forms.Padding(4);
+>>>>>>> hanh
             this.btnScheduling.Name = "btnScheduling";
             this.btnScheduling.PressedColor = System.Drawing.Color.White;
             this.btnScheduling.Size = new System.Drawing.Size(155, 36);
             this.btnScheduling.TabIndex = 13;
-            this.btnScheduling.Text = "Scheduling";
+            this.btnScheduling.Text = "Lập lịch";
             this.btnScheduling.TextOffset = new System.Drawing.Point(14, 0);
             this.btnScheduling.Click += new System.EventHandler(this.btnScheduling_Click);
             // 
@@ -254,18 +310,22 @@
             this.btnReport.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnReport.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnReport.FillColor = System.Drawing.Color.Transparent;
-            this.btnReport.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReport.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.btnReport.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.btnReport.Image = global::GUI.Properties.Resources.dashboard_white;
+            this.btnReport.Image = global::GUI.Properties.Resources.Graph_Report;
             this.btnReport.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnReport.IndicateFocus = true;
             this.btnReport.Location = new System.Drawing.Point(5, 353);
+<<<<<<< HEAD
             this.btnReport.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+=======
+            this.btnReport.Margin = new System.Windows.Forms.Padding(4);
+>>>>>>> hanh
             this.btnReport.Name = "btnReport";
             this.btnReport.PressedColor = System.Drawing.Color.White;
             this.btnReport.Size = new System.Drawing.Size(155, 36);
             this.btnReport.TabIndex = 13;
-            this.btnReport.Text = "Report";
+            this.btnReport.Text = "Báo cáo";
             this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
             // 
             // btnDonate
@@ -278,11 +338,15 @@
             this.btnDonate.FillColor = System.Drawing.Color.Transparent;
             this.btnDonate.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDonate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.btnDonate.Image = global::GUI.Properties.Resources.dashboard_white;
+            this.btnDonate.Image = global::GUI.Properties.Resources.Donate;
             this.btnDonate.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnDonate.IndicateFocus = true;
             this.btnDonate.Location = new System.Drawing.Point(5, 427);
+<<<<<<< HEAD
             this.btnDonate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+=======
+            this.btnDonate.Margin = new System.Windows.Forms.Padding(4);
+>>>>>>> hanh
             this.btnDonate.Name = "btnDonate";
             this.btnDonate.PressedColor = System.Drawing.Color.White;
             this.btnDonate.Size = new System.Drawing.Size(155, 36);
@@ -298,18 +362,22 @@
             this.btnSellTicket.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnSellTicket.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnSellTicket.FillColor = System.Drawing.Color.Transparent;
-            this.btnSellTicket.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSellTicket.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnSellTicket.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.btnSellTicket.Image = global::GUI.Properties.Resources.dashboard_white;
+            this.btnSellTicket.Image = global::GUI.Properties.Resources.Ticket;
             this.btnSellTicket.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnSellTicket.IndicateFocus = true;
             this.btnSellTicket.Location = new System.Drawing.Point(5, 209);
+<<<<<<< HEAD
             this.btnSellTicket.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+=======
+            this.btnSellTicket.Margin = new System.Windows.Forms.Padding(4);
+>>>>>>> hanh
             this.btnSellTicket.Name = "btnSellTicket";
             this.btnSellTicket.PressedColor = System.Drawing.Color.White;
             this.btnSellTicket.Size = new System.Drawing.Size(155, 36);
             this.btnSellTicket.TabIndex = 13;
-            this.btnSellTicket.Text = "Sell Ticket";
+            this.btnSellTicket.Text = "Bán vé";
             this.btnSellTicket.TextOffset = new System.Drawing.Point(12, 0);
             this.btnSellTicket.Click += new System.EventHandler(this.btnSellTicket_Click);
             // 
@@ -321,18 +389,22 @@
             this.btnSetting.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnSetting.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnSetting.FillColor = System.Drawing.Color.Transparent;
-            this.btnSetting.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSetting.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.btnSetting.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.btnSetting.Image = global::GUI.Properties.Resources.dashboard_white;
+            this.btnSetting.Image = global::GUI.Properties.Resources.Automatic;
             this.btnSetting.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnSetting.IndicateFocus = true;
             this.btnSetting.Location = new System.Drawing.Point(5, 500);
+<<<<<<< HEAD
             this.btnSetting.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+=======
+            this.btnSetting.Margin = new System.Windows.Forms.Padding(4);
+>>>>>>> hanh
             this.btnSetting.Name = "btnSetting";
             this.btnSetting.PressedColor = System.Drawing.Color.White;
             this.btnSetting.Size = new System.Drawing.Size(155, 36);
             this.btnSetting.TabIndex = 14;
-            this.btnSetting.Text = "Setting";
+            this.btnSetting.Text = "Cài đặt";
             this.btnSetting.Click += new System.EventHandler(this.btnSetting_Click);
             // 
             // btnDashBoard
@@ -345,11 +417,15 @@
             this.btnDashBoard.FillColor = System.Drawing.Color.Transparent;
             this.btnDashBoard.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDashBoard.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.btnDashBoard.Image = global::GUI.Properties.Resources.dashboard_white;
+            this.btnDashBoard.Image = global::GUI.Properties.Resources.Token_Card_Code;
             this.btnDashBoard.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnDashBoard.IndicateFocus = true;
             this.btnDashBoard.Location = new System.Drawing.Point(5, 78);
+<<<<<<< HEAD
             this.btnDashBoard.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+=======
+            this.btnDashBoard.Margin = new System.Windows.Forms.Padding(4);
+>>>>>>> hanh
             this.btnDashBoard.Name = "btnDashBoard";
             this.btnDashBoard.PressedColor = System.Drawing.Color.Transparent;
             this.btnDashBoard.Size = new System.Drawing.Size(149, 36);
@@ -428,12 +504,15 @@
             this.Controls.Add(this.panelDashBoard);
             this.Controls.Add(this.guna2Panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+<<<<<<< HEAD
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+=======
+            this.Margin = new System.Windows.Forms.Padding(4);
+>>>>>>> hanh
             this.Name = "DashBoard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DashBoard";
             this.Load += new System.EventHandler(this.DashBoard_Load);
-            this.panelDashBoard.ResumeLayout(false);
             this.guna2Panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -456,20 +535,21 @@
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label7;
-        private Guna.UI2.WinForms.Guna2Panel PanelDashBoardHighlight;
         private Guna.UI2.WinForms.Guna2Panel pannelDonateHighlight;
         private Guna.UI2.WinForms.Guna2Panel pannelReportHighlight;
         private Guna.UI2.WinForms.Guna2Panel panelSchedulingHighlight;
         private Guna.UI2.WinForms.Guna2Panel pannelSettingHighlight;
         private Guna.UI2.WinForms.Guna2Panel pannelFilghtHighlight;
         private Guna.UI2.WinForms.Guna2Panel pannelTicketHighlight;
-        private DashboardControl dashboardControl1;
-        private Control.FlightControl flightControl1;
         private System.Windows.Forms.Panel panelDashBoard;
+<<<<<<< HEAD
         private Control.SchedulingControl schedulingControl1;
         private Control.SellTicketControl sellTicketControl1;
         private Control.SettingControl settingControl1;
         private Control.ReportControl reportControl1;
         private Control.DonateControl donateControl1;
+=======
+        private Guna.UI2.WinForms.Guna2Panel PanelDashBoardHighlight;
+>>>>>>> hanh
     }
 }

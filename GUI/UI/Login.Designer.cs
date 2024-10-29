@@ -61,7 +61,11 @@
             this.guna2CustomGradientPanel1.Controls.Add(this.txtUser);
             this.guna2CustomGradientPanel1.Controls.Add(this.label1);
             this.guna2CustomGradientPanel1.Location = new System.Drawing.Point(563, 48);
+<<<<<<< HEAD
             this.guna2CustomGradientPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+=======
+            this.guna2CustomGradientPanel1.Margin = new System.Windows.Forms.Padding(4);
+>>>>>>> hanh
             this.guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
             this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(433, 502);
             this.guna2CustomGradientPanel1.TabIndex = 1;
@@ -71,24 +75,39 @@
             this.signupLabel.AutoSize = true;
             this.signupLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.signupLabel.ForeColor = System.Drawing.Color.Blue;
+<<<<<<< HEAD
             this.signupLabel.Location = new System.Drawing.Point(89, 385);
             this.signupLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.signupLabel.Name = "signupLabel";
             this.signupLabel.Size = new System.Drawing.Size(270, 17);
+=======
+            this.signupLabel.Location = new System.Drawing.Point(112, 374);
+            this.signupLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.signupLabel.Name = "signupLabel";
+            this.signupLabel.Size = new System.Drawing.Size(240, 17);
+>>>>>>> hanh
             this.signupLabel.TabIndex = 6;
-            this.signupLabel.Text = "Don\'t have account? Create your account";
+            this.signupLabel.Text = "Bạn chưa có tài koản? Tạo tài khoản";
             this.signupLabel.Click += new System.EventHandler(this.signupLabel_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+<<<<<<< HEAD
             this.label2.Location = new System.Drawing.Point(255, 297);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(122, 17);
+=======
+            this.label2.ForeColor = System.Drawing.Color.Blue;
+            this.label2.Location = new System.Drawing.Point(234, 298);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(143, 17);
+>>>>>>> hanh
             this.label2.TabIndex = 5;
-            this.label2.Text = "Forgot Password?";
+            this.label2.Text = "Bạn quên mật khẩu ?";
             // 
             // btnLogin
             // 
@@ -102,7 +121,11 @@
             this.btnLogin.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnLogin.ForeColor = System.Drawing.Color.White;
             this.btnLogin.Location = new System.Drawing.Point(163, 332);
+<<<<<<< HEAD
             this.btnLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+=======
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(4);
+>>>>>>> hanh
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(129, 38);
             this.btnLogin.TabIndex = 4;
@@ -114,7 +137,11 @@
             this.pictureBox1.BackgroundImage = global::GUI.Properties.Resources.icons8_user_100;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox1.Location = new System.Drawing.Point(155, 10);
+<<<<<<< HEAD
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+=======
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+>>>>>>> hanh
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(147, 103);
             this.pictureBox1.TabIndex = 3;
@@ -139,7 +166,7 @@
             this.txtPassWord.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtPassWord.Name = "txtPassWord";
             this.txtPassWord.PasswordChar = '\0';
-            this.txtPassWord.PlaceholderText = "PassWord";
+            this.txtPassWord.PlaceholderText = "Mật khẩu";
             this.txtPassWord.SelectedText = "";
             this.txtPassWord.Size = new System.Drawing.Size(301, 44);
             this.txtPassWord.TabIndex = 2;
@@ -165,7 +192,7 @@
             this.txtUser.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtUser.Name = "txtUser";
             this.txtUser.PasswordChar = '\0';
-            this.txtUser.PlaceholderText = "UserName";
+            this.txtUser.PlaceholderText = "Tên đăng nhập";
             this.txtUser.SelectedText = "";
             this.txtUser.Size = new System.Drawing.Size(301, 44);
             this.txtUser.TabIndex = 1;
@@ -176,12 +203,19 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+<<<<<<< HEAD
             this.label1.Location = new System.Drawing.Point(171, 117);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(117, 25);
+=======
+            this.label1.Location = new System.Drawing.Point(163, 117);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(129, 25);
+>>>>>>> hanh
             this.label1.TabIndex = 0;
-            this.label1.Text = "WELCOME";
+            this.label1.Text = "ĐĂNG NHẬP";
             // 
             // guna2Elipse1
             // 
@@ -194,7 +228,11 @@
             this.guna2ControlBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(192)))), ((int)(((byte)(145)))));
             this.guna2ControlBox1.IconColor = System.Drawing.Color.White;
             this.guna2ControlBox1.Location = new System.Drawing.Point(967, 1);
+<<<<<<< HEAD
             this.guna2ControlBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+=======
+            this.guna2ControlBox1.Margin = new System.Windows.Forms.Padding(4);
+>>>>>>> hanh
             this.guna2ControlBox1.Name = "guna2ControlBox1";
             this.guna2ControlBox1.Size = new System.Drawing.Size(29, 27);
             this.guna2ControlBox1.TabIndex = 2;
@@ -206,7 +244,11 @@
             this.guna2Panel1.Controls.Add(this.pictureBox3);
             this.guna2Panel1.Controls.Add(this.pictureBox2);
             this.guna2Panel1.Location = new System.Drawing.Point(0, 1);
+<<<<<<< HEAD
             this.guna2Panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+=======
+            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(4);
+>>>>>>> hanh
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(555, 549);
             this.guna2Panel1.TabIndex = 0;
@@ -216,7 +258,11 @@
             this.pictureBox4.BackgroundImage = global::GUI.Properties.Resources.UI;
             this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox4.Location = new System.Drawing.Point(203, 167);
+<<<<<<< HEAD
             this.pictureBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+=======
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4);
+>>>>>>> hanh
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(269, 270);
             this.pictureBox4.TabIndex = 2;
@@ -228,7 +274,11 @@
             this.pictureBox3.BackgroundImage = global::GUI.Properties.Resources.MAYBAY;
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox3.Location = new System.Drawing.Point(300, 14);
+<<<<<<< HEAD
             this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+=======
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
+>>>>>>> hanh
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(172, 146);
             this.pictureBox3.TabIndex = 1;
@@ -239,7 +289,11 @@
             this.pictureBox2.BackgroundImage = global::GUI.Properties.Resources.May;
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox2.Location = new System.Drawing.Point(77, 0);
+<<<<<<< HEAD
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+=======
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
+>>>>>>> hanh
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(240, 201);
             this.pictureBox2.TabIndex = 0;
@@ -255,7 +309,11 @@
             this.Controls.Add(this.guna2ControlBox1);
             this.Controls.Add(this.guna2Panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+<<<<<<< HEAD
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+=======
+            this.Margin = new System.Windows.Forms.Padding(4);
+>>>>>>> hanh
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";

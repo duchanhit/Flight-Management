@@ -170,7 +170,10 @@ namespace GUI
 
             if (isAuthenticated)
             {
+<<<<<<< HEAD
                 EnqueueMessage("Đăng nhập thành công!", 1500);
+=======
+>>>>>>> hanh
                 DashBoard mainForm = new DashBoard();
                 mainForm.Show();
                 this.Hide();
