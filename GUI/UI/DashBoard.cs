@@ -175,5 +175,10 @@ namespace GUI
 
         }
         #endregion
+
+        private void schedulingControl1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

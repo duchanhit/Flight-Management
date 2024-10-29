@@ -54,6 +54,7 @@
     <Compile Include="Service\CityBUS.cs" />
     <Compile Include="Service\ClassBUS.cs" />
     <Compile Include="Service\DefineSizeFlightBUS.cs" />
+    <Compile Include="Service\DurationFlightBUS.cs" />
     <Compile Include="Service\FlightBUS.cs" />
     <Compile Include="Service\PassengerBUS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

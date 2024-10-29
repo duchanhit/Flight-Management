@@ -23,6 +23,7 @@ namespace DTO.Entities
         public virtual DbSet<Permission> Permissions { get; set; }
         public virtual DbSet<Ticket> Tickets { get; set; }
         public virtual DbSet<Transit> Transits { get; set; }
+        public virtual DbSet<DurationFlight> DurationFlights { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
