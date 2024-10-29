@@ -25,7 +25,7 @@ namespace GUI
         // Sự kiện Timer gọi hàm cập nhật nhiệt độ
         private async void TimerUpdateTemperature_Tick(object sender, EventArgs e)
         {
-            await UpdateTemperatureAsync();
+            await UpdateWeatherAsync();
         }
 
         // Hàm để cập nhật thông tin thời tiết
@@ -37,7 +37,7 @@ namespace GUI
             if (!string.IsNullOrEmpty(weatherInfo))
             {
                 // Hiển thị thông tin thời tiết trong các TextBox hoặc Label
-                txtWeather.Text = weatherInfo; // Hoặc phân tích chi tiết JSON để gán cho các TextBox khác nhau
+                lblWeatherInfo.Text = weatherInfo; // Hoặc phân tích chi tiết JSON để gán cho các TextBox khác nhau
             }
         }
 

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flight Path Map</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <style>
+        #map {
+            width: 100%;
+            height: 100vh;
+        }
+    </style>
+    <script>
+        var map;
+        var polyline;
+
+        function initMap() {
+            map = L.map('map').setView([20.5937, 78.9629], 2); // Tâm bản đồ ở giữa
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+                attribution: '© OpenStreetMap contributors'
+            }).addTo(map);
+        }
+
+        function drawFlightPath(lat1, lng1, lat2, lng2) {
+            if (polyline) {
+                map.removeLayer(polyline);
+            }
+            polyline = L.polyline([
+                [lat1, lng1],
+                [lat2, lng2]
+            ], { color: 'blue' }).addTo(map);
+
+            var bounds = polyline.getBounds();
+            map.fitBounds(bounds);
+        }
+    </script>
+</head>
+<body onload="initMap()">
+    <div id="map"></div>
+</body>
+</html>
