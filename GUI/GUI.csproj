@@ -273,6 +273,36 @@
   <ItemGroup>
     <None Include="Resources\Add.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Remove.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Restart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Automatic.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Donate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Graph Report.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Plane.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ticket.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Token Card Code.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Document.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
