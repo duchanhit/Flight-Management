@@ -38,6 +38,8 @@
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.txtOriginAP = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2HtmlLabel10 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.dtpDepartureDate = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.guna2HtmlLabel7 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel6 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -50,17 +52,19 @@
             this.txtHeight = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtPrice = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.dgvTransit = new Guna.UI2.WinForms.Guna2GroupBox();
             this.dgvFlight = new Guna.UI2.WinForms.Guna2DataGridView();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.guna2ImageButton2 = new Guna.UI2.WinForms.Guna2ImageButton();
-            this.guna2ImageButton1 = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.txtFind = new Guna.UI2.WinForms.Guna2TextBox();
+            this.cmbOriginDestination = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.btnDeleteFlight = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.btnReload = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2HtmlLabel8 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2ImageButton3 = new Guna.UI2.WinForms.Guna2ImageButton();
-            this.guna2ImageButton4 = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.btnDeleteTransit = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.btnAddTranSit = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2HtmlLabel9 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2ContextMenuStrip1 = new Guna.UI2.WinForms.Guna2ContextMenuStrip();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFlight)).BeginInit();
@@ -137,6 +141,8 @@
             // 
             // guna2Panel2
             // 
+            this.guna2Panel2.Controls.Add(this.guna2HtmlLabel10);
+            this.guna2Panel2.Controls.Add(this.dtpDepartureDate);
             this.guna2Panel2.Controls.Add(this.guna2HtmlLabel7);
             this.guna2Panel2.Controls.Add(this.guna2HtmlLabel6);
             this.guna2Panel2.Controls.Add(this.guna2HtmlLabel5);
@@ -151,17 +157,44 @@
             this.guna2Panel2.Controls.Add(this.guna2HtmlLabel2);
             this.guna2Panel2.Controls.Add(this.txtOriginAP);
             this.guna2Panel2.Location = new System.Drawing.Point(2, 44);
-            this.guna2Panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2Panel2.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(356, 213);
+            this.guna2Panel2.Size = new System.Drawing.Size(356, 220);
             this.guna2Panel2.TabIndex = 11;
+            // 
+            // guna2HtmlLabel10
+            // 
+            this.guna2HtmlLabel10.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel10.Location = new System.Drawing.Point(202, 53);
+            this.guna2HtmlLabel10.Margin = new System.Windows.Forms.Padding(2);
+            this.guna2HtmlLabel10.Name = "guna2HtmlLabel10";
+            this.guna2HtmlLabel10.Size = new System.Drawing.Size(120, 19);
+            this.guna2HtmlLabel10.TabIndex = 30;
+            this.guna2HtmlLabel10.Text = "Ngày Khởi Hành";
+            // 
+            // dtpDepartureDate
+            // 
+            this.dtpDepartureDate.Checked = true;
+            this.dtpDepartureDate.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.dtpDepartureDate.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.dtpDepartureDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDepartureDate.Location = new System.Drawing.Point(202, 76);
+            this.dtpDepartureDate.Margin = new System.Windows.Forms.Padding(2);
+            this.dtpDepartureDate.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.dtpDepartureDate.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.dtpDepartureDate.Name = "dtpDepartureDate";
+            this.dtpDepartureDate.ShowUpDown = true;
+            this.dtpDepartureDate.Size = new System.Drawing.Size(148, 28);
+            this.dtpDepartureDate.TabIndex = 29;
+            this.dtpDepartureDate.Value = new System.DateTime(2024, 10, 29, 10, 39, 4, 663);
             // 
             // guna2HtmlLabel7
             // 
             this.guna2HtmlLabel7.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel7.Location = new System.Drawing.Point(202, 118);
-            this.guna2HtmlLabel7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2HtmlLabel7.Location = new System.Drawing.Point(0, 63);
+            this.guna2HtmlLabel7.Margin = new System.Windows.Forms.Padding(2);
             this.guna2HtmlLabel7.Name = "guna2HtmlLabel7";
             this.guna2HtmlLabel7.Size = new System.Drawing.Size(145, 19);
             this.guna2HtmlLabel7.TabIndex = 28;
@@ -171,19 +204,19 @@
             // 
             this.guna2HtmlLabel6.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel6.Location = new System.Drawing.Point(202, 55);
-            this.guna2HtmlLabel6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2HtmlLabel6.Location = new System.Drawing.Point(202, 108);
+            this.guna2HtmlLabel6.Margin = new System.Windows.Forms.Padding(2);
             this.guna2HtmlLabel6.Name = "guna2HtmlLabel6";
-            this.guna2HtmlLabel6.Size = new System.Drawing.Size(59, 19);
+            this.guna2HtmlLabel6.Size = new System.Drawing.Size(60, 19);
             this.guna2HtmlLabel6.TabIndex = 27;
-            this.guna2HtmlLabel6.Text = "Giờ bay";
+            this.guna2HtmlLabel6.Text = "Giờ Bay";
             // 
             // guna2HtmlLabel5
             // 
             this.guna2HtmlLabel5.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel5.Location = new System.Drawing.Point(202, 2);
-            this.guna2HtmlLabel5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2HtmlLabel5.Margin = new System.Windows.Forms.Padding(2);
             this.guna2HtmlLabel5.Name = "guna2HtmlLabel5";
             this.guna2HtmlLabel5.Size = new System.Drawing.Size(63, 19);
             this.guna2HtmlLabel5.TabIndex = 26;
@@ -194,7 +227,7 @@
             this.guna2HtmlLabel4.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel4.Location = new System.Drawing.Point(2, 118);
-            this.guna2HtmlLabel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2HtmlLabel4.Margin = new System.Windows.Forms.Padding(2);
             this.guna2HtmlLabel4.Name = "guna2HtmlLabel4";
             this.guna2HtmlLabel4.Size = new System.Drawing.Size(126, 19);
             this.guna2HtmlLabel4.TabIndex = 25;
@@ -204,8 +237,8 @@
             // 
             this.guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel3.Location = new System.Drawing.Point(2, 55);
-            this.guna2HtmlLabel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2HtmlLabel3.Location = new System.Drawing.Point(202, 162);
+            this.guna2HtmlLabel3.Margin = new System.Windows.Forms.Padding(2);
             this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
             this.guna2HtmlLabel3.Size = new System.Drawing.Size(53, 19);
             this.guna2HtmlLabel3.TabIndex = 24;
@@ -217,15 +250,15 @@
             this.dtpDuration.FillColor = System.Drawing.Color.Cyan;
             this.dtpDuration.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.dtpDuration.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpDuration.Location = new System.Drawing.Point(202, 78);
-            this.dtpDuration.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpDuration.Location = new System.Drawing.Point(202, 131);
+            this.dtpDuration.Margin = new System.Windows.Forms.Padding(2);
             this.dtpDuration.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.dtpDuration.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.dtpDuration.Name = "dtpDuration";
             this.dtpDuration.ShowUpDown = true;
             this.dtpDuration.Size = new System.Drawing.Size(148, 28);
             this.dtpDuration.TabIndex = 23;
-            this.dtpDuration.Value = new System.DateTime(2024, 10, 29, 10, 39, 4, 663);
+            this.dtpDuration.Value = new System.DateTime(2024, 10, 29, 10, 39, 0, 0);
             // 
             // btnSave
             // 
@@ -238,7 +271,7 @@
             this.btnSave.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnSave.ForeColor = System.Drawing.Color.White;
             this.btnSave.Location = new System.Drawing.Point(2, 174);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(2);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(92, 32);
             this.btnSave.TabIndex = 22;
@@ -256,7 +289,7 @@
             this.txtWeight.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtWeight.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtWeight.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtWeight.Location = new System.Drawing.Point(202, 141);
+            this.txtWeight.Location = new System.Drawing.Point(0, 86);
             this.txtWeight.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtWeight.Name = "txtWeight";
             this.txtWeight.PasswordChar = '\0';
@@ -316,7 +349,7 @@
             this.txtPrice.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtPrice.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtPrice.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtPrice.Location = new System.Drawing.Point(2, 79);
+            this.txtPrice.Location = new System.Drawing.Point(202, 186);
             this.txtPrice.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.PasswordChar = '\0';
@@ -330,21 +363,21 @@
             this.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel2.Location = new System.Drawing.Point(2, 2);
-            this.guna2HtmlLabel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2HtmlLabel2.Margin = new System.Windows.Forms.Padding(2);
             this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
             this.guna2HtmlLabel2.Size = new System.Drawing.Size(76, 19);
             this.guna2HtmlLabel2.TabIndex = 11;
             this.guna2HtmlLabel2.Text = "Khởi hành";
             // 
-            // guna2GroupBox1
+            // dgvTransit
             // 
-            this.guna2GroupBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2GroupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.guna2GroupBox1.Location = new System.Drawing.Point(365, 91);
-            this.guna2GroupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.guna2GroupBox1.Name = "guna2GroupBox1";
-            this.guna2GroupBox1.Size = new System.Drawing.Size(359, 166);
-            this.guna2GroupBox1.TabIndex = 12;
+            this.dgvTransit.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.dgvTransit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.dgvTransit.Location = new System.Drawing.Point(365, 91);
+            this.dgvTransit.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvTransit.Name = "dgvTransit";
+            this.dgvTransit.Size = new System.Drawing.Size(359, 166);
+            this.dgvTransit.TabIndex = 12;
             // 
             // dgvFlight
             // 
@@ -370,7 +403,7 @@
             this.dgvFlight.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvFlight.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvFlight.Location = new System.Drawing.Point(7, 311);
-            this.dgvFlight.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvFlight.Margin = new System.Windows.Forms.Padding(2);
             this.dgvFlight.Name = "dgvFlight";
             this.dgvFlight.RowHeadersVisible = false;
             this.dgvFlight.RowHeadersWidth = 51;
@@ -401,68 +434,93 @@
             // 
             // guna2Panel3
             // 
-            this.guna2Panel3.Controls.Add(this.guna2ComboBox1);
-            this.guna2Panel3.Controls.Add(this.guna2ImageButton2);
-            this.guna2Panel3.Controls.Add(this.guna2ImageButton1);
+            this.guna2Panel3.Controls.Add(this.txtFind);
+            this.guna2Panel3.Controls.Add(this.cmbOriginDestination);
+            this.guna2Panel3.Controls.Add(this.btnDeleteFlight);
+            this.guna2Panel3.Controls.Add(this.btnReload);
             this.guna2Panel3.Controls.Add(this.guna2HtmlLabel8);
             this.guna2Panel3.Location = new System.Drawing.Point(4, 262);
-            this.guna2Panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2Panel3.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel3.Name = "guna2Panel3";
             this.guna2Panel3.Size = new System.Drawing.Size(719, 45);
             this.guna2Panel3.TabIndex = 14;
             // 
-            // guna2ComboBox1
+            // txtFind
             // 
-            this.guna2ComboBox1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.guna2ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.guna2ComboBox1.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2ComboBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2ComboBox1.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.guna2ComboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.guna2ComboBox1.ItemHeight = 30;
-            this.guna2ComboBox1.Location = new System.Drawing.Point(174, 6);
-            this.guna2ComboBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.guna2ComboBox1.Name = "guna2ComboBox1";
-            this.guna2ComboBox1.Size = new System.Drawing.Size(202, 36);
-            this.guna2ComboBox1.TabIndex = 34;
+            this.txtFind.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtFind.DefaultText = "";
+            this.txtFind.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtFind.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtFind.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtFind.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtFind.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtFind.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtFind.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtFind.Location = new System.Drawing.Point(338, 3);
+            this.txtFind.Name = "txtFind";
+            this.txtFind.PasswordChar = '\0';
+            this.txtFind.PlaceholderText = "";
+            this.txtFind.SelectedText = "";
+            this.txtFind.Size = new System.Drawing.Size(223, 36);
+            this.txtFind.TabIndex = 35;
+            this.txtFind.TextChanged += new System.EventHandler(this.txtFind_TextChanged);
             // 
-            // guna2ImageButton2
+            // cmbOriginDestination
             // 
-            this.guna2ImageButton2.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton2.HoverState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton2.Image = ((System.Drawing.Image)(resources.GetObject("guna2ImageButton2.Image")));
-            this.guna2ImageButton2.ImageOffset = new System.Drawing.Point(0, 0);
-            this.guna2ImageButton2.ImageRotate = 0F;
-            this.guna2ImageButton2.ImageSize = new System.Drawing.Size(30, 30);
-            this.guna2ImageButton2.Location = new System.Drawing.Point(134, 2);
-            this.guna2ImageButton2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.guna2ImageButton2.Name = "guna2ImageButton2";
-            this.guna2ImageButton2.PressedState.ImageSize = new System.Drawing.Size(30, 30);
-            this.guna2ImageButton2.Size = new System.Drawing.Size(36, 39);
-            this.guna2ImageButton2.TabIndex = 33;
+            this.cmbOriginDestination.AutoCompleteCustomSource.AddRange(new string[] {
+            "Khởi Hành",
+            "Kết Thúc"});
+            this.cmbOriginDestination.BackColor = System.Drawing.Color.Transparent;
+            this.cmbOriginDestination.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cmbOriginDestination.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbOriginDestination.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbOriginDestination.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbOriginDestination.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cmbOriginDestination.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cmbOriginDestination.ItemHeight = 30;
+            this.cmbOriginDestination.Location = new System.Drawing.Point(189, 3);
+            this.cmbOriginDestination.Name = "cmbOriginDestination";
+            this.cmbOriginDestination.Size = new System.Drawing.Size(140, 36);
+            this.cmbOriginDestination.TabIndex = 34;
             // 
-            // guna2ImageButton1
+            // btnDeleteFlight
             // 
-            this.guna2ImageButton1.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton1.HoverState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton1.Image = ((System.Drawing.Image)(resources.GetObject("guna2ImageButton1.Image")));
-            this.guna2ImageButton1.ImageOffset = new System.Drawing.Point(0, 0);
-            this.guna2ImageButton1.ImageRotate = 0F;
-            this.guna2ImageButton1.ImageSize = new System.Drawing.Size(30, 30);
-            this.guna2ImageButton1.Location = new System.Drawing.Point(90, 2);
-            this.guna2ImageButton1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.guna2ImageButton1.Name = "guna2ImageButton1";
-            this.guna2ImageButton1.PressedState.ImageSize = new System.Drawing.Size(30, 30);
-            this.guna2ImageButton1.Size = new System.Drawing.Size(36, 39);
-            this.guna2ImageButton1.TabIndex = 32;
+            this.btnDeleteFlight.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.btnDeleteFlight.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.btnDeleteFlight.Image = ((System.Drawing.Image)(resources.GetObject("btnDeleteFlight.Image")));
+            this.btnDeleteFlight.ImageOffset = new System.Drawing.Point(0, 0);
+            this.btnDeleteFlight.ImageRotate = 0F;
+            this.btnDeleteFlight.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnDeleteFlight.Location = new System.Drawing.Point(134, 2);
+            this.btnDeleteFlight.Margin = new System.Windows.Forms.Padding(2);
+            this.btnDeleteFlight.Name = "btnDeleteFlight";
+            this.btnDeleteFlight.PressedState.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnDeleteFlight.Size = new System.Drawing.Size(36, 39);
+            this.btnDeleteFlight.TabIndex = 33;
+            this.btnDeleteFlight.Click += new System.EventHandler(this.btnDeleteFlight_Click);
+            // 
+            // btnReload
+            // 
+            this.btnReload.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.btnReload.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.btnReload.Image = ((System.Drawing.Image)(resources.GetObject("btnReload.Image")));
+            this.btnReload.ImageOffset = new System.Drawing.Point(0, 0);
+            this.btnReload.ImageRotate = 0F;
+            this.btnReload.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnReload.Location = new System.Drawing.Point(90, 2);
+            this.btnReload.Margin = new System.Windows.Forms.Padding(2);
+            this.btnReload.Name = "btnReload";
+            this.btnReload.PressedState.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnReload.Size = new System.Drawing.Size(36, 39);
+            this.btnReload.TabIndex = 32;
+            this.btnReload.Click += new System.EventHandler(this.btnReload_Click);
             // 
             // guna2HtmlLabel8
             // 
             this.guna2HtmlLabel8.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel8.Location = new System.Drawing.Point(2, 13);
-            this.guna2HtmlLabel8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2HtmlLabel8.Margin = new System.Windows.Forms.Padding(2);
             this.guna2HtmlLabel8.Name = "guna2HtmlLabel8";
             this.guna2HtmlLabel8.Size = new System.Drawing.Size(76, 19);
             this.guna2HtmlLabel8.TabIndex = 29;
@@ -470,55 +528,69 @@
             // 
             // guna2Panel4
             // 
-            this.guna2Panel4.Controls.Add(this.guna2ImageButton3);
-            this.guna2Panel4.Controls.Add(this.guna2ImageButton4);
+            this.guna2Panel4.Controls.Add(this.btnDeleteTransit);
+            this.guna2Panel4.Controls.Add(this.btnAddTranSit);
             this.guna2Panel4.Controls.Add(this.guna2HtmlLabel9);
             this.guna2Panel4.Location = new System.Drawing.Point(363, 44);
-            this.guna2Panel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2Panel4.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel4.Name = "guna2Panel4";
             this.guna2Panel4.Size = new System.Drawing.Size(361, 45);
             this.guna2Panel4.TabIndex = 34;
             // 
-            // guna2ImageButton3
+            // btnDeleteTransit
             // 
-            this.guna2ImageButton3.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton3.HoverState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton3.Image = ((System.Drawing.Image)(resources.GetObject("guna2ImageButton3.Image")));
-            this.guna2ImageButton3.ImageOffset = new System.Drawing.Point(0, 0);
-            this.guna2ImageButton3.ImageRotate = 0F;
-            this.guna2ImageButton3.ImageSize = new System.Drawing.Size(30, 30);
-            this.guna2ImageButton3.Location = new System.Drawing.Point(143, 2);
-            this.guna2ImageButton3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.guna2ImageButton3.Name = "guna2ImageButton3";
-            this.guna2ImageButton3.PressedState.ImageSize = new System.Drawing.Size(30, 30);
-            this.guna2ImageButton3.Size = new System.Drawing.Size(36, 39);
-            this.guna2ImageButton3.TabIndex = 33;
+            this.btnDeleteTransit.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.btnDeleteTransit.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.btnDeleteTransit.Image = ((System.Drawing.Image)(resources.GetObject("btnDeleteTransit.Image")));
+            this.btnDeleteTransit.ImageOffset = new System.Drawing.Point(0, 0);
+            this.btnDeleteTransit.ImageRotate = 0F;
+            this.btnDeleteTransit.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnDeleteTransit.Location = new System.Drawing.Point(143, 2);
+            this.btnDeleteTransit.Margin = new System.Windows.Forms.Padding(2);
+            this.btnDeleteTransit.Name = "btnDeleteTransit";
+            this.btnDeleteTransit.PressedState.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnDeleteTransit.Size = new System.Drawing.Size(36, 39);
+            this.btnDeleteTransit.TabIndex = 33;
             // 
-            // guna2ImageButton4
+            // btnAddTranSit
             // 
-            this.guna2ImageButton4.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton4.HoverState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton4.Image = ((System.Drawing.Image)(resources.GetObject("guna2ImageButton4.Image")));
-            this.guna2ImageButton4.ImageOffset = new System.Drawing.Point(0, 0);
-            this.guna2ImageButton4.ImageRotate = 0F;
-            this.guna2ImageButton4.ImageSize = new System.Drawing.Size(30, 30);
-            this.guna2ImageButton4.Location = new System.Drawing.Point(103, 2);
-            this.guna2ImageButton4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.guna2ImageButton4.Name = "guna2ImageButton4";
-            this.guna2ImageButton4.PressedState.ImageSize = new System.Drawing.Size(30, 30);
-            this.guna2ImageButton4.Size = new System.Drawing.Size(36, 39);
-            this.guna2ImageButton4.TabIndex = 32;
+            this.btnAddTranSit.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.btnAddTranSit.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.btnAddTranSit.Image = ((System.Drawing.Image)(resources.GetObject("btnAddTranSit.Image")));
+            this.btnAddTranSit.ImageOffset = new System.Drawing.Point(0, 0);
+            this.btnAddTranSit.ImageRotate = 0F;
+            this.btnAddTranSit.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnAddTranSit.Location = new System.Drawing.Point(103, 2);
+            this.btnAddTranSit.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAddTranSit.Name = "btnAddTranSit";
+            this.btnAddTranSit.PressedState.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnAddTranSit.Size = new System.Drawing.Size(36, 39);
+            this.btnAddTranSit.TabIndex = 32;
             // 
             // guna2HtmlLabel9
             // 
             this.guna2HtmlLabel9.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel9.Location = new System.Drawing.Point(2, 13);
-            this.guna2HtmlLabel9.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2HtmlLabel9.Margin = new System.Windows.Forms.Padding(2);
             this.guna2HtmlLabel9.Name = "guna2HtmlLabel9";
             this.guna2HtmlLabel9.Size = new System.Drawing.Size(85, 19);
             this.guna2HtmlLabel9.TabIndex = 29;
             this.guna2HtmlLabel9.Text = "Transit List";
+            // 
+            // guna2ContextMenuStrip1
+            // 
+            this.guna2ContextMenuStrip1.Name = "guna2ContextMenuStrip1";
+            this.guna2ContextMenuStrip1.RenderStyle.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
+            this.guna2ContextMenuStrip1.RenderStyle.BorderColor = System.Drawing.Color.Gainsboro;
+            this.guna2ContextMenuStrip1.RenderStyle.ColorTable = null;
+            this.guna2ContextMenuStrip1.RenderStyle.RoundedEdges = true;
+            this.guna2ContextMenuStrip1.RenderStyle.SelectionArrowColor = System.Drawing.Color.White;
+            this.guna2ContextMenuStrip1.RenderStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.guna2ContextMenuStrip1.RenderStyle.SelectionForeColor = System.Drawing.Color.White;
+            this.guna2ContextMenuStrip1.RenderStyle.SeparatorColor = System.Drawing.Color.Gainsboro;
+            this.guna2ContextMenuStrip1.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.guna2ContextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
             // SchedulingControl
             // 
@@ -527,7 +599,7 @@
             this.Controls.Add(this.guna2Panel4);
             this.Controls.Add(this.guna2Panel3);
             this.Controls.Add(this.dgvFlight);
-            this.Controls.Add(this.guna2GroupBox1);
+            this.Controls.Add(this.dgvTransit);
             this.Controls.Add(this.guna2Panel2);
             this.Controls.Add(this.guna2Panel1);
             this.Name = "SchedulingControl";
@@ -566,16 +638,20 @@
         private Guna.UI2.WinForms.Guna2TextBox txtDestinationAP;
         private Guna.UI2.WinForms.Guna2TextBox txtHeight;
         private Guna.UI2.WinForms.Guna2TextBox txtPrice;
-        private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox1;
+        private Guna.UI2.WinForms.Guna2GroupBox dgvTransit;
         private Guna.UI2.WinForms.Guna2DataGridView dgvFlight;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel8;
-        private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton1;
-        private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox1;
-        private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton2;
+        private Guna.UI2.WinForms.Guna2ImageButton btnReload;
+        private Guna.UI2.WinForms.Guna2ImageButton btnDeleteFlight;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel4;
-        private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton3;
-        private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton4;
+        private Guna.UI2.WinForms.Guna2ImageButton btnDeleteTransit;
+        private Guna.UI2.WinForms.Guna2ImageButton btnAddTranSit;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel9;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel10;
+        private Guna.UI2.WinForms.Guna2DateTimePicker dtpDepartureDate;
+        private Guna.UI2.WinForms.Guna2ComboBox cmbOriginDestination;
+        private Guna.UI2.WinForms.Guna2TextBox txtFind;
+        private Guna.UI2.WinForms.Guna2ContextMenuStrip guna2ContextMenuStrip1;
     }
 }

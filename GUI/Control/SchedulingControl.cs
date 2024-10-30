@@ -1,6 +1,7 @@
 ﻿using BUS;
 using BUS.Service;
 using DTO.Entities;
+using Guna.UI2.WinForms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,7 +21,7 @@ namespace GUI.Control
     {
         private readonly FlightBUS _flightBUS;
         private readonly DefineSizeFlightBUS _defineSizeFlightBUS;
-       
+        private DataTable originalData;
 
         private Queue<string> messageQueue = new Queue<string>();
         private bool isShowingMessage = false;
@@ -105,24 +106,31 @@ namespace GUI.Control
             messageForm.Show();
             timer.Start();
         }
-
-        private void BindGrid(List<Flight> listFlight)
+        private DataTable ConvertListToDataTable(List<Flight> listFlight)
         {
-            dgvFlight.Rows.Clear();
+            DataTable dataTable = new DataTable();
+            dataTable.Columns.Add("Departure", typeof(string));
+            dataTable.Columns.Add("Arrival", typeof(string));
+            dataTable.Columns.Add("Giá (VNĐ)", typeof(decimal));
+            dataTable.Columns.Add("Giờ Khởi Hành", typeof(string));
+            dataTable.Columns.Add("Số Ghế", typeof(int));
+
             foreach (var item in listFlight)
             {
-                int index = dgvFlight.Rows.Add();
-                dgvFlight.Rows[index].Cells[0].Value = item.OriginAP;
-                dgvFlight.Rows[index].Cells[1].Value = item.DestinationAP;
-                dgvFlight.Rows[index].Cells[2].Value = item.Price;
-
-                // Kiểm tra nếu Duration có giá trị, nếu có thì định dạng đến giây
-                dgvFlight.Rows[index].Cells[3].Value = item.Duration.HasValue
-                    ? item.Duration.Value.ToString(@"hh\:mm\:ss")
-                    : ""; // Nếu không có giá trị, để trống hoặc giá trị khác nếu muốn
-
-                dgvFlight.Rows[index].Cells[4].Value = item.TotalSeat;
+                var row = dataTable.NewRow();
+                row["Departure"] = item.OriginAP;
+                row["Arrival"] = item.DestinationAP;
+                row["Giá (VNĐ)"] = item.Price;
+                row["Giờ Khởi Hành"] = item.Duration?.ToString(@"hh\:mm\:ss") ?? "";
+                row["Số Ghế"] = item.TotalSeat;
+                dataTable.Rows.Add(row);
             }
+            return dataTable;
+        }
+        private void BindGrid(List<Flight> listFlight)
+        {
+            originalData = ConvertListToDataTable(listFlight);
+            dgvFlight.DataSource = originalData;
         }
 
         private void InitializeDataGridView()
@@ -130,8 +138,9 @@ namespace GUI.Control
             dgvFlight.ColumnHeadersVisible = true;
             dgvFlight.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvFlight.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dgvFlight.ColumnHeadersHeight = 20; // Chiều cao tiêu đề cột
-            CreateFlightGridColumns();
+            dgvFlight.ColumnHeadersHeight = 20;
+
+
         }
         private void ClearInput()
         {
@@ -143,31 +152,64 @@ namespace GUI.Control
             txtPrice.Clear();
         }
 
-        private void CreateFlightGridColumns()
-        {
-            dgvFlight.Columns.Clear();
-
-            dgvFlight.Columns.Add("OriginAP", "Khởi Hành");
-            dgvFlight.Columns.Add("DestinationAP", "Kết Thúc");
-            dgvFlight.Columns.Add("Price", "Giá (VNĐ)");
-            dgvFlight.Columns.Add("Duration", "Giờ Khởi Hành");
-            dgvFlight.Columns.Add("TotalSeat", "Số Ghế");
-        }
 
         private void LoadData()
         {
             List<Flight> listFlight = _flightBUS.GetAllFlights().ToList();
-            BindGrid(listFlight);
+            originalData = ConvertListToDataTable(listFlight); 
+            dgvFlight.DataSource = originalData;
+
+            if (dgvFlight.Columns["Departure"] != null)
+            {
+                dgvFlight.Columns["Departure"].HeaderText = "Khởi Hành";
+            }
+            
+            if (dgvFlight.Columns["Arrival"] != null)
+            {
+                dgvFlight.Columns["Arrival"].HeaderText = "Kết Thúc";
+            }
         }
+        private void fillComboBox()
+        {
+            cmbOriginDestination.Items.Clear(); 
+            cmbOriginDestination.Items.Add("Khởi Hành");
+            cmbOriginDestination.Items.Add("Kết Thúc");
+
+            cmbOriginDestination.SelectedIndex = 0; 
+
+        }
+
+        private void FilterDataGridView(string selection, string airportCode)
+        {
+            if (string.IsNullOrEmpty(airportCode))
+            {
+                dgvFlight.DataSource = originalData;
+                return;
+            }
+
+            DataView dv = new DataView(originalData);
+
+            // Sử dụng tên cột không dấu cho bộ lọc
+            string filterColumn = selection == "Khởi Hành" ? "Departure" : "Arrival";
+            dv.RowFilter = $"{filterColumn} LIKE '%{airportCode}%'";
+
+            dgvFlight.DataSource = dv;
+        }
+
 
         #endregion
 
         #region Events
         private void SchedulingControl_Load(object sender, EventArgs e)
         {
+            dtpDuration.Format = DateTimePickerFormat.Custom;
+            dtpDuration.CustomFormat = "HH:mm:ss";
+            fillComboBox();
+
             InitializeDataGridView(); // Tạo các cột trước
-            List<Flight> listFlight = _flightBUS.GetAllFlights().ToList();
-            BindGrid(listFlight);
+
+            // Gọi LoadData để tải dữ liệu gốc vào originalData
+            LoadData();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -183,7 +225,8 @@ namespace GUI.Control
                     DestinationAP = txtDestinationAP.Text.Trim(),
                     TotalSeat = int.Parse(txtHeight.Text.Trim()) * int.Parse(txtWeight.Text.Trim()),
                     isActive = 1,
-                    Duration = dtpDuration.Value.TimeOfDay
+                    Duration = dtpDuration.Value.TimeOfDay,
+                    DepartureDateTime = dtpDepartureDate.Value,
                 };
 
                 // Gọi qua BUS để thêm chuyến bay vào cơ sở dữ liệu
@@ -213,18 +256,37 @@ namespace GUI.Control
                     errorMessage = errorMessage.Substring(0, index).Trim();
                 }
 
-                // Hiển thị thông báo lỗi bằng ShowAutoCloseMessage
                 ShowAutoCloseMessage(errorMessage, 3000);
             }
-
-
-
-
-
         }
+
+
+        private void txtFind_TextChanged(object sender, EventArgs e)
+        {
+            string airportCode = txtFind.Text.Trim();
+            string selection = cmbOriginDestination.SelectedItem?.ToString();
+            FilterDataGridView(selection, airportCode);
+        }
+
 
         #endregion
 
+        private void btnReload_Click(object sender, EventArgs e)
+        {
 
+            LoadData();
+  
+            txtFind.Clear();
+
+            cmbOriginDestination.SelectedIndex = 0;
+        }
+
+        private void btnDeleteFlight_Click(object sender, EventArgs e)
+        {
+
+            txtFind.Clear();
+
+            dgvFlight.DataSource = originalData;
+        }
     }
 }

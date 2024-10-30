@@ -37,6 +37,8 @@ namespace DTO.Entities
 
         public TimeSpan? Duration { get; set; }
 
+        public DateTime? DepartureDateTime { get; set; }
+
         public virtual Airport Airport { get; set; }
 
         public virtual Airport Airport1 { get; set; }

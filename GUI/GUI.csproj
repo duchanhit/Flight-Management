@@ -104,6 +104,12 @@
     <Compile Include="Control\SettingControl.Designer.cs">
       <DependentUpon>SettingControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\AirplantTransit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\AirplantTransit.Designer.cs">
+      <DependentUpon>AirplantTransit.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\DashBoard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,6 +158,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Control\SettingControl.resx">
       <DependentUpon>SettingControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\AirplantTransit.resx">
+      <DependentUpon>AirplantTransit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\DashBoard.resx">
       <DependentUpon>DashBoard.cs</DependentUpon>
