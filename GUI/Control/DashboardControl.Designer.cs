@@ -1,4 +1,4 @@
-﻿namespace GUI
+﻿namespace GUI.Control
 {
     partial class DashboardControl
     {

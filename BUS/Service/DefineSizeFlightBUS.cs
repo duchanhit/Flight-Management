@@ -1,4 +1,5 @@
-﻿using DAL.IAccess;
+﻿using DAL.DataAccess;
+using DAL.IAccess;
 using DTO.Entities;
 using System;
 using System.Collections.Generic;
@@ -19,9 +20,9 @@ namespace BUS.Service
         }
 
         // Method to get all define size flights
-        public IEnumerable<DefineSizeFlight> GetAllDefineSizeFlights()
+        public DefineSizeFlightBUS()
         {
-            return _defineSizeFlightRepository.GetAll();
+            _defineSizeFlightRepository = new DefineSizeFlightDAL();
         }
 
         // Method to get define size flight by ID

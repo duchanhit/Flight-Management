@@ -118,7 +118,11 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+<<<<<<< HEAD
   <data name="guna2ImageButton3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+=======
+  <data name="btnDeleteFlight.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+>>>>>>> ten-branch-moi
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAABApJREFUaEPt
         ls9vFHUYxvsn8CcgpVVoi7vsLt3uFgRKf2AkaUNAOfjj4MEDiR7QIBFFwtnExIMnRk+Ug7Yxesb/gESz
@@ -141,6 +145,7 @@
         uuqK6un5H0f/0OqULYHHAAAAAElFTkSuQmCC
 </value>
   </data>
+<<<<<<< HEAD
   <data name="guna2ImageButton2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAABApJREFUaEPt
@@ -165,6 +170,9 @@
 </value>
   </data>
   <data name="guna2ImageButton1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+=======
+  <data name="btnReload.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+>>>>>>> ten-branch-moi
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAABzdJREFUaEPt
         mV1Mk1cYx1/OOa86MhNXnBe72tzNMr0RL7eLzZtlN8tCsmU3S9yuXJxZvDNxyUqAtrSU8lVooS0tLZSW
@@ -200,4 +208,62 @@
         w9VM7XXnASClRbUzRa0QFsd5mDHNpMp+UqlyHBa/taMd7ei5S1H+Bfe7vbckqqD/AAAAAElFTkSuQmCC
 </value>
   </data>
+<<<<<<< HEAD
+=======
+  <data name="btnDeleteTransit.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAABApJREFUaEPt
+        ls9vFHUYxvsn8CcgpVVoi7vsLt3uFgRKf2AkaUNAOfjj4MEDiR7QIBFFwtnExIMnRk+Ug7Yxesb/gESz
+        7bZrdhXYWba7WFjiCePr80y/W6bTd7aU+abDYZ/kk0z6fX88z3Rm2p6uuupq59Q6dW768alzt54F1pq2
+        F0urU2/tbp08I9tgdXV6epdpf3G0emL66MPxGdkO7DHtOyOZm9slN29+IbOzt8L477vvbz/56mvZDuzR
+        Zq3DndhtbESTF2J2tgIkJipWwsiNG1eU4TvNR8bO8wtD5gND42De2Hl+4Tfy3j8XLt1uvX9e4oC76cHY
+        iabq7oQDJCYcYyO6OKz6UlJiwWqQPQcdIDFhOUgvhsaB7SBub0riwG6Q3pTj7k1LJ+5h6V0uV840WMse
+        7cwPdxsb0VXtyzhuX0bCKONZ/u3AqCy8flaW9yTVGj9LqGEte9ir1bThbmMjumoYVuvPiEYFzzFNPXn0
+        SKjyhcuy3JtUawnPWEOxh72codV6WA3SjyAvH5IgVSz6PXEYhlqesbbKHyPMXpgL1PNnPPOLvZzBWcF6
+        D+w2NqKr9sqwAyTIXSxafONNY2mjvDB9qfVaXgdDtMUZ92jaN9uHzSBZp7YvKxqL/SlZ+eEnY2mjyp98
+        Lsv9aQ9ea2IvZ2izPbDb2Iiu+v6sc39/VjTcfcNSwN1uhISpIADRxB72coY2m3C3sRFda0FGMFjHxZ0r
+        9KVDw2haC4FPLHq1mW0sB8k59wdy0gkXSwt4YRs/bh2GNaxljzbLD3cbG9FVH0CQwbxshYvFBby0ncJ4
+        IVDDWm1GEO42NqKrPpR36kOj8iyU8FxXLl4xtjeLZ6zRenXyloPgr/BWlAYQ4tPwEG2xhrXajE1YDfLq
+        YQdIJ0oDI1K59KWxurVYyx5tVgCLQRIIkjgiYZQGczB21VjcqMbczx6a2MNebeZTLAZZSbzmANH4Ay/k
+        nyEhmgiwiLtexIvNa03s5QxttsFykCSGBnBxx4qn3zaWNsoLMYjPK2pYW8SdDwuzMDEjNVO3CatBDh51
+        gASpYdHC5Iz823psLK2pOY8QQ/i80oivvjiU9878Ym8hN7Gp1ofdII3UMdG4g/9ci2feWQ/TnP9Figfw
+        /YcJrX4JXyLWUOxhL2dotcRukNRxp5E+LmHcSR6RpbPvyl+fXZPlBD6ZNKHUtSnBePnDi7I4ddrr1Wra
+        cLexEV0rGQTJjEknauljUmUA5UzDRW2dZpUzP9xtbESXF+QQBseA1SDN4TGnOXxC4mHMZpBxBBnH0Fiw
+        GCSLINkJiQfbQUYwNA5sBnmQm7wOJCauGxvR1cxPnn+Qn5I4+Ds/+YGxYUcY+m1z9OSvO0p+6huzvquu
+        uuqK6un5H0f/0OqULYHHAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="btnAddTranSit.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+</value>
+  </data>
+  <metadata name="guna2ContextMenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+>>>>>>> ten-branch-moi
 </root>

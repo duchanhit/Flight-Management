@@ -3,6 +3,9 @@ using DTO;
 using DTO.Entities;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -72,6 +75,51 @@ namespace DAL
                 }
             }
         }
+
+
+        public DataTable GetFlightsDataTable()
+        {
+            var dataTable = new DataTable();
+
+            using (var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["FlightModel"].ConnectionString))
+            {
+                string query = "SELECT * FROM View_FlightsWithAirportNames";
+
+                using (var command = new SqlCommand(query, connection))
+                {
+                    connection.Open();
+                    using (var reader = command.ExecuteReader())
+                    {
+                        dataTable.Load(reader); // Nạp dữ liệu từ reader vào DataTable
+                    }
+                }
+            }
+
+            return dataTable;
+        }
+
+        public string GetAirportCodeByName(string airportName)
+        {
+            string airportCode = null;
+            using (var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["FlightModel"].ConnectionString))
+            {
+                string query = "SELECT AirportId FROM Airport WHERE AirportName = @airportName";
+                using (var command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@airportName", airportName);
+                    connection.Open();
+                    var result = command.ExecuteScalar();
+                    if (result != null)
+                    {
+                        airportCode = result.ToString();
+                    }
+                }
+            }
+            return airportCode;
+        }
+
+
+
     }
 
 
