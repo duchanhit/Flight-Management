@@ -106,32 +106,7 @@ namespace GUI.Control
             messageForm.Show();
             timer.Start();
         }
-        private DataTable ConvertListToDataTable(List<Flight> listFlight)
-        {
-            DataTable dataTable = new DataTable();
-            dataTable.Columns.Add("Departure", typeof(string));
-            dataTable.Columns.Add("Arrival", typeof(string));
-            dataTable.Columns.Add("Giá (VNĐ)", typeof(decimal));
-            dataTable.Columns.Add("Giờ Khởi Hành", typeof(string));
-            dataTable.Columns.Add("Số Ghế", typeof(int));
 
-            foreach (var item in listFlight)
-            {
-                var row = dataTable.NewRow();
-                row["Departure"] = item.OriginAP;
-                row["Arrival"] = item.DestinationAP;
-                row["Giá (VNĐ)"] = item.Price;
-                row["Giờ Khởi Hành"] = item.Duration?.ToString(@"hh\:mm\:ss") ?? "";
-                row["Số Ghế"] = item.TotalSeat;
-                dataTable.Rows.Add(row);
-            }
-            return dataTable;
-        }
-        private void BindGrid(List<Flight> listFlight)
-        {
-            originalData = ConvertListToDataTable(listFlight);
-            dgvFlight.DataSource = originalData;
-        }
 
         private void InitializeDataGridView()
         {
@@ -152,23 +127,92 @@ namespace GUI.Control
             txtPrice.Clear();
         }
 
+        private void SetColumnWidths()
+        {
+            if (dgvFlight.Columns["OriginAirportName"] != null)
+            {
+                dgvFlight.Columns["OriginAirportName"].Width = 125;  // Đặt chiều rộng cho cột Khởi Hành
+            }
+
+            if (dgvFlight.Columns["DestinationAirportName"] != null)
+            {
+                dgvFlight.Columns["DestinationAirportName"].Width = 125;  // Đặt chiều rộng cho cột Kết Thúc
+            }
+
+            if (dgvFlight.Columns["DepartureDateTime"] != null)
+            {
+                dgvFlight.Columns["DepartureDateTime"].Width = 125;
+            }
+        }
 
         private void LoadData()
         {
-            List<Flight> listFlight = _flightBUS.GetAllFlights().ToList();
-            originalData = ConvertListToDataTable(listFlight); 
-            dgvFlight.DataSource = originalData;
+            // Lấy DataTable từ view với tên sân bay khởi hành và kết thúc
+            DataTable flightsTable = _flightBUS.GetFlightsWithAirportNames();
 
-            if (dgvFlight.Columns["Departure"] != null)
+            // Thêm cột mã sân bay để tìm kiếm theo mã sân bay
+            flightsTable.Columns.Add("OriginAP", typeof(string));
+            flightsTable.Columns.Add("DestinationAP", typeof(string));
+
+            foreach (DataRow row in flightsTable.Rows)
             {
-                dgvFlight.Columns["Departure"].HeaderText = "Khởi Hành";
+                row["OriginAP"] = _flightBUS.GetAirportCodeByName(row["OriginAirportName"].ToString());
+                row["DestinationAP"] = _flightBUS.GetAirportCodeByName(row["DestinationAirportName"].ToString());
+
+                // Định dạng cột Duration theo hh:mm:ss
+                if (TimeSpan.TryParse(row["Duration"].ToString(), out TimeSpan duration))
+                {
+                    row["Duration"] = duration.ToString(@"hh\:mm\:ss");
+                }
             }
-            
-            if (dgvFlight.Columns["Arrival"] != null)
+
+            // Lưu lại dữ liệu gốc để phục vụ cho tìm kiếm
+            originalData = flightsTable;
+            dgvFlight.DataSource = flightsTable;
+
+            SetColumnHeaders();
+
+            SetColumnWidths();
+
+            HideUnnecessaryColumns();
+        }
+
+
+        private void SetColumnHeaders()
+        {
+            SetColumnHeader("OriginAirportName", "Khởi Hành");
+            SetColumnHeader("DestinationAirportName", "Kết Thúc");
+            SetColumnHeader("Price", "Giá");
+            SetColumnHeader("Duration", "Thời lượng");
+            SetColumnHeader("TotalSeat", "Số Ghế");
+            SetColumnHeader("DepartureDateTime", "Ngày Khởi Hành");
+        }
+
+        private void SetColumnHeader(string columnName, string headerText)
+        {
+            if (dgvFlight.Columns[columnName] != null)
             {
-                dgvFlight.Columns["Arrival"].HeaderText = "Kết Thúc";
+                dgvFlight.Columns[columnName].HeaderText = headerText;
             }
         }
+
+        private void HideUnnecessaryColumns()
+        {
+            if (dgvFlight.Columns["FlightId"] != null)
+            {
+                dgvFlight.Columns["FlightId"].Visible = false;
+            }
+            if (dgvFlight.Columns["OriginAP"] != null)
+            {
+                dgvFlight.Columns["OriginAP"].Visible = false;
+            }
+            if (dgvFlight.Columns["DestinationAP"] != null)
+            {
+                dgvFlight.Columns["DestinationAP"].Visible = false;
+            }
+        }
+
+
         private void fillComboBox()
         {
             cmbOriginDestination.Items.Clear(); 
@@ -189,26 +233,111 @@ namespace GUI.Control
 
             DataView dv = new DataView(originalData);
 
-            // Sử dụng tên cột không dấu cho bộ lọc
-            string filterColumn = selection == "Khởi Hành" ? "Departure" : "Arrival";
+            // Chọn cột tìm kiếm dựa trên lựa chọn "Khởi Hành" hay "Kết Thúc"
+            string filterColumn = selection == "Khởi Hành" ? "OriginAP" : "DestinationAP";
             dv.RowFilter = $"{filterColumn} LIKE '%{airportCode}%'";
 
             dgvFlight.DataSource = dv;
         }
 
+        // Phương thức kiểm tra tính hợp lệ của đầu vào
+        private bool IsInputValid()
+        {
+            if (IsAnyFieldEmpty())
+            {
+                ShowAutoCloseMessage("Vui lòng nhập đầy đủ thông tin!", 3000);
+                return false;
+            }
 
+            if (dtpDuration.Value == null || dtpDuration.Value == DateTime.MinValue)
+            {
+                ShowAutoCloseMessage("Giờ Bay không được để trống!", 3000);
+                return false;
+            }
+
+            if (!AreSeatsValid())
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+
+        // Phương thức kiểm tra các trường nhập liệu không được để trống
+        private bool IsAnyFieldEmpty()
+        {
+            return string.IsNullOrWhiteSpace(txtPrice.Text) ||
+                   string.IsNullOrWhiteSpace(txtOriginAP.Text) ||
+                   string.IsNullOrWhiteSpace(txtDestinationAP.Text) ||
+                   string.IsNullOrWhiteSpace(txtHeight.Text) ||
+                   string.IsNullOrWhiteSpace(txtWeight.Text);
+        }
+
+        // Phương thức kiểm tra các trường ghế ngang và ghế dọc chỉ chứa số và lớn hơn 0
+        private bool AreSeatsValid()
+        {
+            // Kiểm tra ghế ngang
+            if (!int.TryParse(txtWeight.Text.Trim(), out int height))
+            {
+                ShowAutoCloseMessage("Ghế ngang chỉ có thể nhập số!", 3000);
+                return false;
+            }
+            else if (height <= 0)
+            {
+                ShowAutoCloseMessage("Ghế ngang phải lớn hơn 0!", 3000);
+                return false;
+            }
+
+            // Kiểm tra ghế dọc
+            if (!int.TryParse(txtHeight.Text.Trim(), out int weight))
+            {
+                ShowAutoCloseMessage("Ghế dọc chỉ có thể nhập số!", 3000);
+                return false;
+            }
+            else if (weight <= 0)
+            {
+                ShowAutoCloseMessage("Ghế dọc phải lớn hơn 0!", 3000);
+                return false;
+            }
+
+            return true;
+        }
+
+        // Phương thức hiển thị lỗi chi tiết
+        private void ShowErrorMessage(Exception ex)
+        {
+            // Lấy thông báo lỗi sâu nhất
+            string errorMessage = ex.Message;
+            Exception inner = ex.InnerException;
+
+            // Duyệt qua tất cả các lớp InnerException để lấy thông báo cuối cùng
+            while (inner != null)
+            {
+                errorMessage = inner.Message;
+                inner = inner.InnerException;
+            }
+
+            // Nếu thông báo chứa phần không cần thiết, hãy cắt bỏ
+            if (errorMessage.Contains("The transaction ended in the trigger"))
+            {
+                int index = errorMessage.IndexOf("The transaction ended in the trigger");
+                errorMessage = errorMessage.Substring(0, index).Trim();
+            }
+
+            ShowAutoCloseMessage(errorMessage, 3000);
+        }
         #endregion
 
         #region Events
         private void SchedulingControl_Load(object sender, EventArgs e)
         {
             dtpDuration.Format = DateTimePickerFormat.Custom;
-            dtpDuration.CustomFormat = "HH:mm:ss";
+            dtpDuration.CustomFormat = "HH:mm:ss"; 
             fillComboBox();
 
-            InitializeDataGridView(); // Tạo các cột trước
+            InitializeDataGridView(); 
 
-            // Gọi LoadData để tải dữ liệu gốc vào originalData
             LoadData();
         }
 
@@ -216,6 +345,12 @@ namespace GUI.Control
         {
             try
             {
+                // Kiểm tra các trường nhập liệu
+                if (!IsInputValid())
+                {
+                    return;
+                }
+
                 // Tạo đối tượng chuyến bay mới
                 var newFlight = new Flight
                 {
@@ -238,25 +373,7 @@ namespace GUI.Control
             }
             catch (Exception ex)
             {
-                // Lấy thông báo lỗi sâu nhất
-                string errorMessage = ex.Message;
-                Exception inner = ex.InnerException;
-
-                // Duyệt qua tất cả các lớp InnerException để lấy thông báo cuối cùng
-                while (inner != null)
-                {
-                    errorMessage = inner.Message;
-                    inner = inner.InnerException;
-                }
-
-                // Nếu thông báo chứa phần không cần thiết, hãy cắt bỏ
-                if (errorMessage.Contains("The transaction ended in the trigger"))
-                {
-                    int index = errorMessage.IndexOf("The transaction ended in the trigger");
-                    errorMessage = errorMessage.Substring(0, index).Trim();
-                }
-
-                ShowAutoCloseMessage(errorMessage, 3000);
+                ShowErrorMessage(ex);
             }
         }
 

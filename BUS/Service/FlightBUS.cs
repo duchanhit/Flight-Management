@@ -4,6 +4,7 @@ using DTO;
 using DTO.Entities;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,10 +14,11 @@ namespace BUS
     public class FlightBUS
     {
         private readonly IRepository<Flight> _flightRepository;
-
+        private readonly FlightDAL _flightDAL;
         // Constructor Injection
         public FlightBUS()
         {
+            _flightDAL = new FlightDAL();
             _flightRepository = new FlightDAL();
         }
 
@@ -49,6 +51,17 @@ namespace BUS
         {
             _flightRepository.Delete(id);
         }
+
+        public DataTable GetFlightsWithAirportNames()
+        {
+            return _flightDAL.GetFlightsDataTable();
+        }
+        public string GetAirportCodeByName(string airportName)
+        {
+            return _flightDAL.GetAirportCodeByName(airportName);
+        }
+
+
     }
 
 }
