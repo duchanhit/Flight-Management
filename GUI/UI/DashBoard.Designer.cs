@@ -81,6 +81,7 @@
             // panelDashBoard
             // 
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.panelDashBoard.Controls.Add(this.schedulingControl1);
             this.panelDashBoard.Controls.Add(this.sellTicketControl1);
             this.panelDashBoard.Controls.Add(this.settingControl1);
@@ -98,6 +99,9 @@
 =======
             this.panelDashBoard.Location = new System.Drawing.Point(121, 2);
 >>>>>>> ten-branch-moi
+=======
+            this.panelDashBoard.Location = new System.Drawing.Point(121, 2);
+>>>>>>> hanh
             this.panelDashBoard.Name = "panelDashBoard";
             this.panelDashBoard.Size = new System.Drawing.Size(727, 496);
             this.panelDashBoard.TabIndex = 11;
@@ -126,18 +130,22 @@
             this.guna2Panel2.Location = new System.Drawing.Point(-1, 0);
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.guna2Panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 =======
             this.guna2Panel2.Margin = new System.Windows.Forms.Padding(4);
 >>>>>>> hanh
 =======
 >>>>>>> ten-branch-moi
+=======
+>>>>>>> hanh
             this.guna2Panel2.Name = "guna2Panel2";
             this.guna2Panel2.Size = new System.Drawing.Size(120, 498);
             this.guna2Panel2.TabIndex = 8;
             // 
             // pannelSettingHighlight
             // 
+<<<<<<< HEAD
 <<<<<<< HEAD
             this.pannelSettingHighlight.Location = new System.Drawing.Point(1, 500);
 <<<<<<< HEAD
@@ -148,12 +156,16 @@
 =======
             this.pannelSettingHighlight.Location = new System.Drawing.Point(1, 406);
 >>>>>>> ten-branch-moi
+=======
+            this.pannelSettingHighlight.Location = new System.Drawing.Point(1, 406);
+>>>>>>> hanh
             this.pannelSettingHighlight.Name = "pannelSettingHighlight";
             this.pannelSettingHighlight.Size = new System.Drawing.Size(11, 28);
             this.pannelSettingHighlight.TabIndex = 20;
             // 
             // pannelDonateHighlight
             // 
+<<<<<<< HEAD
 <<<<<<< HEAD
             this.pannelDonateHighlight.Location = new System.Drawing.Point(1, 427);
 <<<<<<< HEAD
@@ -164,12 +176,16 @@
 =======
             this.pannelDonateHighlight.Location = new System.Drawing.Point(1, 347);
 >>>>>>> ten-branch-moi
+=======
+            this.pannelDonateHighlight.Location = new System.Drawing.Point(1, 347);
+>>>>>>> hanh
             this.pannelDonateHighlight.Name = "pannelDonateHighlight";
             this.pannelDonateHighlight.Size = new System.Drawing.Size(11, 28);
             this.pannelDonateHighlight.TabIndex = 20;
             // 
             // pannelReportHighlight
             // 
+<<<<<<< HEAD
 <<<<<<< HEAD
             this.pannelReportHighlight.Location = new System.Drawing.Point(1, 354);
 <<<<<<< HEAD
@@ -180,12 +196,16 @@
 =======
             this.pannelReportHighlight.Location = new System.Drawing.Point(1, 288);
 >>>>>>> ten-branch-moi
+=======
+            this.pannelReportHighlight.Location = new System.Drawing.Point(1, 288);
+>>>>>>> hanh
             this.pannelReportHighlight.Name = "pannelReportHighlight";
             this.pannelReportHighlight.Size = new System.Drawing.Size(11, 28);
             this.pannelReportHighlight.TabIndex = 20;
             // 
             // pannelFilghtHighlight
             // 
+<<<<<<< HEAD
 <<<<<<< HEAD
             this.pannelFilghtHighlight.Location = new System.Drawing.Point(1, 281);
 <<<<<<< HEAD
@@ -196,12 +216,16 @@
 =======
             this.pannelFilghtHighlight.Location = new System.Drawing.Point(1, 228);
 >>>>>>> ten-branch-moi
+=======
+            this.pannelFilghtHighlight.Location = new System.Drawing.Point(1, 228);
+>>>>>>> hanh
             this.pannelFilghtHighlight.Name = "pannelFilghtHighlight";
             this.pannelFilghtHighlight.Size = new System.Drawing.Size(11, 28);
             this.pannelFilghtHighlight.TabIndex = 20;
             // 
             // pannelTicketHighlight
             // 
+<<<<<<< HEAD
 <<<<<<< HEAD
             this.pannelTicketHighlight.Location = new System.Drawing.Point(1, 210);
 <<<<<<< HEAD
@@ -212,12 +236,16 @@
 =======
             this.pannelTicketHighlight.Location = new System.Drawing.Point(1, 171);
 >>>>>>> ten-branch-moi
+=======
+            this.pannelTicketHighlight.Location = new System.Drawing.Point(1, 171);
+>>>>>>> hanh
             this.pannelTicketHighlight.Name = "pannelTicketHighlight";
             this.pannelTicketHighlight.Size = new System.Drawing.Size(11, 28);
             this.pannelTicketHighlight.TabIndex = 20;
             // 
             // panelSchedulingHighlight
             // 
+<<<<<<< HEAD
 <<<<<<< HEAD
             this.panelSchedulingHighlight.Location = new System.Drawing.Point(1, 142);
 <<<<<<< HEAD
@@ -228,12 +256,16 @@
 =======
             this.panelSchedulingHighlight.Location = new System.Drawing.Point(1, 115);
 >>>>>>> ten-branch-moi
+=======
+            this.panelSchedulingHighlight.Location = new System.Drawing.Point(1, 115);
+>>>>>>> hanh
             this.panelSchedulingHighlight.Name = "panelSchedulingHighlight";
             this.panelSchedulingHighlight.Size = new System.Drawing.Size(11, 28);
             this.panelSchedulingHighlight.TabIndex = 19;
             // 
             // PanelDashBoardHighlight
             // 
+<<<<<<< HEAD
 <<<<<<< HEAD
             this.PanelDashBoardHighlight.Location = new System.Drawing.Point(1, 78);
 <<<<<<< HEAD
@@ -244,6 +276,9 @@
 =======
             this.PanelDashBoardHighlight.Location = new System.Drawing.Point(1, 63);
 >>>>>>> ten-branch-moi
+=======
+            this.PanelDashBoardHighlight.Location = new System.Drawing.Point(1, 63);
+>>>>>>> hanh
             this.PanelDashBoardHighlight.Name = "PanelDashBoardHighlight";
             this.PanelDashBoardHighlight.Size = new System.Drawing.Size(11, 28);
             this.PanelDashBoardHighlight.TabIndex = 18;
@@ -257,12 +292,15 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 =======
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
 >>>>>>> hanh
 =======
 >>>>>>> ten-branch-moi
+=======
+>>>>>>> hanh
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(120, 45);
             this.panel1.TabIndex = 17;
@@ -286,12 +324,15 @@
             this.pictureBox4.Location = new System.Drawing.Point(0, 2);
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.pictureBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 =======
             this.pictureBox4.Margin = new System.Windows.Forms.Padding(4);
 >>>>>>> hanh
 =======
 >>>>>>> ten-branch-moi
+=======
+>>>>>>> hanh
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(32, 40);
             this.pictureBox4.TabIndex = 16;
@@ -311,6 +352,7 @@
             this.btnFlight.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnFlight.IndicateFocus = true;
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.btnFlight.Location = new System.Drawing.Point(5, 279);
 <<<<<<< HEAD
             this.btnFlight.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -320,6 +362,9 @@
 =======
             this.btnFlight.Location = new System.Drawing.Point(4, 227);
 >>>>>>> ten-branch-moi
+=======
+            this.btnFlight.Location = new System.Drawing.Point(4, 227);
+>>>>>>> hanh
             this.btnFlight.Name = "btnFlight";
             this.btnFlight.PressedColor = System.Drawing.Color.White;
             this.btnFlight.Size = new System.Drawing.Size(116, 29);
@@ -342,6 +387,7 @@
             this.btnScheduling.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnScheduling.IndicateFocus = true;
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.btnScheduling.Location = new System.Drawing.Point(5, 142);
 <<<<<<< HEAD
             this.btnScheduling.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -351,6 +397,9 @@
 =======
             this.btnScheduling.Location = new System.Drawing.Point(4, 115);
 >>>>>>> ten-branch-moi
+=======
+            this.btnScheduling.Location = new System.Drawing.Point(4, 115);
+>>>>>>> hanh
             this.btnScheduling.Name = "btnScheduling";
             this.btnScheduling.PressedColor = System.Drawing.Color.White;
             this.btnScheduling.Size = new System.Drawing.Size(116, 29);
@@ -373,6 +422,7 @@
             this.btnReport.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnReport.IndicateFocus = true;
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.btnReport.Location = new System.Drawing.Point(5, 353);
 <<<<<<< HEAD
             this.btnReport.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -382,6 +432,9 @@
 =======
             this.btnReport.Location = new System.Drawing.Point(4, 287);
 >>>>>>> ten-branch-moi
+=======
+            this.btnReport.Location = new System.Drawing.Point(4, 287);
+>>>>>>> hanh
             this.btnReport.Name = "btnReport";
             this.btnReport.PressedColor = System.Drawing.Color.White;
             this.btnReport.Size = new System.Drawing.Size(116, 29);
@@ -403,6 +456,7 @@
             this.btnDonate.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnDonate.IndicateFocus = true;
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.btnDonate.Location = new System.Drawing.Point(5, 427);
 <<<<<<< HEAD
             this.btnDonate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -412,6 +466,9 @@
 =======
             this.btnDonate.Location = new System.Drawing.Point(4, 347);
 >>>>>>> ten-branch-moi
+=======
+            this.btnDonate.Location = new System.Drawing.Point(4, 347);
+>>>>>>> hanh
             this.btnDonate.Name = "btnDonate";
             this.btnDonate.PressedColor = System.Drawing.Color.White;
             this.btnDonate.Size = new System.Drawing.Size(116, 29);
@@ -433,6 +490,7 @@
             this.btnSellTicket.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnSellTicket.IndicateFocus = true;
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.btnSellTicket.Location = new System.Drawing.Point(5, 209);
 <<<<<<< HEAD
             this.btnSellTicket.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -442,6 +500,9 @@
 =======
             this.btnSellTicket.Location = new System.Drawing.Point(4, 170);
 >>>>>>> ten-branch-moi
+=======
+            this.btnSellTicket.Location = new System.Drawing.Point(4, 170);
+>>>>>>> hanh
             this.btnSellTicket.Name = "btnSellTicket";
             this.btnSellTicket.PressedColor = System.Drawing.Color.White;
             this.btnSellTicket.Size = new System.Drawing.Size(116, 29);
@@ -464,6 +525,7 @@
             this.btnSetting.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnSetting.IndicateFocus = true;
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.btnSetting.Location = new System.Drawing.Point(5, 500);
 <<<<<<< HEAD
             this.btnSetting.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -473,6 +535,9 @@
 =======
             this.btnSetting.Location = new System.Drawing.Point(4, 406);
 >>>>>>> ten-branch-moi
+=======
+            this.btnSetting.Location = new System.Drawing.Point(4, 406);
+>>>>>>> hanh
             this.btnSetting.Name = "btnSetting";
             this.btnSetting.PressedColor = System.Drawing.Color.White;
             this.btnSetting.Size = new System.Drawing.Size(116, 29);
@@ -494,6 +559,7 @@
             this.btnDashBoard.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnDashBoard.IndicateFocus = true;
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.btnDashBoard.Location = new System.Drawing.Point(5, 78);
 <<<<<<< HEAD
             this.btnDashBoard.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -503,6 +569,9 @@
 =======
             this.btnDashBoard.Location = new System.Drawing.Point(4, 63);
 >>>>>>> ten-branch-moi
+=======
+            this.btnDashBoard.Location = new System.Drawing.Point(4, 63);
+>>>>>>> hanh
             this.btnDashBoard.Name = "btnDashBoard";
             this.btnDashBoard.PressedColor = System.Drawing.Color.Transparent;
             this.btnDashBoard.Size = new System.Drawing.Size(112, 29);
@@ -579,12 +648,15 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 =======
             this.Margin = new System.Windows.Forms.Padding(4);
 >>>>>>> hanh
 =======
 >>>>>>> ten-branch-moi
+=======
+>>>>>>> hanh
             this.Name = "DashBoard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DashBoard";
