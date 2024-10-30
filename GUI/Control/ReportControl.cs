@@ -43,6 +43,26 @@ namespace GUI.Control
 
 
         }
+        private void SetColumnHeaders(DataGridView dgv)
+        {
+            dgv.Columns["DepartureAirport"].HeaderText = "Chuyến bay";
+            dgv.Columns["ArrivalAirport"].HeaderText = "Điểm đến";
+            dgv.Columns["TotalFlights"].HeaderText = "Số chuyến bay (chuyến)";
+            dgv.Columns["TotalRevenue"].HeaderText = "Doanh Thu (VNĐ)";
+            dgv.Columns["RevenuePercentage"].HeaderText = "Tỷ lệ (%)";
+        }
+        private void SetColumnWidths(DataGridView dgv)
+        {
+            if (dgv.Columns.Contains("DepartureAirport"))
+            {
+                dgv.Columns["DepartureAirport"].Width = 175; // Kéo dài cột Chuyến bay
+            }
+
+            if (dgv.Columns.Contains("ArrivalAirport"))
+            {
+                dgv.Columns["ArrivalAirport"].Width = 175; // Kéo dài cột Điểm đến
+            }
+        }
 
         private void LoadDataToGridView()
         {
@@ -56,13 +76,8 @@ namespace GUI.Control
                 dgvMonthRevenue.Columns["FlightMonthYear"].Visible = false;
             }
 
-            // Đổi tên các cột
-            dgvMonthRevenue.Columns["DepartureAirport"].HeaderText = "Chuyến bay";
-            dgvMonthRevenue.Columns["ArrivalAirport"].HeaderText = "Điểm đến";
-            dgvMonthRevenue.Columns["TotalFlights"].HeaderText = "Số chuyến bay (chuyến)";
-            dgvMonthRevenue.Columns["TotalRevenue"].HeaderText = "Doanh Thu (VNĐ)";
-            dgvMonthRevenue.Columns["RevenuePercentage"].HeaderText = "Tỷ lệ (%)";
-
+            SetColumnHeaders(dgvMonthRevenue);
+            SetColumnWidths(dgvMonthRevenue);
             dgvYearRevenue.DataSource = originalData;
         }
 

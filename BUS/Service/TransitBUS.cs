@@ -1,4 +1,5 @@
-﻿using DAL.IAccess;
+﻿using DAL;
+using DAL.IAccess;
 using DTO.Entities;
 using System;
 using System.Collections.Generic;
@@ -11,11 +12,12 @@ namespace BUS.Service
     public class TransitBUS
     {
         private readonly IRepository<Transit> _transitRepository;
-
+        private TransitDAL _transitDAL;
         // Constructor Injection
         public TransitBUS(IRepository<Transit> transitRepository)
         {
             _transitRepository = transitRepository;
+            _transitDAL = new TransitDAL();
         }
 
         // Method to get all transits
@@ -47,5 +49,11 @@ namespace BUS.Service
         {
             _transitRepository.Delete(id);
         }
+        public bool SaveTransit(Transit transit)
+        {
+            // Thêm các xử lý nghiệp vụ tại đây nếu cần
+            return _transitDAL.SaveTransit(transit);
+        }
+
     }
 }
