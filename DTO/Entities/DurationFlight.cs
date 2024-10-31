@@ -20,5 +20,7 @@ namespace DTO.Entities
         [Column(Order = 1)]
         [StringLength(100)]
         public string IDDurationFlight { get; set; }
+
+        public virtual Flight Flight { get; set; }
     }
 }

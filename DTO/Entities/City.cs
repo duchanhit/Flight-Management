@@ -13,6 +13,7 @@ namespace DTO.Entities
         public City()
         {
             Airports = new HashSet<Airport>();
+            Airports1 = new HashSet<Airport>();
         }
 
         [StringLength(100)]
@@ -27,5 +28,8 @@ namespace DTO.Entities
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Airport> Airports { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Airport> Airports1 { get; set; }
     }
 }

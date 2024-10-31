@@ -14,12 +14,39 @@ namespace GUI.UI
 {
     public partial class AirplantTransit : Form
     {
+        private List<Tuple<string, TimeSpan?, string>> transitDataList; // Danh sách tạm lưu sân bay, thời gian và ghi chú
+        public event Action<List<Tuple<string, TimeSpan?, string>>> TransitListUpdated;
+        private AirportBUS _airportBUS;
         public AirplantTransit()
         {
             InitializeComponent();
 
-        }
+            transitDataList = new List<Tuple<string, TimeSpan?, string>>(); // Khởi tạo danh sách tạm
 
+            _airportBUS = new AirportBUS(); // Khởi tạo AirportBUS
+            LoadAirportIds(); // Gọi hàm để load dữ liệu vào ComboBox
+        }
+        private void LoadAirportIds()
+        {
+            try
+            {
+                // Lấy danh sách tất cả các sân bay
+                List<Airport> airports = _airportBUS.GetAllAirports().ToList();
+
+                // Thiết lập dữ liệu nguồn cho ComboBox
+                cmbAirport.DataSource = airports;
+                cmbAirport.DisplayMember = "AirportId"; // Hiển thị ID sân bay
+                cmbAirport.ValueMember = "AirportId";   // Giá trị cũng là ID sân bay
+
+                cmbAirport.IntegralHeight = false;
+                cmbAirport.MaxDropDownItems = 10;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi tải danh sách ID sân bay: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         private void InitializeTextBox()
         {
             txtTime.BorderThickness = 0;
@@ -49,40 +76,42 @@ namespace GUI.UI
             InitializeTextBox();
             AddUnderlineToTextBox();
 
+        }
 
-
-
-
+        // Phương thức để lấy danh sách tạm, có thể dùng ở form khác
+        public List<Tuple<string, TimeSpan?, string>> GetTransitDataList()
+        {
+            return transitDataList;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            // Tạo đối tượng Transit từ dữ liệu người dùng nhập vào form
-            Transit transit = new Transit
-            {
-                transitID = Guid.NewGuid().ToString(),
-                flightID = cmbAirport.SelectedValue.ToString(),
-                airportID = cmbAirport.SelectedValue.ToString(),
-                transitOrder = int.TryParse(txtTransitOrder.Text, out int order) ? order : (int?)null,
-                transitTime = TimeSpan.TryParse(txtTransitTime.Text, out TimeSpan time) ? time : (TimeSpan?)null,
-                transitNote = txtTransitNote.Text,
-                isActive = 1
-            };
+            // Lấy thông tin sân bay, thời gian và ghi chú từ người dùng
+            string airport = cmbAirport.SelectedValue.ToString();
+            TimeSpan? time = TimeSpan.TryParse(txtTime.Text, out TimeSpan parsedTime) ? parsedTime : (TimeSpan?)null;
+            string note = txtNote.Text;
 
-            // Gọi phương thức SaveTransit từ BUS
-            bool isSaved = _transitBUS.SaveTransit(transit);
+            // Thêm bộ ba thông tin vào danh sách tạm
+            transitDataList.Add(new Tuple<string, TimeSpan?, string>(airport, time, note));
 
-            // Hiển thị thông báo thành công hoặc thất bại
-            if (isSaved)
-            {
-                MessageBox.Show("Lưu thông tin trung chuyển thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                MessageBox.Show("Lưu thất bại. Vui lòng kiểm tra lại dữ liệu.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            // Gọi sự kiện để cập nhật dữ liệu sang form SchedulingControl
+            TransitListUpdated?.Invoke(transitDataList);
+
+            // Hiển thị thông báo thành công
+            MessageBox.Show("Đã lưu thông tin trung chuyển vào danh sách tạm!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            // Reset các ô nhập liệu để người dùng có thể tiếp tục thêm mới
+            cmbAirport.SelectedIndex = -1;
+            txtTime.Clear();
+            txtNote.Clear();
+
         }
-
+        private void btnConfirm_Click(object sender, EventArgs e)
+        {
+            // Gọi sự kiện TransitListUpdated để truyền danh sách transitDataList cho form khác
+            TransitListUpdated?.Invoke(transitDataList);
+            this.Close(); // Đóng form sau khi xác nhận
+        }
         private void btnDelete_Click(object sender, EventArgs e)
         {
 

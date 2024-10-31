@@ -45,6 +45,10 @@ namespace DTO.Entities
 
         public virtual Flight Flight { get; set; }
 
+        public virtual Flight Flight1 { get; set; }
+
         public virtual Passenger Passenger { get; set; }
+
+        public virtual Passenger Passenger1 { get; set; }
     }
 }

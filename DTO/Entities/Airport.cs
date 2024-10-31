@@ -15,6 +15,7 @@ namespace DTO.Entities
             Flights = new HashSet<Flight>();
             Flights1 = new HashSet<Flight>();
             Transits = new HashSet<Transit>();
+            Transits1 = new HashSet<Transit>();
         }
 
         [StringLength(100)]
@@ -44,5 +45,10 @@ namespace DTO.Entities
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Transit> Transits { get; set; }
+
+        public virtual City City1 { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Transit> Transits1 { get; set; }
     }
 }

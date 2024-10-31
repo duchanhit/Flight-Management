@@ -12,11 +12,11 @@ namespace BUS.Service
     public class TransitBUS
     {
         private readonly IRepository<Transit> _transitRepository;
-        private TransitDAL _transitDAL;
-        // Constructor Injection
-        public TransitBUS(IRepository<Transit> transitRepository)
+        private readonly TransitDAL _transitDAL;
+
+        public TransitBUS() 
         {
-            _transitRepository = transitRepository;
+            _transitRepository = new TransitDAL();
             _transitDAL = new TransitDAL();
         }
 

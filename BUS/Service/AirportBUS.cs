@@ -1,4 +1,5 @@
-﻿using DAL.IAccess;
+﻿using DAL;
+using DAL.IAccess;
 using DTO.Entities;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,11 @@ namespace BUS.Service
             _airportRepository = airportRepository;
         }
 
+        public AirportBUS() 
+        {
+            _airportRepository = new AirportDAL();
+
+        }
         // Method to get all airports
         public IEnumerable<Airport> GetAllAirports()
         {
