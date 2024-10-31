@@ -1,5 +1,4 @@
 ﻿
-using GUI.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +16,7 @@ namespace GUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AirplantTransit());
+            Application.Run(new DashBoard());
         }
     }
 }

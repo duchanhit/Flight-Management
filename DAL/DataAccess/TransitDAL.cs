@@ -3,8 +3,6 @@ using DTO;
 using DTO.Entities;
 using System;
 using System.Collections.Generic;
-using System.Configuration;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -73,43 +71,6 @@ namespace DAL
                 }
             }
         }
-
-        public bool SaveTransit(Transit transit)
-        {
-            bool isSaved = false;
-            using (var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["FlightModel"].ConnectionString))
-            {
-                // Sử dụng Stored Procedure thay vì câu lệnh SQL trực tiếp
-                using (var command = new SqlCommand("InsertTransit", connection))
-                {
-                    command.CommandType = System.Data.CommandType.StoredProcedure;
-
-                    // Thêm các tham số cho Stored Procedure
-                    command.Parameters.AddWithValue("@transitID", transit.transitID);
-                    command.Parameters.AddWithValue("@flightID", transit.flightID);
-                    command.Parameters.AddWithValue("@airportID", transit.airportID);
-                    command.Parameters.AddWithValue("@transitOrder", (object)transit.transitOrder ?? DBNull.Value);
-                    command.Parameters.AddWithValue("@transitTime", (object)transit.transitTime ?? DBNull.Value);
-                    command.Parameters.AddWithValue("@transitNote", (object)transit.transitNote ?? DBNull.Value);
-                    command.Parameters.AddWithValue("@isActive", (object)transit.isActive ?? DBNull.Value);
-
-                    try
-                    {
-                        connection.Open();
-                        int rowsAffected = command.ExecuteNonQuery();
-                        isSaved = rowsAffected > 0; // Trả về true nếu có ít nhất một dòng được chèn
-                    }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine("Lỗi khi lưu dữ liệu Transit: " + ex.Message);
-                        isSaved = false;
-                    }
-                }
-            }
-            return isSaved;
-        }
-
-
     }
 
 }
