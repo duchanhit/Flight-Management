@@ -114,12 +114,14 @@
             // 
             // guna2HtmlLabel1
             // 
+            this.guna2HtmlLabel1.AutoSize = false;
             this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel1.Font = new System.Drawing.Font("Segoe UI", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel1.ForeColor = System.Drawing.Color.Blue;
             this.guna2HtmlLabel1.Location = new System.Drawing.Point(4, 4);
             this.guna2HtmlLabel1.Margin = new System.Windows.Forms.Padding(4);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(153, 30);
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(323, 50);
             this.guna2HtmlLabel1.TabIndex = 6;
             this.guna2HtmlLabel1.Text = "Bán vé máy bay";
             // 
@@ -140,23 +142,25 @@
             // 
             // guna2HtmlLabel11
             // 
+            this.guna2HtmlLabel11.AutoSize = false;
             this.guna2HtmlLabel11.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel11.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
-            this.guna2HtmlLabel11.Location = new System.Drawing.Point(189, 2);
+            this.guna2HtmlLabel11.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel11.Location = new System.Drawing.Point(12, 0);
             this.guna2HtmlLabel11.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2HtmlLabel11.Name = "guna2HtmlLabel11";
-            this.guna2HtmlLabel11.Size = new System.Drawing.Size(146, 21);
+            this.guna2HtmlLabel11.Size = new System.Drawing.Size(431, 54);
             this.guna2HtmlLabel11.TabIndex = 14;
             this.guna2HtmlLabel11.Text = "Thông tin khách hàng";
             // 
             // guna2HtmlLabel9
             // 
+            this.guna2HtmlLabel9.AutoSize = false;
             this.guna2HtmlLabel9.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel9.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
             this.guna2HtmlLabel9.Location = new System.Drawing.Point(13, 185);
             this.guna2HtmlLabel9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2HtmlLabel9.Name = "guna2HtmlLabel9";
-            this.guna2HtmlLabel9.Size = new System.Drawing.Size(91, 21);
+            this.guna2HtmlLabel9.Size = new System.Drawing.Size(148, 21);
             this.guna2HtmlLabel9.TabIndex = 18;
             this.guna2HtmlLabel9.Text = "Số điện thọai";
             // 
@@ -182,12 +186,13 @@
             // 
             // guna2HtmlLabel8
             // 
+            this.guna2HtmlLabel8.AutoSize = false;
             this.guna2HtmlLabel8.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel8.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
             this.guna2HtmlLabel8.Location = new System.Drawing.Point(13, 127);
             this.guna2HtmlLabel8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2HtmlLabel8.Name = "guna2HtmlLabel8";
-            this.guna2HtmlLabel8.Size = new System.Drawing.Size(61, 21);
+            this.guna2HtmlLabel8.Size = new System.Drawing.Size(140, 21);
             this.guna2HtmlLabel8.TabIndex = 16;
             this.guna2HtmlLabel8.Text = "Số CCCD";
             // 
@@ -213,12 +218,13 @@
             // 
             // guna2HtmlLabel7
             // 
+            this.guna2HtmlLabel7.AutoSize = false;
             this.guna2HtmlLabel7.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel7.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
             this.guna2HtmlLabel7.Location = new System.Drawing.Point(12, 70);
             this.guna2HtmlLabel7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2HtmlLabel7.Name = "guna2HtmlLabel7";
-            this.guna2HtmlLabel7.Size = new System.Drawing.Size(107, 21);
+            this.guna2HtmlLabel7.Size = new System.Drawing.Size(141, 21);
             this.guna2HtmlLabel7.TabIndex = 14;
             this.guna2HtmlLabel7.Text = "Tên khách hàng";
             // 
@@ -265,12 +271,13 @@
             // 
             // guna2HtmlLabel10
             // 
+            this.guna2HtmlLabel10.AutoSize = false;
             this.guna2HtmlLabel10.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel10.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
-            this.guna2HtmlLabel10.Location = new System.Drawing.Point(157, 2);
+            this.guna2HtmlLabel10.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel10.Location = new System.Drawing.Point(169, 2);
             this.guna2HtmlLabel10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2HtmlLabel10.Name = "guna2HtmlLabel10";
-            this.guna2HtmlLabel10.Size = new System.Drawing.Size(112, 21);
+            this.guna2HtmlLabel10.Size = new System.Drawing.Size(300, 41);
             this.guna2HtmlLabel10.TabIndex = 13;
             this.guna2HtmlLabel10.Text = "Thông tin đặt vé";
             // 
@@ -326,23 +333,25 @@
             // 
             // guna2HtmlLabel5
             // 
+            this.guna2HtmlLabel5.AutoSize = false;
             this.guna2HtmlLabel5.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel5.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
             this.guna2HtmlLabel5.Location = new System.Drawing.Point(8, 249);
             this.guna2HtmlLabel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2HtmlLabel5.Name = "guna2HtmlLabel5";
-            this.guna2HtmlLabel5.Size = new System.Drawing.Size(72, 21);
+            this.guna2HtmlLabel5.Size = new System.Drawing.Size(144, 42);
             this.guna2HtmlLabel5.TabIndex = 9;
             this.guna2HtmlLabel5.Text = "Thành tiền";
             // 
             // guna2HtmlLabel4
             // 
+            this.guna2HtmlLabel4.AutoSize = false;
             this.guna2HtmlLabel4.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel4.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
             this.guna2HtmlLabel4.Location = new System.Drawing.Point(8, 185);
             this.guna2HtmlLabel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2HtmlLabel4.Name = "guna2HtmlLabel4";
-            this.guna2HtmlLabel4.Size = new System.Drawing.Size(63, 21);
+            this.guna2HtmlLabel4.Size = new System.Drawing.Size(144, 30);
             this.guna2HtmlLabel4.TabIndex = 8;
             this.guna2HtmlLabel4.Text = "Chỗ ngồi";
             // 
@@ -387,12 +396,13 @@
             // 
             // guna2HtmlLabel3
             // 
+            this.guna2HtmlLabel3.AutoSize = false;
             this.guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel3.Location = new System.Drawing.Point(8, 127);
             this.guna2HtmlLabel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
-            this.guna2HtmlLabel3.Size = new System.Drawing.Size(72, 21);
+            this.guna2HtmlLabel3.Size = new System.Drawing.Size(158, 31);
             this.guna2HtmlLabel3.TabIndex = 5;
             this.guna2HtmlLabel3.Text = "Tuyến bay";
             // 
@@ -444,24 +454,25 @@
             this.dtpNgayBay.FillColor = System.Drawing.Color.Transparent;
             this.dtpNgayBay.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.dtpNgayBay.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.dtpNgayBay.Location = new System.Drawing.Point(140, 62);
+            this.dtpNgayBay.Location = new System.Drawing.Point(117, 62);
             this.dtpNgayBay.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtpNgayBay.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.dtpNgayBay.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.dtpNgayBay.Name = "dtpNgayBay";
-            this.dtpNgayBay.Size = new System.Drawing.Size(227, 36);
+            this.dtpNgayBay.Size = new System.Drawing.Size(269, 36);
             this.dtpNgayBay.TabIndex = 1;
             this.dtpNgayBay.UseTransparentBackground = true;
             this.dtpNgayBay.Value = new System.DateTime(2024, 10, 29, 13, 40, 41, 986);
             // 
             // guna2HtmlLabel2
             // 
+            this.guna2HtmlLabel2.AutoSize = false;
             this.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel2.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel2.Location = new System.Drawing.Point(8, 70);
             this.guna2HtmlLabel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            this.guna2HtmlLabel2.Size = new System.Drawing.Size(61, 19);
+            this.guna2HtmlLabel2.Size = new System.Drawing.Size(126, 43);
             this.guna2HtmlLabel2.TabIndex = 0;
             this.guna2HtmlLabel2.Text = "Ngày bay";
             // 
@@ -475,9 +486,7 @@
             this.Size = new System.Drawing.Size(964, 607);
             this.panel1.ResumeLayout(false);
             this.guna2Panel1.ResumeLayout(false);
-            this.guna2Panel1.PerformLayout();
             this.guna2Panel3.ResumeLayout(false);
-            this.guna2Panel3.PerformLayout();
             this.guna2Panel2.ResumeLayout(false);
             this.guna2Panel2.PerformLayout();
             this.ResumeLayout(false);

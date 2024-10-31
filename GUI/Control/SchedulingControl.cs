@@ -539,13 +539,10 @@ namespace GUI.Control
                     // Lấy dòng hiện tại mà người dùng click vào
                     DataGridViewRow selectedRow = dgvFlight.Rows[e.RowIndex];
 
-                    // Binding dữ liệu từ các cột của dòng đã chọn vào TextBox
-                    txtOriginAP.Text = selectedRow.Cells["OriginAP"].Value?.ToString();
-                    txtDestinationAP.Text = selectedRow.Cells["DestinationAP"].Value?.ToString();
+                    // Sử dụng đúng tên cột để binding dữ liệu từ DataGridView lên các TextBox
+                    txtOriginAP.Text = selectedRow.Cells["OriginAirportName"].Value?.ToString(); // Thay thế "OriginAP" bằng tên cột đúng
+                    txtDestinationAP.Text = selectedRow.Cells["DestinationAirportName"].Value?.ToString(); // Thay thế "DestinationAP" bằng tên cột đúng
                     txtPrice.Text = selectedRow.Cells["Price"].Value?.ToString();
-
-                    // Kiểm tra và gán giá trị cho dtpDepartureDate
-
 
                     // Kiểm tra và gán giá trị cho Duration
                     if (TimeSpan.TryParse(selectedRow.Cells["Duration"].Value?.ToString(), out TimeSpan duration))

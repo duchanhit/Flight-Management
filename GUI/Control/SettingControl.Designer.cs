@@ -33,12 +33,14 @@
             // 
             // guna2HtmlLabel1
             // 
+            this.guna2HtmlLabel1.AutoSize = false;
             this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel1.ForeColor = System.Drawing.Color.Blue;
             this.guna2HtmlLabel1.Location = new System.Drawing.Point(4, 4);
             this.guna2HtmlLabel1.Margin = new System.Windows.Forms.Padding(4);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(105, 43);
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(313, 59);
             this.guna2HtmlLabel1.TabIndex = 7;
             this.guna2HtmlLabel1.Text = "Cài Đặt";
             // 
@@ -52,7 +54,6 @@
             this.Size = new System.Drawing.Size(969, 610);
             this.Load += new System.EventHandler(this.SettingControl_Load);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

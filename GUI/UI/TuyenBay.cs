@@ -20,6 +20,7 @@ namespace GUI.UI
         {
             InitializeComponent();
             _flightBUS = new FlightBUS();
+            dgvChuyenBay.RowTemplate.Height = 20;
             LoadFlightData();
 
             // Gắn sự kiện
@@ -38,6 +39,23 @@ namespace GUI.UI
             dgvChuyenBay.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvChuyenBay.MultiSelect = false;
 
+            // Đặt chiều cao hàng mặc định là 20
+            dgvChuyenBay.ColumnHeadersHeight = 20;
+
+            // Đổi tên các cột
+            dgvChuyenBay.Columns["FlightId"].HeaderText = "Mã Chuyến Bay"; // Đổi tên cột FlightId
+            dgvChuyenBay.Columns["OriginAirportName"].HeaderText = "Khởi Hành";
+            dgvChuyenBay.Columns["DestinationAirportName"].HeaderText = "Kết Thúc";
+            dgvChuyenBay.Columns["Price"].HeaderText = "Giá (VNĐ)";
+            dgvChuyenBay.Columns["Duration"].HeaderText = "Giờ Khởi Hành";
+            dgvChuyenBay.Columns["TotalSeat"].HeaderText = "Số Ghế";
+
+            // Ẩn cột "DepartureDateTime" nếu tồn tại
+            if (dgvChuyenBay.Columns.Contains("DepartureDateTime"))
+            {
+                dgvChuyenBay.Columns["DepartureDateTime"].Visible = false;
+            }
+
             // Hiển thị Flight ID của dòng đầu tiên nếu có dữ liệu
             if (dgvChuyenBay.Rows.Count > 0)
             {
@@ -51,6 +69,8 @@ namespace GUI.UI
                 txtFlightId.Text = string.Empty;
             }
         }
+
+
 
         private void txtTimKiem_TextChanged(object sender, EventArgs e)
         {
@@ -117,6 +137,11 @@ namespace GUI.UI
                 // Ghi log lỗi vào bảng điều khiển
                 Console.WriteLine($"Lỗi khi lấy thông tin chuyến bay: {ex.Message}");
             }
+        }
+
+        private void TuyenBay_Load(object sender, EventArgs e)
+        {
+            dgvChuyenBay.ColumnHeadersHeight = 20;
         }
     }
 }

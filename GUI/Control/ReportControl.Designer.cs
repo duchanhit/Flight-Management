@@ -41,6 +41,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2Button8 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
@@ -53,7 +54,6 @@
             this.dgvYearRevenue = new Guna.UI2.WinForms.Guna2DataGridView();
             this.guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2DataGridView3 = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.guna2Button8 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView2)).BeginInit();
@@ -69,19 +69,38 @@
             this.guna2Panel1.Controls.Add(this.guna2HtmlLabel1);
             this.guna2Panel1.Controls.Add(this.guna2ControlBox1);
             this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
-            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(4);
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(969, 47);
             this.guna2Panel1.TabIndex = 10;
             // 
+            // guna2Button8
+            // 
+            this.guna2Button8.BackgroundImage = global::GUI.Properties.Resources.minus;
+            this.guna2Button8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.guna2Button8.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button8.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button8.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button8.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button8.FillColor = System.Drawing.Color.Transparent;
+            this.guna2Button8.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2Button8.ForeColor = System.Drawing.Color.White;
+            this.guna2Button8.Location = new System.Drawing.Point(895, 4);
+            this.guna2Button8.Margin = new System.Windows.Forms.Padding(4);
+            this.guna2Button8.Name = "guna2Button8";
+            this.guna2Button8.Size = new System.Drawing.Size(29, 26);
+            this.guna2Button8.TabIndex = 7;
+            // 
             // guna2HtmlLabel1
             // 
+            this.guna2HtmlLabel1.AutoSize = false;
             this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel1.ForeColor = System.Drawing.Color.Blue;
             this.guna2HtmlLabel1.Location = new System.Drawing.Point(4, 4);
-            this.guna2HtmlLabel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.guna2HtmlLabel1.Margin = new System.Windows.Forms.Padding(4);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(248, 43);
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(536, 48);
             this.guna2HtmlLabel1.TabIndex = 6;
             this.guna2HtmlLabel1.Text = "Báo cáo doanh số";
             // 
@@ -92,7 +111,7 @@
             this.guna2ControlBox1.ForeColor = System.Drawing.Color.Black;
             this.guna2ControlBox1.IconColor = System.Drawing.Color.Black;
             this.guna2ControlBox1.Location = new System.Drawing.Point(936, 4);
-            this.guna2ControlBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.guna2ControlBox1.Margin = new System.Windows.Forms.Padding(4);
             this.guna2ControlBox1.Name = "guna2ControlBox1";
             this.guna2ControlBox1.Size = new System.Drawing.Size(29, 27);
             this.guna2ControlBox1.TabIndex = 5;
@@ -127,12 +146,13 @@
             // 
             // guna2HtmlLabel2
             // 
+            this.guna2HtmlLabel2.AutoSize = false;
             this.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel2.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel2.Location = new System.Drawing.Point(4, 4);
             this.guna2HtmlLabel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            this.guna2HtmlLabel2.Size = new System.Drawing.Size(263, 27);
+            this.guna2HtmlLabel2.Size = new System.Drawing.Size(517, 33);
             this.guna2HtmlLabel2.TabIndex = 2;
             this.guna2HtmlLabel2.Text = "Báo cáo doanh thu theo tháng";
             // 
@@ -212,13 +232,13 @@
             dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvMonthRevenue.DefaultCellStyle = dataGridViewCellStyle18;
             this.dgvMonthRevenue.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvMonthRevenue.Location = new System.Drawing.Point(3, 28);
+            this.dgvMonthRevenue.Location = new System.Drawing.Point(3, 41);
             this.dgvMonthRevenue.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvMonthRevenue.Name = "dgvMonthRevenue";
             this.dgvMonthRevenue.RowHeadersVisible = false;
             this.dgvMonthRevenue.RowHeadersWidth = 51;
             this.dgvMonthRevenue.RowTemplate.Height = 24;
-            this.dgvMonthRevenue.Size = new System.Drawing.Size(956, 334);
+            this.dgvMonthRevenue.Size = new System.Drawing.Size(956, 321);
             this.dgvMonthRevenue.TabIndex = 0;
             this.dgvMonthRevenue.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvMonthRevenue.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -293,13 +313,13 @@
             dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvYearRevenue.DefaultCellStyle = dataGridViewCellStyle21;
             this.dgvYearRevenue.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvYearRevenue.Location = new System.Drawing.Point(3, 28);
+            this.dgvYearRevenue.Location = new System.Drawing.Point(3, 42);
             this.dgvYearRevenue.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvYearRevenue.Name = "dgvYearRevenue";
             this.dgvYearRevenue.RowHeadersVisible = false;
             this.dgvYearRevenue.RowHeadersWidth = 51;
             this.dgvYearRevenue.RowTemplate.Height = 24;
-            this.dgvYearRevenue.Size = new System.Drawing.Size(957, 151);
+            this.dgvYearRevenue.Size = new System.Drawing.Size(957, 137);
             this.dgvYearRevenue.TabIndex = 4;
             this.dgvYearRevenue.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvYearRevenue.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -325,12 +345,13 @@
             // 
             // guna2HtmlLabel5
             // 
+            this.guna2HtmlLabel5.AutoSize = false;
             this.guna2HtmlLabel5.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel5.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel5.Location = new System.Drawing.Point(4, 4);
             this.guna2HtmlLabel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2HtmlLabel5.Name = "guna2HtmlLabel5";
-            this.guna2HtmlLabel5.Size = new System.Drawing.Size(250, 27);
+            this.guna2HtmlLabel5.Size = new System.Drawing.Size(630, 48);
             this.guna2HtmlLabel5.TabIndex = 2;
             this.guna2HtmlLabel5.Text = "Báo cáo doanh thu theo năm";
             // 
@@ -387,23 +408,6 @@
             this.guna2DataGridView3.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.guna2DataGridView3.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             // 
-            // guna2Button8
-            // 
-            this.guna2Button8.BackgroundImage = global::GUI.Properties.Resources.minus;
-            this.guna2Button8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.guna2Button8.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button8.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button8.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button8.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button8.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Button8.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button8.ForeColor = System.Drawing.Color.White;
-            this.guna2Button8.Location = new System.Drawing.Point(895, 4);
-            this.guna2Button8.Margin = new System.Windows.Forms.Padding(4);
-            this.guna2Button8.Name = "guna2Button8";
-            this.guna2Button8.Size = new System.Drawing.Size(29, 26);
-            this.guna2Button8.TabIndex = 7;
-            // 
             // ReportControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -411,18 +415,15 @@
             this.Controls.Add(this.guna2Panel3);
             this.Controls.Add(this.guna2Panel2);
             this.Controls.Add(this.guna2Panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ReportControl";
             this.Size = new System.Drawing.Size(969, 610);
             this.Load += new System.EventHandler(this.ReportControl_Load);
             this.guna2Panel1.ResumeLayout(false);
-            this.guna2Panel1.PerformLayout();
             this.guna2Panel2.ResumeLayout(false);
-            this.guna2Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMonthRevenue)).EndInit();
             this.guna2Panel3.ResumeLayout(false);
-            this.guna2Panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvYearRevenue)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView3)).EndInit();
             this.ResumeLayout(false);
