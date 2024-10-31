@@ -26,7 +26,7 @@ namespace BUS.Service
         }
 
         // Method to get define size flight by ID
-        public DefineSizeFlight GetDefineSizeFlightById(int id)
+        public DefineSizeFlight GetDefineSizeFlightById(string id)
         {
             return _defineSizeFlightRepository.GetById(id);
         }
@@ -44,7 +44,7 @@ namespace BUS.Service
         }
 
         // Method to delete a define size flight
-        public void DeleteDefineSizeFlight(int id)
+        public void DeleteDefineSizeFlight(string id)
         {
             _defineSizeFlightRepository.Delete(id);
         }

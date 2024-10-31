@@ -1,4 +1,5 @@
-﻿using DAL.IAccess;
+﻿using DAL.DataAccess;
+using DAL.IAccess;
 using DTO.Entities;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,11 @@ namespace BUS.Service
             _chairBookedRepository = chairBookedRepository;
         }
 
+        public ChairBookedBUS()
+        {
+            _chairBookedRepository = new ChairBookedDAL();
+        }
+
         // Method to get all booked chairs
         public IEnumerable<ChairBooked> GetAllBookedChairs()
         {
@@ -25,7 +31,7 @@ namespace BUS.Service
         }
 
         // Method to get booked chair by ID
-        public ChairBooked GetBookedChairById(int id)
+        public ChairBooked GetBookedChairById(string id)
         {
             return _chairBookedRepository.GetById(id);
         }
@@ -43,7 +49,7 @@ namespace BUS.Service
         }
 
         // Method to delete a booked chair
-        public void DeleteBookedChair(int id)
+        public void DeleteBookedChair(string id)
         {
             _chairBookedRepository.Delete(id);
         }

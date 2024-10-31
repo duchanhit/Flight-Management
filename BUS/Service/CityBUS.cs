@@ -1,4 +1,5 @@
-﻿using DAL.IAccess;
+﻿using DAL.DataAccess;
+using DAL.IAccess;
 using DTO.Entities;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,10 @@ namespace BUS.Service
         private readonly IRepository<City> _cityRepository;
 
         // Constructor Injection
+        public CityBUS ()
+        {
+            _cityRepository = new CityDAL();
+        }
         public CityBUS(IRepository<City> cityRepository)
         {
             _cityRepository = cityRepository;
@@ -25,7 +30,7 @@ namespace BUS.Service
         }
 
         // Method to get city by ID
-        public City GetCityById(int id)
+        public City GetCityById(string id)
         {
             return _cityRepository.GetById(id);
         }
@@ -43,7 +48,7 @@ namespace BUS.Service
         }
 
         // Method to delete a city
-        public void DeleteCity(int id)
+        public void DeleteCity(string id)
         {
             _cityRepository.Delete(id);
         }

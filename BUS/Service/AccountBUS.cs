@@ -32,7 +32,7 @@ namespace BUS.Service
         }
 
         // Method to get account by ID
-        public Account GetAccountById(int id)
+        public Account GetAccountById(string id)
         {
             return _accountRepository.GetById(id);
         }
@@ -50,7 +50,7 @@ namespace BUS.Service
         }
 
         // Method to delete an account
-        public void DeleteAccount(int id)
+        public void DeleteAccount(string id)
         {
             _accountRepository.Delete(id);
         }

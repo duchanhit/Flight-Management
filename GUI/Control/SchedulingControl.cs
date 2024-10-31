@@ -1,6 +1,7 @@
 ﻿using BUS;
 using BUS.Service;
 using DTO.Entities;
+using GUI.UI;
 using Guna.UI2.WinForms;
 using System;
 using System.Collections.Generic;
@@ -20,20 +21,109 @@ namespace GUI.Control
     public partial class SchedulingControl : UserControl
     {
         private readonly FlightBUS _flightBUS;
+        private readonly TransitBUS _transitBUS;
         private readonly DefineSizeFlightBUS _defineSizeFlightBUS;
         private DataTable originalData;
 
+        private List<Transit> transitList = new List<Transit>();
+
         private Queue<string> messageQueue = new Queue<string>();
         private bool isShowingMessage = false;
+
+
 
         #region Methods
 
         public SchedulingControl()
         {
             InitializeComponent();
+
             _flightBUS = new FlightBUS();
+            _transitBUS = new TransitBUS(); // Initialize _transitBUS
             _defineSizeFlightBUS = new DefineSizeFlightBUS();
-            InitializeDataGridView();
+
+
+            InitializeDataGridView(dgvFlight);
+            InitializeDataGridView(dgvTransit);
+
+        }
+
+
+
+        private void LoadFlightData()
+        {
+            try
+            {
+                // Fetch the flight data from the business layer (assuming it returns a DataTable)
+                DataTable flightsTable = _flightBUS.GetFlightsWithAirportNames(); // Adjust this line based on your actual data retrieval method
+
+                // Store the original data to use for filtering and searching
+                originalData = flightsTable;
+
+                // Bind the data to dgvFlight
+                dgvFlight.DataSource = originalData;
+
+                // Set column headers and widths
+                SetColumnHeaders();
+                SetColumnWidths(dgvFlight);
+
+                // Hide any unnecessary columns if needed
+                HideUnnecessaryColumns();
+            }
+            catch (Exception ex)
+            {
+                ShowErrorMessage(ex);
+            }
+        }
+
+
+        public void UpdateTransitGrid(List<Tuple<string, TimeSpan?, string>> transitDataList)
+        {
+
+            // Xóa danh sách cũ và cập nhật danh sách mới từ dữ liệu truyền vào
+            transitList.Clear();
+            foreach (var data in transitDataList)
+            {
+                transitList.Add(new Transit
+                {
+                    transitID = Guid.NewGuid().ToString(),
+                    airportID = data.Item1,
+                    transitTime = data.Item2,
+                    transitNote = data.Item3,
+                    isActive = 1
+                });
+            }
+
+            // Cập nhật dữ liệu lên dgvTransit
+            dgvTransit.DataSource = new BindingSource(transitList, null);
+
+            dgvTransit.Refresh(); // Làm mới DataGridView
+
+            // Đổi tên các cột cần hiển thị
+            dgvTransit.Columns["airportID"].HeaderText = "Mã Sân Bay";
+            dgvTransit.Columns["transitTime"].HeaderText = "Thời Gian Chờ";
+            dgvTransit.Columns["transitNote"].HeaderText = "Ghi Chú";
+
+            // Ẩn tất cả các cột ngoại trừ airportID, transitTime và transitNote
+            foreach (DataGridViewColumn column in dgvTransit.Columns)
+            {
+                if (column.Name != "airportID" && column.Name != "transitTime" && column.Name != "transitNote")
+                {
+                    column.Visible = false;
+                }
+            }
+        }
+
+
+
+
+
+
+        private void btnAddTranSit_Click(object sender, EventArgs e)
+        {
+            AirplantTransit airplantTransit = new AirplantTransit();
+            airplantTransit.TransitListUpdated += UpdateTransitGrid;
+            airplantTransit.ShowDialog();
         }
 
         private void EnqueueMessage(string message, int duration)
@@ -100,7 +190,7 @@ namespace GUI.Control
                 messageForm.Close();
                 timer.Stop();
                 isShowingMessage = false;
-                ShowNextMessage(duration); 
+                ShowNextMessage(duration);
             };
 
             messageForm.Show();
@@ -108,15 +198,49 @@ namespace GUI.Control
         }
 
 
-        private void InitializeDataGridView()
+        private void InitializeDataGridView(DataGridView dgv)
         {
-            dgvFlight.ColumnHeadersVisible = true;
-            dgvFlight.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvFlight.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dgvFlight.ColumnHeadersHeight = 20;
+            dgv.ColumnHeadersVisible = true;
+            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            dgv.ColumnHeadersHeight = 20;
 
+            // Nếu là dgvTransit, tạo các cột cố định
+            if (dgv == dgvTransit)
+            {
+                dgv.Columns.Clear(); // Xóa tất cả các cột nếu đã tồn tại
 
+                // Thêm cột Mã Sân Bay (airportID)
+                DataGridViewTextBoxColumn airportColumn = new DataGridViewTextBoxColumn
+                {
+                    Name = "airportID",
+                    HeaderText = "Mã Sân Bay",
+                    DataPropertyName = "airportID" // Thiết lập tên thuộc tính dữ liệu
+                };
+                dgv.Columns.Add(airportColumn);
+
+                // Thêm cột Thời Gian Trung Chuyển (transitTime) với chiều rộng 150
+                DataGridViewTextBoxColumn timeColumn = new DataGridViewTextBoxColumn
+                {
+                    Name = "transitTime",
+                    HeaderText = "Thời Gian Chờ",
+                    Width = 150,
+                    DataPropertyName = "transitTime"
+                };
+                dgv.Columns.Add(timeColumn);
+
+                // Thêm cột Ghi Chú (transitNote)
+                DataGridViewTextBoxColumn noteColumn = new DataGridViewTextBoxColumn
+                {
+                    Name = "transitNote",
+                    HeaderText = "Ghi Chú",
+                    DataPropertyName = "transitNote"
+                };
+                dgv.Columns.Add(noteColumn);
+            }
         }
+
+
         private void ClearInput()
         {
             txtDestinationAP.Clear();
@@ -127,52 +251,34 @@ namespace GUI.Control
             txtPrice.Clear();
         }
 
-        private void SetColumnWidths()
+        private void SetColumnWidths(DataGridView dgv)
         {
-            if (dgvFlight.Columns["OriginAirportName"] != null)
+            if (dgv.Columns["OriginAirportName"] != null)
             {
-                dgvFlight.Columns["OriginAirportName"].Width = 125;  // Đặt chiều rộng cho cột Khởi Hành
+                dgv.Columns["OriginAirportName"].Width = 125;  // Đặt chiều rộng cho cột Khởi Hành
             }
 
-            if (dgvFlight.Columns["DestinationAirportName"] != null)
+            if (dgv.Columns["DestinationAirportName"] != null)
             {
-                dgvFlight.Columns["DestinationAirportName"].Width = 125;  // Đặt chiều rộng cho cột Kết Thúc
+                dgv.Columns["DestinationAirportName"].Width = 125;  // Đặt chiều rộng cho cột Kết Thúc
             }
 
-            if (dgvFlight.Columns["DepartureDateTime"] != null)
+            if (dgv.Columns["DepartureDateTime"] != null)
             {
-                dgvFlight.Columns["DepartureDateTime"].Width = 125;
+                dgv.Columns["DepartureDateTime"].Width = 125;
+            }
+            if (dgv.Columns["transitTime"] != null)
+            {
+                dgv.Columns["transitTime"].Width = 150;
             }
         }
 
         private void LoadData()
         {
-            // Lấy DataTable từ view với tên sân bay khởi hành và kết thúc
-            DataTable flightsTable = _flightBUS.GetFlightsWithAirportNames();
-
-            // Thêm cột mã sân bay để tìm kiếm theo mã sân bay
-            flightsTable.Columns.Add("OriginAP", typeof(string));
-            flightsTable.Columns.Add("DestinationAP", typeof(string));
-
-            foreach (DataRow row in flightsTable.Rows)
-            {
-                row["OriginAP"] = _flightBUS.GetAirportCodeByName(row["OriginAirportName"].ToString());
-                row["DestinationAP"] = _flightBUS.GetAirportCodeByName(row["DestinationAirportName"].ToString());
-
-                // Định dạng cột Duration theo hh:mm:ss
-                if (TimeSpan.TryParse(row["Duration"].ToString(), out TimeSpan duration))
-                {
-                    row["Duration"] = duration.ToString(@"hh\:mm\:ss");
-                }
-            }
-
-            // Lưu lại dữ liệu gốc để phục vụ cho tìm kiếm
-            originalData = flightsTable;
-            dgvFlight.DataSource = flightsTable;
-
             SetColumnHeaders();
 
-            SetColumnWidths();
+            SetColumnWidths(dgvFlight);
+
 
             HideUnnecessaryColumns();
         }
@@ -210,16 +316,20 @@ namespace GUI.Control
             {
                 dgvFlight.Columns["DestinationAP"].Visible = false;
             }
+            if (dgvFlight.Columns["DepartureDateTime"] != null)
+            {
+                dgvFlight.Columns["DepartureDateTime"].Visible = false;
+            }
         }
 
 
         private void fillComboBox()
         {
-            cmbOriginDestination.Items.Clear(); 
+            cmbOriginDestination.Items.Clear();
             cmbOriginDestination.Items.Add("Khởi Hành");
             cmbOriginDestination.Items.Add("Kết Thúc");
 
-            cmbOriginDestination.SelectedIndex = 0; 
+            cmbOriginDestination.SelectedIndex = 0;
 
         }
 
@@ -249,18 +359,18 @@ namespace GUI.Control
                 return false;
             }
 
-            if (dtpDuration.Value == null || dtpDuration.Value == DateTime.MinValue)
-            {
-                ShowAutoCloseMessage("Giờ Bay không được để trống!", 3000);
-                return false;
-            }
-
             if (!AreSeatsValid())
             {
                 return false;
             }
 
             return true;
+        }
+
+        public void UpdateTransitGrid(List<Transit> transitList)
+        {
+            dgvTransit.DataSource = null;
+            dgvTransit.DataSource = transitList;
         }
 
 
@@ -330,17 +440,6 @@ namespace GUI.Control
         #endregion
 
         #region Events
-        private void SchedulingControl_Load(object sender, EventArgs e)
-        {
-            dtpDuration.Format = DateTimePickerFormat.Custom;
-            dtpDuration.CustomFormat = "HH:mm:ss"; 
-            fillComboBox();
-
-            InitializeDataGridView(); 
-
-            LoadData();
-        }
-
         private void btnSave_Click(object sender, EventArgs e)
         {
             try
@@ -351,8 +450,8 @@ namespace GUI.Control
                     return;
                 }
 
-                // Tạo đối tượng chuyến bay mới
-                var newFlight = new Flight
+
+                Flight newFlight = new Flight
                 {
                     FlightId = Guid.NewGuid().ToString(),
                     Price = decimal.Parse(txtPrice.Text.Trim()),
@@ -360,20 +459,32 @@ namespace GUI.Control
                     DestinationAP = txtDestinationAP.Text.Trim(),
                     TotalSeat = int.Parse(txtHeight.Text.Trim()) * int.Parse(txtWeight.Text.Trim()),
                     isActive = 1,
-                    Duration = dtpDuration.Value.TimeOfDay,
-                    DepartureDateTime = dtpDepartureDate.Value,
+                    DepartureDateTime = null,
+
                 };
 
-                // Gọi qua BUS để thêm chuyến bay vào cơ sở dữ liệu
+
+                // Cập nhật FlightId cho tất cả transit trong danh sách
+                foreach (var transit in transitList)
+                {
+                    transit.flightID = newFlight.FlightId;
+                }
+
+                // Lưu chuyến bay và danh sách transit
                 _flightBUS.AddFlight(newFlight);
+                foreach (var transit in transitList)
+                {
+                    _transitBUS.AddTransit(transit);
+                }
 
                 ShowAutoCloseMessage("Lưu dữ liệu thành công!", 1500);
                 ClearInput();
                 LoadData();
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
-                ShowErrorMessage(ex);
+                Console.WriteLine($"SQL Error: {ex.Message}");
+                // Log thêm thông tin nếu cần
             }
         }
 
@@ -384,15 +495,11 @@ namespace GUI.Control
             string selection = cmbOriginDestination.SelectedItem?.ToString();
             FilterDataGridView(selection, airportCode);
         }
-
-
-        #endregion
-
         private void btnReload_Click(object sender, EventArgs e)
         {
 
             LoadData();
-  
+
             txtFind.Clear();
 
             cmbOriginDestination.SelectedIndex = 0;
@@ -405,5 +512,74 @@ namespace GUI.Control
 
             dgvFlight.DataSource = originalData;
         }
+
+        private void SchedulingControl_Load(object sender, EventArgs e)
+        {
+            // Cấu hình các DateTimePicker khác nếu cần
+            dtpDuration.Format = DateTimePickerFormat.Custom;
+            dtpDuration.CustomFormat = "HH:mm:ss";
+
+
+
+            fillComboBox();
+            InitializeDataGridView(dgvFlight);
+            InitializeDataGridView(dgvTransit);
+            LoadData();
+            LoadFlightData();
+
+            // Thêm sự kiện CellClick cho dgvFlight
+            dgvFlight.CellClick += dgvFlight_CellClick;
+        }
+        private void dgvFlight_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0) // Kiểm tra nếu hàng được chọn hợp lệ
+            {
+                try
+                {
+                    // Lấy dòng hiện tại mà người dùng click vào
+                    DataGridViewRow selectedRow = dgvFlight.Rows[e.RowIndex];
+
+                    // Binding dữ liệu từ các cột của dòng đã chọn vào TextBox
+                    txtOriginAP.Text = selectedRow.Cells["OriginAP"].Value?.ToString();
+                    txtDestinationAP.Text = selectedRow.Cells["DestinationAP"].Value?.ToString();
+                    txtPrice.Text = selectedRow.Cells["Price"].Value?.ToString();
+
+                    // Kiểm tra và gán giá trị cho dtpDepartureDate
+
+
+                    // Kiểm tra và gán giá trị cho Duration
+                    if (TimeSpan.TryParse(selectedRow.Cells["Duration"].Value?.ToString(), out TimeSpan duration))
+                    {
+                        dtpDuration.Value = DateTime.Today.Add(duration); // Gán TimeSpan vào DateTimePicker
+                    }
+                    else
+                    {
+                        dtpDuration.Value = DateTime.Today; // Gán giá trị mặc định nếu không hợp lệ
+                    }
+                }
+                catch (Exception ex)
+                {
+                    ShowErrorMessage(ex);
+                }
+            }
+            #endregion
+        }
+
+        private void guna2HtmlLabel6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtpDuration_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2HtmlLabel3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
+
+

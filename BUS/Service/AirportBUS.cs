@@ -1,4 +1,5 @@
-﻿using DAL.IAccess;
+﻿using DAL;
+using DAL.IAccess;
 using DTO.Entities;
 using System;
 using System.Collections.Generic;
@@ -11,11 +12,11 @@ namespace BUS.Service
     public class AirportBUS
     {
         private readonly IRepository<Airport> _airportRepository;
-
+        
         // Constructor Injection
-        public AirportBUS(IRepository<Airport> airportRepository)
+        public AirportBUS()
         {
-            _airportRepository = airportRepository;
+            _airportRepository = new AirportDAL();
         }
 
         // Method to get all airports
@@ -25,7 +26,7 @@ namespace BUS.Service
         }
 
         // Method to get airport by ID
-        public Airport GetAirportById(int id)
+        public Airport GetAirportById(string id)
         {
             return _airportRepository.GetById(id);
         }
@@ -43,7 +44,7 @@ namespace BUS.Service
         }
 
         // Method to delete an airport
-        public void DeleteAirport(int id)
+        public void DeleteAirport(string id)
         {
             _airportRepository.Delete(id);
         }

@@ -12,7 +12,8 @@ namespace DTO.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Permission()
         {
-            Accounts = new HashSet<Account>();
+            Per_Acc = new HashSet<Per_Acc>();
+            Per_Acc1 = new HashSet<Per_Acc>();
         }
 
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
@@ -23,6 +24,9 @@ namespace DTO.Entities
         public string PermissionName { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Account> Accounts { get; set; }
+        public virtual ICollection<Per_Acc> Per_Acc { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Per_Acc> Per_Acc1 { get; set; }
     }
 }

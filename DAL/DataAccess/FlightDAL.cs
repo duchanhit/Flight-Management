@@ -7,13 +7,21 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DAL
 {
     public class FlightDAL : IRepository<Flight>
     {
+        private readonly string connectionString;
+        private readonly FlightModel _context;
+
+        public FlightDAL()
+        {
+
+            connectionString = ConfigurationManager.ConnectionStrings["FlightModel"].ConnectionString;
+            _context = new FlightModel();
+        }
+
         // Lấy tất cả các chuyến bay từ cơ sở dữ liệu
         public IEnumerable<Flight> GetAll()
         {
@@ -24,21 +32,33 @@ namespace DAL
         }
 
         // Lấy thông tin chuyến bay theo ID
-        public Flight GetById(int flightId)
+        public Flight GetById(string flightId)
         {
             using (FlightModel context = new FlightModel())
             {
-                return context.Flights.SingleOrDefault(f => f.FlightId == flightId.ToString());
+                return context.Flights.SingleOrDefault(f => f.FlightId == flightId);
             }
         }
 
         // Thêm chuyến bay vào cơ sở dữ liệu
         public void Add(Flight flight)
         {
-            using (FlightModel context = new FlightModel())
+            using (var connection = new SqlConnection(connectionString))
             {
-                context.Flights.Add(flight);
-                context.SaveChanges();
+                connection.Open();
+                using (var command = new SqlCommand("INSERT INTO Flight (FlightId, Price, OriginAP, DestinationAP, TotalSeat, isActive, Duration, DepartureDateTime) VALUES (@FlightId, @Price, @OriginAP, @DestinationAP, @TotalSeat, @isActive, @Duration, @DepartureDateTime)", connection))
+                {
+                    command.Parameters.AddWithValue("@FlightId", flight.FlightId);
+                    command.Parameters.AddWithValue("@Price", flight.Price);
+                    command.Parameters.AddWithValue("@OriginAP", flight.OriginAP);
+                    command.Parameters.AddWithValue("@DestinationAP", flight.DestinationAP);
+                    command.Parameters.AddWithValue("@TotalSeat", flight.TotalSeat);
+                    command.Parameters.AddWithValue("@isActive", flight.isActive);
+                    command.Parameters.AddWithValue("@Duration", flight.Duration);
+                    command.Parameters.AddWithValue("@DepartureDateTime", flight.DepartureDateTime ?? (object)DBNull.Value);
+
+                    command.ExecuteNonQuery();
+                }
             }
         }
 
@@ -50,24 +70,24 @@ namespace DAL
                 var existingFlight = context.Flights.SingleOrDefault(f => f.FlightId == flight.FlightId);
                 if (existingFlight != null)
                 {
-                    // Cập nhật các thuộc tính cần thiết
                     existingFlight.Price = flight.Price;
                     existingFlight.OriginAP = flight.OriginAP;
                     existingFlight.DestinationAP = flight.DestinationAP;
                     existingFlight.TotalSeat = flight.TotalSeat;
                     existingFlight.isActive = flight.isActive;
                     existingFlight.Duration = flight.Duration;
+                    existingFlight.DepartureDateTime = flight.DepartureDateTime;
                     context.SaveChanges();
                 }
             }
         }
 
         // Xóa chuyến bay khỏi cơ sở dữ liệu
-        public void Delete(int flightId)
+        public void Delete(string flightId)
         {
             using (FlightModel context = new FlightModel())
             {
-                var flightToDelete = context.Flights.SingleOrDefault(f => f.FlightId == flightId.ToString());
+                var flightToDelete = context.Flights.SingleOrDefault(f => f.FlightId == flightId);
                 if (flightToDelete != null)
                 {
                     context.Flights.Remove(flightToDelete);
@@ -76,12 +96,12 @@ namespace DAL
             }
         }
 
-
+        // Lấy danh sách các chuyến bay dưới dạng DataTable
         public DataTable GetFlightsDataTable()
         {
             var dataTable = new DataTable();
 
-            using (var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["FlightModel"].ConnectionString))
+            using (var connection = new SqlConnection(connectionString))
             {
                 string query = "SELECT * FROM View_FlightsWithAirportNames";
 
@@ -90,7 +110,7 @@ namespace DAL
                     connection.Open();
                     using (var reader = command.ExecuteReader())
                     {
-                        dataTable.Load(reader); // Nạp dữ liệu từ reader vào DataTable
+                        dataTable.Load(reader);
                     }
                 }
             }
@@ -98,10 +118,12 @@ namespace DAL
             return dataTable;
         }
 
+        // Lấy mã sân bay dựa trên tên sân bay
         public string GetAirportCodeByName(string airportName)
         {
             string airportCode = null;
-            using (var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["FlightModel"].ConnectionString))
+
+            using (var connection = new SqlConnection(connectionString))
             {
                 string query = "SELECT AirportId FROM Airport WHERE AirportName = @airportName";
                 using (var command = new SqlCommand(query, connection))
@@ -115,12 +137,8 @@ namespace DAL
                     }
                 }
             }
+
             return airportCode;
         }
-
-
-
     }
-
-
 }

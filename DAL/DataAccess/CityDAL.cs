@@ -20,7 +20,7 @@ namespace DAL.DataAccess
         }
 
         // Lấy thông tin thành phố theo ID
-        public City GetById(int cityId)
+        public City GetById(string cityId)
         {
             using (FlightModel context = new FlightModel())
             {
@@ -55,7 +55,7 @@ namespace DAL.DataAccess
         }
 
         // Xóa thành phố khỏi cơ sở dữ liệu
-        public void Delete(int cityId)
+        public void Delete(string cityId)
         {
             using (FlightModel context = new FlightModel())
             {

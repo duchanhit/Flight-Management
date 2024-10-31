@@ -17,6 +17,7 @@ namespace GUI
     {
         private Queue<string> messageQueue = new Queue<string>();
         private bool isShowingMessage = false;
+        public string UserName { get; private set; }
         #region Methods
         public Login()
         {
@@ -180,7 +181,8 @@ namespace GUI
                 txtPassWord.Clear();
                 txtPassWord.Focus();
             }
-            #endregion
+           
         }
+        #endregion
     }
 }

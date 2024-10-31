@@ -25,7 +25,7 @@ namespace BUS.Service
         }
 
         // Method to get permission by ID
-        public Permission GetPermissionById(int id)
+        public Permission GetPermissionById(string id)
         {
             return _permissionRepository.GetById(id);
         }
@@ -43,7 +43,7 @@ namespace BUS.Service
         }
 
         // Method to delete a permission
-        public void DeletePermission(int id)
+        public void DeletePermission(string id)
         {
             _permissionRepository.Delete(id);
         }

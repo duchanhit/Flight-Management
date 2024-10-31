@@ -23,7 +23,7 @@ namespace DAL.DataAccess
         }
 
         // Lấy thông tin tài khoản theo ID
-        public Account GetById(int accountId)
+        public Account GetById(string accountId)
         {
             using (FlightModel context = new FlightModel())
             {
@@ -58,7 +58,7 @@ namespace DAL.DataAccess
         }
 
         // Xóa tài khoản khỏi cơ sở dữ liệu
-        public void Delete(int accountId)
+        public void Delete(string accountId)
         {
             using (FlightModel context = new FlightModel())
             {

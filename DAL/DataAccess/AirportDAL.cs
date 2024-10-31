@@ -22,7 +22,7 @@ namespace DAL
         }
 
         // Lấy thông tin sân bay theo ID
-        public Airport GetById(int airportId)
+        public Airport GetById(string airportId)
         {
             using (FlightModel context = new FlightModel())
             {
@@ -60,7 +60,7 @@ namespace DAL
         }
 
         // Xóa sân bay khỏi cơ sở dữ liệu
-        public void Delete(int airportId)
+        public void Delete(string airportId)
         {
             using (FlightModel context = new FlightModel())
             {

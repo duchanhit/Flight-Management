@@ -25,7 +25,7 @@ namespace BUS.Service
         }
 
         // Method to get class by ID
-        public Class GetClassById(int id)
+        public Class GetClassById(string id)
         {
             return _classRepository.GetById(id);
         }
@@ -43,7 +43,7 @@ namespace BUS.Service
         }
 
         // Method to delete a class
-        public void DeleteClass(int id)
+        public void DeleteClass(string id)
         {
             _classRepository.Delete(id);
         }

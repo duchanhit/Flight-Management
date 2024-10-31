@@ -19,12 +19,12 @@ namespace DAL.DataAccess
             }
         }
 
-        // Lấy thông tin lớp theo ID
-        public Class GetById(int classId)
+        // Lấy thông tin lớp theo ID (sử dụng string cho classId)
+        public Class GetById(string classId)
         {
             using (FlightModel context = new FlightModel())
             {
-                return context.Classes.SingleOrDefault(c => c.ClassId == classId.ToString());
+                return context.Classes.SingleOrDefault(c => c.ClassId == classId);
             }
         }
 
@@ -43,7 +43,7 @@ namespace DAL.DataAccess
         {
             using (FlightModel context = new FlightModel())
             {
-                var existingClass = context.Classes.SingleOrDefault(c => c.ClassId == classEntity.ClassId.ToString());
+                var existingClass = context.Classes.SingleOrDefault(c => c.ClassId == classEntity.ClassId);
                 if (existingClass != null)
                 {
                     // Cập nhật các thuộc tính cần thiết
@@ -54,12 +54,12 @@ namespace DAL.DataAccess
             }
         }
 
-        // Xóa lớp khỏi cơ sở dữ liệu
-        public void Delete(int classId)
+        // Xóa lớp khỏi cơ sở dữ liệu (sử dụng string cho classId)
+        public void Delete(string classId)
         {
             using (FlightModel context = new FlightModel())
             {
-                var classToDelete = context.Classes.SingleOrDefault(c => c.ClassId == classId.ToString());
+                var classToDelete = context.Classes.SingleOrDefault(c => c.ClassId == classId);
                 if (classToDelete != null)
                 {
                     context.Classes.Remove(classToDelete);

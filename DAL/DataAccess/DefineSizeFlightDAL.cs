@@ -20,7 +20,7 @@ namespace DAL.DataAccess
         }
 
         // Lấy thông tin kích thước chuyến bay theo ID
-        public DefineSizeFlight GetById(int defineSizeFlightId)
+        public DefineSizeFlight GetById(string defineSizeFlightId)
         {
             using (FlightModel context = new FlightModel())
             {
@@ -57,7 +57,7 @@ namespace DAL.DataAccess
         }
 
         // Xóa kích thước chuyến bay khỏi cơ sở dữ liệu
-        public void Delete(int defineSizeFlightId)
+        public void Delete(string defineSizeFlightId)
         {
             using (FlightModel context = new FlightModel())
             {

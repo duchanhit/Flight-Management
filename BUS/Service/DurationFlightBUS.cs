@@ -25,7 +25,7 @@ namespace BUS.Service
         }
 
         // Method to get flight by ID
-        public DurationFlight GetById(int id)
+        public DurationFlight GetById(string id)
         {
             return _durationFlightRepository.GetById(id);
         }
@@ -43,7 +43,7 @@ namespace BUS.Service
         }
 
         // Method to delete a flight
-        public void DeleteDurationFlight(int id)
+        public void DeleteDurationFlight(string id)
         {
             _durationFlightRepository.Delete(id);
         }

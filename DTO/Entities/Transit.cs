@@ -30,6 +30,10 @@ namespace DTO.Entities
 
         public virtual Airport Airport { get; set; }
 
+        public virtual Airport Airport1 { get; set; }
+
         public virtual Flight Flight { get; set; }
+
+        public virtual Flight Flight1 { get; set; }
     }
 }

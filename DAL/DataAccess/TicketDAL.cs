@@ -21,7 +21,7 @@ namespace DAL
         }
 
         // Lấy thông tin vé theo ID từ cơ sở dữ liệu
-        public Ticket GetById(int ticketId)
+        public Ticket GetById(string ticketId)
         {
             using (FlightModel context = new FlightModel())
             {
@@ -61,7 +61,7 @@ namespace DAL
         }
 
         // Xóa vé khỏi cơ sở dữ liệu
-        public void Delete(int ticketId)
+        public void Delete(string ticketId)
         {
             using (FlightModel context = new FlightModel())
             {

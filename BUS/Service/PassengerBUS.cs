@@ -27,7 +27,7 @@ namespace BUS
         }
 
         // Method to get passenger by ID
-        public Passenger GetPassengerById(int id)
+        public Passenger GetPassengerById(string id)
         {
             return _passengerRepository.GetById(id);
         }
@@ -45,7 +45,7 @@ namespace BUS
         }
 
         // Method to delete a passenger
-        public void DeletePassenger(int id)
+        public void DeletePassenger(string id)
         {
             _passengerRepository.Delete(id);
         }

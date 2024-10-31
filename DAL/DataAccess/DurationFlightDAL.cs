@@ -20,7 +20,7 @@ namespace DAL.DataAccess
         }
 
         // Lấy thông tin thời gian chuyến bay theo ID
-        public DurationFlight GetById(int durationFlightId)
+        public DurationFlight GetById(string durationFlightId)
         {
             using (FlightModel context = new FlightModel())
             {
@@ -54,7 +54,7 @@ namespace DAL.DataAccess
         }
 
         // Xóa thời gian chuyến bay khỏi cơ sở dữ liệu
-        public void Delete(int durationFlightId)
+        public void Delete(string durationFlightId)
         {
             using (FlightModel context = new FlightModel())
             {

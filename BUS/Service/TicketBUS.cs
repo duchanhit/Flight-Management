@@ -1,4 +1,5 @@
-﻿using DAL.IAccess;
+﻿using DAL;
+using DAL.IAccess;
 using DTO.Entities;
 using System;
 using System.Collections.Generic;
@@ -11,11 +12,17 @@ namespace BUS.Service
     public class TicketBUS
     {
         private readonly IRepository<Ticket> _ticketRepository;
+        private readonly IRepository<Passenger> _passengerRepository;
 
         // Constructor Injection
         public TicketBUS(IRepository<Ticket> ticketRepository)
         {
             _ticketRepository = ticketRepository;
+        }
+
+        public TicketBUS()
+        {
+            _ticketRepository = new TicketDAL();
         }
 
         // Method to get all tickets
@@ -25,14 +32,21 @@ namespace BUS.Service
         }
 
         // Method to get ticket by ID
-        public Ticket GetTicketById(int id)
+        public Ticket GetTicketById(string id)
         {
             return _ticketRepository.GetById(id);
         }
 
         // Method to add a new ticket
-        public void AddTicket(Ticket ticket)
+        public void AddTicket(Ticket ticket, Passenger passenger)
         {
+            // Save the Passenger first
+            _passengerRepository.Add(passenger);
+
+            // Set the PassengerId in the Ticket object
+            ticket.TicketIDPassenger = passenger.PassengerId;
+
+            // Now save the Ticket
             _ticketRepository.Add(ticket);
         }
 
@@ -43,7 +57,7 @@ namespace BUS.Service
         }
 
         // Method to delete a ticket
-        public void DeleteTicket(int id)
+        public void DeleteTicket(string id)
         {
             _ticketRepository.Delete(id);
         }

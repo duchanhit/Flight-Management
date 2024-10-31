@@ -1,4 +1,5 @@
-﻿using DAL.IAccess;
+﻿using DAL;
+using DAL.IAccess;
 using DTO.Entities;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,10 @@ namespace BUS.Service
         {
             _transitRepository = transitRepository;
         }
+        public TransitBUS()
+        {
+            _transitRepository = new TransitDAL();
+        }
 
         // Method to get all transits
         public IEnumerable<Transit> GetAllTransits()
@@ -25,7 +30,7 @@ namespace BUS.Service
         }
 
         // Method to get transit by ID
-        public Transit GetTransitById(int id)
+        public Transit GetTransitById(string id)
         {
             return _transitRepository.GetById(id);
         }
@@ -43,7 +48,7 @@ namespace BUS.Service
         }
 
         // Method to delete a transit
-        public void DeleteTransit(int id)
+        public void DeleteTransit(string id)
         {
             _transitRepository.Delete(id);
         }

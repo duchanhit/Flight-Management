@@ -21,7 +21,7 @@ namespace DAL
         }
 
         // Lấy thông tin hành khách theo ID từ cơ sở dữ liệu
-        public Passenger GetById(int passengerId)
+        public Passenger GetById(string passengerId)
         {
             using (FlightModel context = new FlightModel())
             {
@@ -59,7 +59,7 @@ namespace DAL
         }
 
         // Xóa hành khách khỏi cơ sở dữ liệu
-        public void Delete(int passengerId)
+        public void Delete(string passengerId)
         {
             using (FlightModel context = new FlightModel())
             {

@@ -16,6 +16,18 @@ namespace BUS
         private readonly IRepository<Flight> _flightRepository;
         private readonly FlightDAL _flightDAL;
         // Constructor Injection
+  
+
+        public FlightBUS(IRepository<Flight> flightRepository)
+        {
+            _flightRepository = flightRepository;
+        }
+
+        public IEnumerable<Flight> GetFlightsByCityId(string cityId)
+        {
+            // Modify the logic according to your requirements
+            return _flightRepository.GetAll().Where(f => f.DestinationAP == cityId || f.OriginAP == cityId); // Use appropriate properties
+        }
         public FlightBUS()
         {
             _flightDAL = new FlightDAL();
@@ -29,7 +41,7 @@ namespace BUS
         }
 
         // Method to get flight by ID
-        public Flight GetById(int id)
+        public Flight GetById(string id)
         {
             return _flightRepository.GetById(id);
         }
@@ -47,7 +59,7 @@ namespace BUS
         }
 
         // Method to delete a flight
-        public void DeleteFlight(int id)
+        public void DeleteFlight(string id)
         {
             _flightRepository.Delete(id);
         }

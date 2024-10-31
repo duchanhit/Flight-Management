@@ -20,7 +20,7 @@ namespace DAL
         }
 
         // Lấy thông tin trạm trung chuyển theo ID
-        public Transit GetById(int transitId)
+        public Transit GetById(string transitId)
         {
             using (FlightModel context = new FlightModel())
             {
@@ -59,7 +59,7 @@ namespace DAL
         }
 
         // Xóa trạm trung chuyển khỏi cơ sở dữ liệu
-        public void Delete(int transitId)
+        public void Delete(string transitId)
         {
             using (FlightModel context = new FlightModel())
             {

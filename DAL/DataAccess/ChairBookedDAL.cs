@@ -20,7 +20,7 @@ namespace DAL.DataAccess
         }
 
         // Lấy thông tin ghế đã đặt theo ID
-        public ChairBooked GetById(int chairBookedId)
+        public ChairBooked GetById(string chairBookedId)
         {
             using (FlightModel context = new FlightModel())
             {
@@ -58,7 +58,7 @@ namespace DAL.DataAccess
         }
 
         // Xóa ghế đã đặt khỏi cơ sở dữ liệu
-        public void Delete(int chairBookedId)
+        public void Delete(string chairBookedId)
         {
             using (FlightModel context = new FlightModel())
             {

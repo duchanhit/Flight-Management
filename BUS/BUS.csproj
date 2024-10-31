@@ -53,12 +53,14 @@
     <Compile Include="Service\ChairBookedBUS.cs" />
     <Compile Include="Service\CityBUS.cs" />
     <Compile Include="Service\ClassBUS.cs" />
+    <Compile Include="Service\DashoardBUS.cs" />
     <Compile Include="Service\DefineSizeFlightBUS.cs" />
     <Compile Include="Service\DurationFlightBUS.cs" />
     <Compile Include="Service\FlightBUS.cs" />
     <Compile Include="Service\PassengerBUS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\PermissionBUS.cs" />
+    <Compile Include="Service\RestrictionsBUS.cs" />
     <Compile Include="Service\RevenueBUS.cs" />
     <Compile Include="Service\TicketBUS.cs" />
     <Compile Include="Service\TransitBUS.cs" />

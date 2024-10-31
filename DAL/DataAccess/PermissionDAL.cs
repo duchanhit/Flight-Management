@@ -20,11 +20,11 @@ namespace DAL.DataAccess
         }
 
         // Lấy thông tin quyền theo ID
-        public Permission GetById(int permissionId)
+        public Permission GetById(string permissionId)
         {
             using (FlightModel context = new FlightModel())
             {
-                return context.Permissions.SingleOrDefault(p => p.PermissionId == permissionId);
+                return context.Permissions.SingleOrDefault(p => p.PermissionId.ToString() == permissionId);
             }
         }
 
@@ -54,11 +54,11 @@ namespace DAL.DataAccess
         }
 
         // Xóa quyền khỏi cơ sở dữ liệu
-        public void Delete(int permissionId)
+        public void Delete(string permissionId)
         {
             using (FlightModel context = new FlightModel())
             {
-                var permissionToDelete = context.Permissions.SingleOrDefault(p => p.PermissionId == permissionId);
+                var permissionToDelete = context.Permissions.SingleOrDefault(p => p.PermissionId.ToString() == permissionId);
                 if (permissionToDelete != null)
                 {
                     context.Permissions.Remove(permissionToDelete);
