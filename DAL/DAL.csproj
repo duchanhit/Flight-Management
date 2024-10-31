@@ -68,16 +68,15 @@
     <Compile Include="DataAccess\ChairBookedDAL.cs" />
     <Compile Include="DataAccess\CityDAL.cs" />
     <Compile Include="DataAccess\ClassDAL.cs" />
+    <Compile Include="DataAccess\DAL.cs" />
     <Compile Include="DataAccess\DefineSizeFlightDAL.cs" />
     <Compile Include="DataAccess\DurationFlightDAL.cs" />
     <Compile Include="DataAccess\FlightDAL.cs" />
     <Compile Include="DataAccess\PassengerDAL.cs" />
     <Compile Include="DataAccess\PermissionDAL.cs" />
-    <Compile Include="DataAccess\RevenueReportDAL.cs" />
-    <Compile Include="IAccess\IRepository.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DataAccess\TicketDAL.cs" />
     <Compile Include="DataAccess\TransitDAL.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

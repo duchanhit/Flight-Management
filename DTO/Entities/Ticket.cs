@@ -28,7 +28,7 @@ namespace DTO.Entities
 
         [Required]
         [StringLength(100)]
-        public string FlightId { get; set; }
+        public string IDDurationFlight { get; set; }
 
         [Column(TypeName = "smalldatetime")]
         public DateTime? timeFlight { get; set; }
@@ -43,12 +43,8 @@ namespace DTO.Entities
 
         public virtual Class Class { get; set; }
 
-        public virtual Flight Flight { get; set; }
-
-        public virtual Flight Flight1 { get; set; }
+        public virtual DurationFlight DurationFlight { get; set; }
 
         public virtual Passenger Passenger { get; set; }
-
-        public virtual Passenger Passenger1 { get; set; }
     }
 }

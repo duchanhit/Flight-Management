@@ -1,52 +1,48 @@
-﻿using DAL.DataAccess;
-using DAL.IAccess;
+﻿using DAL;
+using DAL.DataAccess;
 using DTO.Entities;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BUS.Service
 {
     public class DefineSizeFlightBUS
     {
-        private readonly IRepository<DefineSizeFlight> _defineSizeFlightRepository;
+        private readonly DefineSizeFlightDAL _defineSizeFlightDAL;
 
-        // Constructor Injection
-        public DefineSizeFlightBUS(IRepository<DefineSizeFlight> defineSizeFlightRepository)
+        // Constructor
+        public DefineSizeFlightBUS()
         {
-            _defineSizeFlightRepository = defineSizeFlightRepository;
+            _defineSizeFlightDAL = new DefineSizeFlightDAL();
         }
 
         // Method to get all define size flights
-        public DefineSizeFlightBUS()
+        public IEnumerable<DefineSizeFlight> GetAllDefineSizeFlights()
         {
-            _defineSizeFlightRepository = new DefineSizeFlightDAL();
+            return _defineSizeFlightDAL.GetAll();
         }
 
         // Method to get define size flight by ID
         public DefineSizeFlight GetDefineSizeFlightById(int id)
         {
-            return _defineSizeFlightRepository.GetById(id);
+            return _defineSizeFlightDAL.GetById(id);
         }
 
         // Method to add a new define size flight
         public void AddDefineSizeFlight(DefineSizeFlight defineSizeFlight)
         {
-            _defineSizeFlightRepository.Add(defineSizeFlight);
+            _defineSizeFlightDAL.Add(defineSizeFlight);
         }
 
         // Method to update an existing define size flight
         public void UpdateDefineSizeFlight(DefineSizeFlight defineSizeFlight)
         {
-            _defineSizeFlightRepository.Update(defineSizeFlight);
+            _defineSizeFlightDAL.Update(defineSizeFlight);
         }
 
         // Method to delete a define size flight
         public void DeleteDefineSizeFlight(int id)
         {
-            _defineSizeFlightRepository.Delete(id);
+            _defineSizeFlightDAL.Delete(id);
         }
     }
 }

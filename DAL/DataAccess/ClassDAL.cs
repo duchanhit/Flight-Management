@@ -1,4 +1,4 @@
-﻿using DAL.IAccess;
+﻿
 using DTO.Entities;
 using System;
 using System.Collections.Generic;
@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DAL.DataAccess
 {
-    public class ClassDAL : IRepository<Class>
+    public class ClassDAL
     {
         // Lấy tất cả các lớp từ cơ sở dữ liệu
         public IEnumerable<Class> GetAll()

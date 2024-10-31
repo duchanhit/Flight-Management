@@ -1,73 +1,54 @@
-﻿using DAL.DataAccess;
-using DAL.IAccess;
+﻿using DAL;
+using DAL.DataAccess;
 using DTO.Entities;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BUS.Service
 {
     public class AccountBUS
     {
-        
-        private readonly IRepository<Account> _accountRepository;
+        private readonly AccountDAL _accountDAL;
 
-        // Constructor Injection
-        public AccountBUS(IRepository<Account> accountRepository)
-        {
-            _accountRepository = accountRepository;
-        }
-
+        // Constructor
         public AccountBUS()
         {
-            _accountRepository = new AccountDAL();
+            _accountDAL = new AccountDAL();
         }
 
         // Method to get all accounts
         public IEnumerable<Account> GetAllAccounts()
         {
-            return _accountRepository.GetAll();
+            return _accountDAL.GetAll();
         }
 
-        // Method to get account by ID
+        // Method to get an account by ID
         public Account GetAccountById(int id)
         {
-            return _accountRepository.GetById(id);
+            return _accountDAL.GetById(id);
         }
 
         // Method to add a new account
         public void AddAccount(Account account)
         {
-            _accountRepository.Add(account);
+            _accountDAL.Add(account);
         }
 
         // Method to update an existing account
         public void UpdateAccount(Account account)
         {
-            _accountRepository.Update(account);
+            _accountDAL.Update(account);
         }
 
         // Method to delete an account
         public void DeleteAccount(int id)
         {
-            _accountRepository.Delete(id);
+            _accountDAL.Delete(id);
         }
 
-
+        // Method to check login credentials
         public bool Login(string username, string password)
         {
-            AccountDAL accountDAL = new AccountDAL(); 
-            return accountDAL.CheckLogin(username, password); 
+            return _accountDAL.CheckLogin(username, password);
         }
-
-
-        public bool InsertAccount(string userId, string username, string password, int permissionId, string gmail)
-        {
-            AccountDAL accountDAL = new AccountDAL();
-            return accountDAL.InsertAccount(userId, username, password, permissionId, gmail);
-        }
-
     }
 }

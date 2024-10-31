@@ -1,4 +1,4 @@
-﻿using DAL.IAccess;
+﻿
 using DTO.Entities;
 using System;
 using System.Collections.Generic;
@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DAL.DataAccess
 {
-    public class CityDAL : IRepository<City>
+    public class CityDAL
     {
         // Lấy tất cả các thành phố từ cơ sở dữ liệu
         public IEnumerable<City> GetAll()

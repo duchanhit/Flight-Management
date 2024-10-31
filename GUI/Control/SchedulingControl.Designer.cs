@@ -174,7 +174,7 @@
             // 
             this.dtpDepartureDate.AccessibleDescription = "";
             this.dtpDepartureDate.Checked = true;
-            this.dtpDepartureDate.FillColor = System.Drawing.Color.Cyan;
+            this.dtpDepartureDate.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.dtpDepartureDate.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.dtpDepartureDate.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.dtpDepartureDate.Location = new System.Drawing.Point(248, 97);
@@ -431,7 +431,6 @@
             this.dgvFlight.ThemeStyle.RowsStyle.Height = 24;
             this.dgvFlight.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvFlight.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.dgvFlight.SelectionChanged += new System.EventHandler(this.dgvFlight_SelectionChanged_1);
             // 
             // guna2Panel3
             // 

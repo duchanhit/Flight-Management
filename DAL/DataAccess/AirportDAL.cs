@@ -1,4 +1,4 @@
-﻿using DAL.IAccess;
+﻿
 using DTO;
 using DTO.Entities;
 using System;
@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class AirportDAL : IRepository<Airport>
+    public class AirportDAL 
     {
         // Lấy tất cả các sân bay từ cơ sở dữ liệu
         public IEnumerable<Airport> GetAll()

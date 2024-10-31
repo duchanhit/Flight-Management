@@ -1,52 +1,48 @@
-﻿using DAL.IAccess;
+﻿using DAL;
+using DAL.DataAccess;
 using DTO.Entities;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BUS.Service
 {
     public class DurationFlightBUS
     {
-        private readonly IRepository<DurationFlight> _durationFlightRepository;
+        private readonly DurationFlightDAL _durationFlightDAL;
 
-        // Constructor Injection
-        public DurationFlightBUS(IRepository<DurationFlight> flightRepository)
+        // Constructor
+        public DurationFlightBUS()
         {
-            _durationFlightRepository = flightRepository;
+            _durationFlightDAL = new DurationFlightDAL();
         }
 
-        // Method to get all flights
-        public IEnumerable<DurationFlight> GetAllFlights()
+        // Method to get all duration flights
+        public IEnumerable<DurationFlight> GetAllDurationFlights()
         {
-            return _durationFlightRepository.GetAll();
+            return _durationFlightDAL.GetAll();
         }
 
-        // Method to get flight by ID
-        public DurationFlight GetById(int id)
+        // Method to get a duration flight by ID
+        public DurationFlight GetDurationFlightById(int id)
         {
-            return _durationFlightRepository.GetById(id);
+            return _durationFlightDAL.GetById(id);
         }
 
-        // Method to add a new flight
+        // Method to add a new duration flight
         public void AddDurationFlight(DurationFlight flight)
         {
-            _durationFlightRepository.Add(flight);
+            _durationFlightDAL.Add(flight);
         }
 
-        // Method to update an existing flight
+        // Method to update an existing duration flight
         public void UpdateDurationFlight(DurationFlight flight)
         {
-            _durationFlightRepository.Update(flight);
+            _durationFlightDAL.Update(flight);
         }
 
-        // Method to delete a flight
+        // Method to delete a duration flight
         public void DeleteDurationFlight(int id)
         {
-            _durationFlightRepository.Delete(id);
+            _durationFlightDAL.Delete(id);
         }
     }
-
 }

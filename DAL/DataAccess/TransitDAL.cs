@@ -1,4 +1,4 @@
-﻿using DAL.IAccess;
+﻿
 using DTO;
 using DTO.Entities;
 using System;
@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class TransitDAL : IRepository<Transit>
+    public class TransitDAL 
     {
         public IEnumerable<Transit> GetAll()
         {

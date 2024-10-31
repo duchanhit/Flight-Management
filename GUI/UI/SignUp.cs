@@ -174,17 +174,12 @@ namespace GUI
             var account = new Account
             {
                 AccountId = Guid.NewGuid().ToString(),
-                Gmail = txtGmail.Text.Trim(),
+
                 AccountUser = txtUser.Text.Trim(),
                 AccountPass = txtPassWord.Text.Trim()
             };
 
-            // Validate email syntax
-            if (!IsValidEmail(account.Gmail))
-            {
-                EnqueueMessage("Email không đúng định dạng!", 1500);
-                return;
-            }
+
 
             int permissionId;
             if (string.IsNullOrWhiteSpace(txtAccountType.Text))
@@ -211,18 +206,9 @@ namespace GUI
                 return;
             }
 
-            bool isInserted = _accountBUS.InsertAccount(account.AccountId, account.AccountUser, account.AccountPass, permissionId, account.Gmail);
 
-            if (isInserted)
-            {
-                MessageBox.Show("Đăng ký thành công!", "Thông báo", MessageBoxButtons.OK);
-                ClearFields();
-            }
-            else
-            {
-                EnqueueMessage("Đăng ký thất bại. Mời bạn thử lại!", 1500);
-            }
 
+   
         }
 
         #endregion

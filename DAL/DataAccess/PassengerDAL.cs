@@ -1,4 +1,4 @@
-﻿using DAL.IAccess;
+﻿
 using DTO;
 using DTO.Entities;
 using System;
@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class PassengerDAL : IRepository<Passenger>
+    public class PassengerDAL 
     {
         // Lấy tất cả hành khách từ cơ sở dữ liệu
         public IEnumerable<Passenger> GetAll()

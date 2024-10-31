@@ -1,4 +1,4 @@
-﻿using DAL.IAccess;
+﻿
 using DTO.Entities;
 using System;
 using System.Collections.Generic;
@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DAL.DataAccess
 {
-    public class PermissionDAL : IRepository<Permission>
+    public class PermissionDAL 
     {
         // Lấy tất cả các quyền từ cơ sở dữ liệu
         public IEnumerable<Permission> GetAll()

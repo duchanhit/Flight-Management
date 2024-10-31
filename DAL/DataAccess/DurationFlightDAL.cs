@@ -1,4 +1,4 @@
-﻿using DAL.IAccess;
+﻿
 using DTO.Entities;
 using System;
 using System.Collections.Generic;
@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DAL.DataAccess
 {
-    public class DurationFlightDAL : IRepository<DurationFlight>
+    public class DurationFlightDAL 
     {
         // Lấy tất cả các thời gian chuyến bay từ cơ sở dữ liệu
         public IEnumerable<DurationFlight> GetAll()

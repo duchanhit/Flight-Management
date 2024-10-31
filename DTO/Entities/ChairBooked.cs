@@ -13,9 +13,8 @@ namespace DTO.Entities
         [StringLength(100)]
         public string IDChairBooked { get; set; }
 
-        [Required]
         [StringLength(100)]
-        public string FlightId { get; set; }
+        public string IDDurationFlight { get; set; }
 
         public int? XPos { get; set; }
 
@@ -24,14 +23,11 @@ namespace DTO.Entities
         [Column(TypeName = "smalldatetime")]
         public DateTime? Time { get; set; }
 
-        [Required]
         [StringLength(100)]
         public string TicketId { get; set; }
 
-        public virtual Flight Flight { get; set; }
-
         public virtual Ticket Ticket { get; set; }
 
-        public virtual Flight Flight1 { get; set; }
+        public virtual DurationFlight DurationFlight { get; set; }
     }
 }

@@ -1,4 +1,4 @@
-﻿using DAL.IAccess;
+﻿
 using DTO.Entities;
 using System;
 using System.Collections.Generic;
@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace DAL.DataAccess
 {
-    public class AccountDAL : IRepository<Account>
+    public class AccountDAL 
     {
         // Lấy tất cả các tài khoản từ cơ sở dữ liệu
         public IEnumerable<Account> GetAll()

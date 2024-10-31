@@ -6,25 +6,25 @@ namespace DTO.Entities
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("Permission")]
-    public partial class Permission
+    [Table("Profile")]
+    public partial class Profile
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Permission()
+        public Profile()
         {
-            Profiles = new HashSet<Profile>();
+            Permissions = new HashSet<Permission>();
         }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int PermissionId { get; set; }
+        [StringLength(100)]
+        public string ProfileId { get; set; }
 
         [Required]
         [StringLength(50)]
-        public string PermissionName { get; set; }
+        public string ProfileName { get; set; }
 
-        public virtual PerDetail PerDetail { get; set; }
+        public virtual Account Account { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Profile> Profiles { get; set; }
+        public virtual ICollection<Permission> Permissions { get; set; }
     }
 }

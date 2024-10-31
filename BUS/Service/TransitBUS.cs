@@ -1,59 +1,54 @@
 ﻿using DAL;
-using DAL.IAccess;
 using DTO.Entities;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BUS.Service
 {
     public class TransitBUS
     {
-        private readonly IRepository<Transit> _transitRepository;
         private readonly TransitDAL _transitDAL;
 
-        public TransitBUS() 
+        // Constructor
+        public TransitBUS()
         {
-            _transitRepository = new TransitDAL();
             _transitDAL = new TransitDAL();
         }
 
         // Method to get all transits
         public IEnumerable<Transit> GetAllTransits()
         {
-            return _transitRepository.GetAll();
+            return _transitDAL.GetAll();
         }
 
-        // Method to get transit by ID
+        // Method to get a transit by ID
         public Transit GetTransitById(int id)
         {
-            return _transitRepository.GetById(id);
+            return _transitDAL.GetById(id);
         }
 
         // Method to add a new transit
         public void AddTransit(Transit transit)
         {
-            _transitRepository.Add(transit);
+            _transitDAL.Add(transit);
         }
 
         // Method to update an existing transit
         public void UpdateTransit(Transit transit)
         {
-            _transitRepository.Update(transit);
+            _transitDAL.Update(transit);
         }
 
         // Method to delete a transit
         public void DeleteTransit(int id)
         {
-            _transitRepository.Delete(id);
-        }
-        public bool SaveTransit(Transit transit)
-        {
-            // Thêm các xử lý nghiệp vụ tại đây nếu cần
-            return _transitDAL.SaveTransit(transit);
+            _transitDAL.Delete(id);
         }
 
+        // Custom method to save a transit with additional business logic
+        public bool SaveTransit(Transit transit)
+        {
+            // Add any business logic here if needed
+            return _transitDAL.SaveTransit(transit);
+        }
     }
 }

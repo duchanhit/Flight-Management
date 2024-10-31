@@ -1,51 +1,48 @@
-﻿using DAL.IAccess;
+﻿using DAL;
+using DAL.DataAccess;
 using DTO.Entities;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BUS.Service
 {
     public class PermissionBUS
     {
-        private readonly IRepository<Permission> _permissionRepository;
+        private readonly PermissionDAL _permissionDAL;
 
-        // Constructor Injection
-        public PermissionBUS(IRepository<Permission> permissionRepository)
+        // Constructor
+        public PermissionBUS()
         {
-            _permissionRepository = permissionRepository;
+            _permissionDAL = new PermissionDAL();
         }
 
         // Method to get all permissions
         public IEnumerable<Permission> GetAllPermissions()
         {
-            return _permissionRepository.GetAll();
+            return _permissionDAL.GetAll();
         }
 
-        // Method to get permission by ID
+        // Method to get a permission by ID
         public Permission GetPermissionById(int id)
         {
-            return _permissionRepository.GetById(id);
+            return _permissionDAL.GetById(id);
         }
 
         // Method to add a new permission
         public void AddPermission(Permission permission)
         {
-            _permissionRepository.Add(permission);
+            _permissionDAL.Add(permission);
         }
 
         // Method to update an existing permission
         public void UpdatePermission(Permission permission)
         {
-            _permissionRepository.Update(permission);
+            _permissionDAL.Update(permission);
         }
 
         // Method to delete a permission
         public void DeletePermission(int id)
         {
-            _permissionRepository.Delete(id);
+            _permissionDAL.Delete(id);
         }
     }
 }

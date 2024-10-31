@@ -73,8 +73,10 @@
     <Compile Include="Entities\Flight.cs" />
     <Compile Include="Entities\FlightModel.cs" />
     <Compile Include="Entities\Passenger.cs" />
+    <Compile Include="Entities\PerDetail.cs" />
     <Compile Include="Entities\Permission.cs" />
-    <Compile Include="Entities\Per_Acc.cs" />
+    <Compile Include="Entities\Profile.cs" />
+    <Compile Include="Entities\sysdiagram.cs" />
     <Compile Include="Entities\Ticket.cs" />
     <Compile Include="Entities\Transit.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

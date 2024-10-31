@@ -18,7 +18,5 @@ namespace DTO.Entities
         public int? height { get; set; }
 
         public virtual Flight Flight { get; set; }
-
-        public virtual Flight Flight1 { get; set; }
     }
 }

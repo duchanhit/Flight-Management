@@ -1,57 +1,47 @@
 ﻿using DAL;
-using DAL.IAccess;
 using DTO.Entities;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BUS.Service
 {
     public class AirportBUS
     {
-        private readonly IRepository<Airport> _airportRepository;
+        private readonly AirportDAL _airportDAL;
 
-        // Constructor Injection
-        public AirportBUS(IRepository<Airport> airportRepository)
+        // Constructor
+        public AirportBUS()
         {
-            _airportRepository = airportRepository;
+            _airportDAL = new AirportDAL();
         }
 
-        public AirportBUS() 
-        {
-            _airportRepository = new AirportDAL();
-
-        }
         // Method to get all airports
         public IEnumerable<Airport> GetAllAirports()
         {
-            return _airportRepository.GetAll();
+            return _airportDAL.GetAll();
         }
 
-        // Method to get airport by ID
-        public Airport GetAirportById(int id)
+        // Method to get an airport by ID
+        public Airport GetAirportById(int airportId)
         {
-            return _airportRepository.GetById(id);
+            return _airportDAL.GetById(airportId);
         }
 
         // Method to add a new airport
         public void AddAirport(Airport airport)
         {
-            _airportRepository.Add(airport);
+            _airportDAL.Add(airport);
         }
 
         // Method to update an existing airport
         public void UpdateAirport(Airport airport)
         {
-            _airportRepository.Update(airport);
+            _airportDAL.Update(airport);
         }
 
         // Method to delete an airport
-        public void DeleteAirport(int id)
+        public void DeleteAirport(int airportId)
         {
-            _airportRepository.Delete(id);
+            _airportDAL.Delete(airportId);
         }
     }
 }

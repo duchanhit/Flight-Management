@@ -1,67 +1,47 @@
 ﻿using DAL;
-using DAL.IAccess;
-using DTO;
 using DTO.Entities;
-using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BUS
 {
     public class FlightBUS
     {
-        private readonly IRepository<Flight> _flightRepository;
         private readonly FlightDAL _flightDAL;
-        // Constructor Injection
+
+        // Constructor
         public FlightBUS()
         {
             _flightDAL = new FlightDAL();
-            _flightRepository = new FlightDAL();
         }
 
         // Method to get all flights
         public IEnumerable<Flight> GetAllFlights()
         {
-            return _flightRepository.GetAll();
+            return _flightDAL.GetAll();
         }
 
         // Method to get flight by ID
-        public Flight GetById(int id)
+        public Flight GetFlightById(string flightId)
         {
-            return _flightRepository.GetById(id);
+            return _flightDAL.GetById(flightId);
         }
 
         // Method to add a new flight
         public void AddFlight(Flight flight)
         {
-            _flightRepository.Add(flight);
+            _flightDAL.Add(flight);
         }
 
         // Method to update an existing flight
         public void UpdateFlight(Flight flight)
         {
-            _flightRepository.Update(flight);
+            _flightDAL.Update(flight);
         }
 
-        // Method to delete a flight
-        public void DeleteFlight(int id)
+        // Method to delete a flight (disable it)
+        public void DeleteFlight(string flightId)
         {
-            _flightRepository.Delete(id);
+            _flightDAL.Delete(flightId);
         }
-
-        public DataTable GetFlightsWithAirportNames()
-        {
-            return _flightDAL.GetFlightsDataTable();
-        }
-        public string GetAirportCodeByName(string airportName)
-        {
-            return _flightDAL.GetAirportCodeByName(airportName);
-        }
-
-
     }
-
 }

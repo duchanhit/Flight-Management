@@ -1,4 +1,4 @@
-﻿using DAL.IAccess;
+﻿
 using DTO;
 using DTO.Entities;
 using System;
@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class TicketDAL : IRepository<Ticket>
+    public class TicketDAL
     {
         // Lấy tất cả vé từ cơ sở dữ liệu
         public IEnumerable<Ticket> GetAll()
@@ -51,7 +51,6 @@ namespace DAL
                     // Cập nhật các thuộc tính cần thiết
                     existingTicket.TicketIDPassenger = ticket.TicketIDPassenger;
                     existingTicket.ClassId = ticket.ClassId;
-                    existingTicket.FlightId = ticket.FlightId;
                     existingTicket.timeFlight = ticket.timeFlight;
                     existingTicket.TimeBooking = ticket.TimeBooking;
                     existingTicket.isPaid = ticket.isPaid;

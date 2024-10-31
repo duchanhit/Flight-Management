@@ -54,7 +54,7 @@ namespace GUI.Control
 
         public void UpdateTransitGrid(List<Tuple<string, TimeSpan?, string>> transitDataList)
         {
-      
+
             // Xóa danh sách cũ và cập nhật danh sách mới từ dữ liệu truyền vào
             transitList.Clear();
             foreach (var data in transitDataList)
@@ -250,29 +250,6 @@ namespace GUI.Control
 
         private void LoadData()
         {
-            // Lấy DataTable từ view với tên sân bay khởi hành và kết thúc
-            DataTable flightsTable = _flightBUS.GetFlightsWithAirportNames();
-
-            // Thêm cột mã sân bay để tìm kiếm theo mã sân bay
-            flightsTable.Columns.Add("OriginAP", typeof(string));
-            flightsTable.Columns.Add("DestinationAP", typeof(string));
-
-            foreach (DataRow row in flightsTable.Rows)
-            {
-                row["OriginAP"] = _flightBUS.GetAirportCodeByName(row["OriginAirportName"].ToString());
-                row["DestinationAP"] = _flightBUS.GetAirportCodeByName(row["DestinationAirportName"].ToString());
-
-                // Định dạng cột Duration theo hh:mm:ss
-                if (TimeSpan.TryParse(row["Duration"].ToString(), out TimeSpan duration))
-                {
-                    row["Duration"] = duration.ToString(@"hh\:mm\:ss");
-                }
-            }
-
-            // Lưu lại dữ liệu gốc để phục vụ cho tìm kiếm
-            originalData = flightsTable;
-            dgvFlight.DataSource = flightsTable;
-
             SetColumnHeaders();
 
             SetColumnWidths(dgvFlight);
@@ -443,8 +420,9 @@ namespace GUI.Control
                 {
                     return;
                 }
+                DateTime departureDateTime = dtpDepartureDate.Value; // Lấy giá trị ngày giờ đã chọn
+                dtpDepartureDate.Value = DateTime.Now;
 
-                // Tạo đối tượng chuyến bay mới
                 Flight newFlight = new Flight
                 {
                     FlightId = Guid.NewGuid().ToString(),
@@ -453,9 +431,9 @@ namespace GUI.Control
                     DestinationAP = txtDestinationAP.Text.Trim(),
                     TotalSeat = int.Parse(txtHeight.Text.Trim()) * int.Parse(txtWeight.Text.Trim()),
                     isActive = 1,
-                    Duration = dtpDuration.Value.TimeOfDay,
-                    DepartureDateTime = dtpDepartureDate.Value,
+
                 };
+
 
                 // Cập nhật FlightId cho tất cả transit trong danh sách
                 foreach (var transit in transitList)
@@ -508,49 +486,65 @@ namespace GUI.Control
 
         private void SchedulingControl_Load(object sender, EventArgs e)
         {
-
             // Cấu hình các DateTimePicker khác nếu cần
             dtpDuration.Format = DateTimePickerFormat.Custom;
             dtpDuration.CustomFormat = "HH:mm:ss";
+
+            dtpDepartureDate.Format = DateTimePickerFormat.Custom;
+            dtpDepartureDate.CustomFormat = "dd/MM/yyyy hh:mm:ss tt"; // định dạng ngày giờ
 
             fillComboBox();
             InitializeDataGridView(dgvFlight);
             InitializeDataGridView(dgvTransit);
             LoadData();
+
+            // Thêm sự kiện CellClick cho dgvFlight
+            dgvFlight.CellClick += dgvFlight_CellClick;
         }
-        private void dgvFlight_SelectionChanged_1(object sender, EventArgs e)
+        private void dgvFlight_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgvFlight.SelectedRows.Count > 0)
+            if (e.RowIndex >= 0) // Kiểm tra nếu hàng được chọn hợp lệ
             {
-                DataGridViewRow selectedRow = dgvFlight.SelectedRows[0];
-
-                // Binding dữ liệu từ các cột của dòng đã chọn vào TextBox
-                txtOriginAP.Text = selectedRow.Cells["OriginAP"].Value?.ToString();
-                txtDestinationAP.Text = selectedRow.Cells["DestinationAP"].Value?.ToString();
-                txtPrice.Text = selectedRow.Cells["Price"].Value?.ToString();
-
-                // Duration
-                string durationString = selectedRow.Cells["Duration"].Value?.ToString();
-                if (TimeSpan.TryParse(durationString, out TimeSpan duration))
+                try
                 {
-                    dtpDuration.Value = DateTime.Today.Add(duration); // Sử dụng DateTimePicker cho Duration
+                    // Lấy dòng hiện tại mà người dùng click vào
+                    DataGridViewRow selectedRow = dgvFlight.Rows[e.RowIndex];
+
+                    // Binding dữ liệu từ các cột của dòng đã chọn vào TextBox
+                    txtOriginAP.Text = selectedRow.Cells["OriginAP"].Value?.ToString();
+                    txtDestinationAP.Text = selectedRow.Cells["DestinationAP"].Value?.ToString();
+                    txtPrice.Text = selectedRow.Cells["Price"].Value?.ToString();
+
+                    // Kiểm tra và gán giá trị cho dtpDepartureDate
+                    if (DateTime.TryParse(selectedRow.Cells["DepartureDateTime"].Value?.ToString(), out DateTime departureDateTime))
+                    {
+                        dtpDepartureDate.Value = departureDateTime; // Gán giá trị từ dữ liệu nếu hợp lệ
+                    }
+                    else
+                    {
+                        dtpDepartureDate.Value = DateTime.Now; // Gán giá trị mặc định nếu không hợp lệ
+                    }
+
+                    // Kiểm tra và gán giá trị cho Duration
+                    if (TimeSpan.TryParse(selectedRow.Cells["Duration"].Value?.ToString(), out TimeSpan duration))
+                    {
+                        dtpDuration.Value = DateTime.Today.Add(duration); // Gán TimeSpan vào DateTimePicker
+                    }
+                    else
+                    {
+                        dtpDuration.Value = DateTime.Today; // Gán giá trị mặc định nếu không hợp lệ
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    dtpDuration.Value = DateTime.Today; // Reset nếu không có giá trị hợp lệ
+                    ShowErrorMessage(ex);
                 }
-
-
             }
-
+            #endregion
         }
-        }
-
-
-        #endregion
-
 
     }
+}
 
 
     

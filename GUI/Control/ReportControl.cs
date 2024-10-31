@@ -14,13 +14,13 @@ namespace GUI.Control
 {
     public partial class ReportControl : UserControl
     {
-        private readonly RevenueBUS _revenueBUS;
+
         private DataTable originalData; // Lưu trữ dữ liệu gốc
         #region #Methods
         public ReportControl()
         {
             InitializeComponent();
-            _revenueBUS = new RevenueBUS();
+
             InitializeDataGridView(dgvMonthRevenue);
             InitializeDataGridView(dgvYearRevenue);
 
@@ -43,14 +43,7 @@ namespace GUI.Control
 
 
         }
-        private void SetColumnHeaders(DataGridView dgv)
-        {
-            dgv.Columns["DepartureAirport"].HeaderText = "Chuyến bay";
-            dgv.Columns["ArrivalAirport"].HeaderText = "Điểm đến";
-            dgv.Columns["TotalFlights"].HeaderText = "Số chuyến bay (chuyến)";
-            dgv.Columns["TotalRevenue"].HeaderText = "Doanh Thu (VNĐ)";
-            dgv.Columns["RevenuePercentage"].HeaderText = "Tỷ lệ (%)";
-        }
+ 
         private void SetColumnWidths(DataGridView dgv)
         {
             if (dgv.Columns.Contains("DepartureAirport"))
@@ -67,7 +60,7 @@ namespace GUI.Control
         private void LoadDataToGridView()
         {
             // Tải dữ liệu gốc và lưu vào originalData
-            originalData = _revenueBUS.LoadRevenueReport();
+
             dgvMonthRevenue.DataSource = originalData;
 
             // Ẩn cột "FlightMonthYear"
@@ -76,7 +69,7 @@ namespace GUI.Control
                 dgvMonthRevenue.Columns["FlightMonthYear"].Visible = false;
             }
 
-            SetColumnHeaders(dgvMonthRevenue);
+
             SetColumnWidths(dgvMonthRevenue);
             dgvYearRevenue.DataSource = originalData;
         }
@@ -121,14 +114,12 @@ namespace GUI.Control
             int selectedYear = dtpYearRevenue.Value.Year;
 
             // Tải dữ liệu theo năm từ RevenueBUS và hiển thị trong DataGridView
-            DataTable revenueDataByYear = _revenueBUS.LoadRevenueReportByYear(selectedYear);
-            dgvYearRevenue.DataSource = revenueDataByYear;
+
+ 
 
             // Đổi tên các cột cho phù hợp
-            dgvYearRevenue.Columns["Tháng"].HeaderText = "Tháng";
-            dgvYearRevenue.Columns["Số chuyến bay"].HeaderText = "Số chuyến bay (chuyến)";
-            dgvYearRevenue.Columns["Lợi nhuận (VNĐ)"].HeaderText = "Doanh Thu (VNĐ)";
-            dgvYearRevenue.Columns["Tỷ lệ (%)"].HeaderText = "Tỷ lệ (%)";
+
+
         }
         #endregion
 

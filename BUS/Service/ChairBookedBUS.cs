@@ -1,51 +1,48 @@
-﻿using DAL.IAccess;
+﻿using DAL;
+using DAL.DataAccess;
 using DTO.Entities;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BUS.Service
 {
     public class ChairBookedBUS
     {
-        private readonly IRepository<ChairBooked> _chairBookedRepository;
+        private readonly ChairBookedDAL _chairBookedDAL;
 
-        // Constructor Injection
-        public ChairBookedBUS(IRepository<ChairBooked> chairBookedRepository)
+        // Constructor
+        public ChairBookedBUS()
         {
-            _chairBookedRepository = chairBookedRepository;
+            _chairBookedDAL = new ChairBookedDAL();
         }
 
         // Method to get all booked chairs
         public IEnumerable<ChairBooked> GetAllBookedChairs()
         {
-            return _chairBookedRepository.GetAll();
+            return _chairBookedDAL.GetAll();
         }
 
-        // Method to get booked chair by ID
+        // Method to get a booked chair by ID
         public ChairBooked GetBookedChairById(int id)
         {
-            return _chairBookedRepository.GetById(id);
+            return _chairBookedDAL.GetById(id);
         }
 
         // Method to add a new booked chair
         public void AddBookedChair(ChairBooked chairBooked)
         {
-            _chairBookedRepository.Add(chairBooked);
+            _chairBookedDAL.Add(chairBooked);
         }
 
         // Method to update an existing booked chair
         public void UpdateBookedChair(ChairBooked chairBooked)
         {
-            _chairBookedRepository.Update(chairBooked);
+            _chairBookedDAL.Update(chairBooked);
         }
 
         // Method to delete a booked chair
         public void DeleteBookedChair(int id)
         {
-            _chairBookedRepository.Delete(id);
+            _chairBookedDAL.Delete(id);
         }
     }
 }

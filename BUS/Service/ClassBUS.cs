@@ -1,51 +1,48 @@
-﻿using DAL.IAccess;
+﻿using DAL;
+using DAL.DataAccess;
 using DTO.Entities;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BUS.Service
 {
     public class ClassBUS
     {
-        private readonly IRepository<Class> _classRepository;
+        private readonly ClassDAL _classDAL;
 
-        // Constructor Injection
-        public ClassBUS(IRepository<Class> classRepository)
+        // Constructor
+        public ClassBUS()
         {
-            _classRepository = classRepository;
+            _classDAL = new ClassDAL();
         }
 
         // Method to get all classes
         public IEnumerable<Class> GetAllClasses()
         {
-            return _classRepository.GetAll();
+            return _classDAL.GetAll();
         }
 
-        // Method to get class by ID
+        // Method to get a class by ID
         public Class GetClassById(int id)
         {
-            return _classRepository.GetById(id);
+            return _classDAL.GetById(id);
         }
 
         // Method to add a new class
         public void AddClass(Class classEntity)
         {
-            _classRepository.Add(classEntity);
+            _classDAL.Add(classEntity);
         }
 
         // Method to update an existing class
         public void UpdateClass(Class classEntity)
         {
-            _classRepository.Update(classEntity);
+            _classDAL.Update(classEntity);
         }
 
         // Method to delete a class
         public void DeleteClass(int id)
         {
-            _classRepository.Delete(id);
+            _classDAL.Delete(id);
         }
     }
 }

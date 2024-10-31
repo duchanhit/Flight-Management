@@ -1,51 +1,48 @@
-﻿using DAL.IAccess;
+﻿using DAL;
+using DAL.DataAccess;
 using DTO.Entities;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BUS.Service
 {
     public class CityBUS
     {
-        private readonly IRepository<City> _cityRepository;
+        private readonly CityDAL _cityDAL;
 
-        // Constructor Injection
-        public CityBUS(IRepository<City> cityRepository)
+        // Constructor
+        public CityBUS()
         {
-            _cityRepository = cityRepository;
+            _cityDAL = new CityDAL();
         }
 
         // Method to get all cities
         public IEnumerable<City> GetAllCities()
         {
-            return _cityRepository.GetAll();
+            return _cityDAL.GetAll();
         }
 
-        // Method to get city by ID
+        // Method to get a city by ID
         public City GetCityById(int id)
         {
-            return _cityRepository.GetById(id);
+            return _cityDAL.GetById(id);
         }
 
         // Method to add a new city
         public void AddCity(City city)
         {
-            _cityRepository.Add(city);
+            _cityDAL.Add(city);
         }
 
         // Method to update an existing city
         public void UpdateCity(City city)
         {
-            _cityRepository.Update(city);
+            _cityDAL.Update(city);
         }
 
         // Method to delete a city
         public void DeleteCity(int id)
         {
-            _cityRepository.Delete(id);
+            _cityDAL.Delete(id);
         }
     }
 }

@@ -1,126 +1,130 @@
-﻿using DAL.IAccess;
-using DTO;
+﻿
 using DTO.Entities;
 using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Configuration;
 
 namespace DAL
 {
-    public class FlightDAL : IRepository<Flight>
+    public class FlightDAL 
     {
-        // Lấy tất cả các chuyến bay từ cơ sở dữ liệu
+        private readonly string _connectionString = ConfigurationManager.ConnectionStrings["FlightModel"].ConnectionString;
+
+        // Get all flights
         public IEnumerable<Flight> GetAll()
         {
-            using (FlightModel context = new FlightModel())
+            using (var connection = new SqlConnection(_connectionString))
             {
-                return context.Flights.ToList();
-            }
-        }
-
-        // Lấy thông tin chuyến bay theo ID
-        public Flight GetById(int flightId)
-        {
-            using (FlightModel context = new FlightModel())
-            {
-                return context.Flights.SingleOrDefault(f => f.FlightId == flightId.ToString());
-            }
-        }
-
-        // Thêm chuyến bay vào cơ sở dữ liệu
-        public void Add(Flight flight)
-        {
-            using (FlightModel context = new FlightModel())
-            {
-                context.Flights.Add(flight);
-                context.SaveChanges();
-            }
-        }
-
-        // Cập nhật thông tin chuyến bay
-        public void Update(Flight flight)
-        {
-            using (FlightModel context = new FlightModel())
-            {
-                var existingFlight = context.Flights.SingleOrDefault(f => f.FlightId == flight.FlightId);
-                if (existingFlight != null)
+                connection.Open();
+                using (var command = new SqlCommand("ProcGetFlightAll", connection))
                 {
-                    // Cập nhật các thuộc tính cần thiết
-                    existingFlight.Price = flight.Price;
-                    existingFlight.OriginAP = flight.OriginAP;
-                    existingFlight.DestinationAP = flight.DestinationAP;
-                    existingFlight.TotalSeat = flight.TotalSeat;
-                    existingFlight.isActive = flight.isActive;
-                    existingFlight.Duration = flight.Duration;
-                    context.SaveChanges();
-                }
-            }
-        }
-
-        // Xóa chuyến bay khỏi cơ sở dữ liệu
-        public void Delete(int flightId)
-        {
-            using (FlightModel context = new FlightModel())
-            {
-                var flightToDelete = context.Flights.SingleOrDefault(f => f.FlightId == flightId.ToString());
-                if (flightToDelete != null)
-                {
-                    context.Flights.Remove(flightToDelete);
-                    context.SaveChanges();
-                }
-            }
-        }
-
-
-        public DataTable GetFlightsDataTable()
-        {
-            var dataTable = new DataTable();
-
-            using (var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["FlightModel"].ConnectionString))
-            {
-                string query = "SELECT * FROM View_FlightsWithAirportNames";
-
-                using (var command = new SqlCommand(query, connection))
-                {
-                    connection.Open();
+                    command.CommandType = CommandType.StoredProcedure;
                     using (var reader = command.ExecuteReader())
                     {
-                        dataTable.Load(reader); // Nạp dữ liệu từ reader vào DataTable
+                        var flights = new List<Flight>();
+                        while (reader.Read())
+                        {
+                            flights.Add(new Flight
+                            {
+                                FlightId = reader["FlightId"].ToString(),
+                                OriginAP = reader["OriginAP"].ToString(),
+                                DestinationAP = reader["DestinationAP"].ToString(),
+                                Price = Convert.ToDecimal(reader["Price"]),
+                                TotalSeat = Convert.ToInt32(reader["TotalSeat"]),
+                                isActive = Convert.ToInt32(reader["isActive"]),
+                            });
+                        }
+                        return flights;
                     }
                 }
             }
-
-            return dataTable;
         }
 
-        public string GetAirportCodeByName(string airportName)
+        // Get flight by ID
+        public Flight GetById(string flightId)
         {
-            string airportCode = null;
-            using (var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["FlightModel"].ConnectionString))
+            using (var connection = new SqlConnection(_connectionString))
             {
-                string query = "SELECT AirportId FROM Airport WHERE AirportName = @airportName";
-                using (var command = new SqlCommand(query, connection))
+                connection.Open();
+                using (var command = new SqlCommand("ProcGetFlightInfo", connection))
                 {
-                    command.Parameters.AddWithValue("@airportName", airportName);
-                    connection.Open();
-                    var result = command.ExecuteScalar();
-                    if (result != null)
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@flightId", flightId);
+                    using (var reader = command.ExecuteReader())
                     {
-                        airportCode = result.ToString();
+                        if (reader.Read())
+                        {
+                            return new Flight
+                            {
+                                FlightId = flightId,
+                                OriginAP = reader["originAp"].ToString(),
+                                DestinationAP = reader["destinationAp"].ToString(),
+                                Price = Convert.ToDecimal(reader["Price"]),
+                                TotalSeat = Convert.ToInt32(reader["TotalSeat"]),
+                                isActive = Convert.ToInt32(reader["isActive"]),
+                            };
+                        }
                     }
                 }
             }
-            return airportCode;
+            return null;
         }
 
+        // Add a new flight
+        public void Add(Flight flight)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                connection.Open();
+                using (var command = new SqlCommand("ProcCreateFlight", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@flightID", flight.FlightId);
+                    command.Parameters.AddWithValue("@originAP", flight.OriginAP);
+                    command.Parameters.AddWithValue("@destinationAP", flight.DestinationAP);
+                    command.Parameters.AddWithValue("@totalSeat", flight.TotalSeat);
+                    command.Parameters.AddWithValue("@price", flight.Price);
+                    command.Parameters.AddWithValue("@isActive", flight.isActive);
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
 
+        // Update an existing flight
+        public void Update(Flight flight)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                connection.Open();
+                using (var command = new SqlCommand("ProcUpdateFlight", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@flightID", flight.FlightId);
+                    command.Parameters.AddWithValue("@originApID", flight.OriginAP);
+                    command.Parameters.AddWithValue("@destinationAPID", flight.DestinationAP);
+                    command.Parameters.AddWithValue("@price", flight.Price);
+                    command.Parameters.AddWithValue("@totalSeat", flight.TotalSeat);
+                    command.Parameters.AddWithValue("@isActive", flight.isActive);
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
 
+        // Delete a flight (disable it)
+        public void Delete(string flightId)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                connection.Open();
+                using (var command = new SqlCommand("ProcDisableFlight", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@flightID", flightId);
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
     }
-
-
 }

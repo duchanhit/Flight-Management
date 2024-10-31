@@ -1,4 +1,4 @@
-﻿using DAL.IAccess;
+﻿
 using DTO.Entities;
 using System;
 using System.Collections.Generic;
@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DAL.DataAccess
 {
-    public class ChairBookedDAL : IRepository<ChairBooked>
+    public class ChairBookedDAL 
     {
         // Lấy tất cả các ghế đã được đặt từ cơ sở dữ liệu
         public IEnumerable<ChairBooked> GetAll()
@@ -47,7 +47,6 @@ namespace DAL.DataAccess
                 if (existingChairBooked != null)
                 {
                     // Cập nhật các thuộc tính cần thiết
-                    existingChairBooked.FlightId = chairBooked.FlightId;
                     existingChairBooked.XPos = chairBooked.XPos;
                     existingChairBooked.YPos = chairBooked.YPos;
                     existingChairBooked.Time = chairBooked.Time;
