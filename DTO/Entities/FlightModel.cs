@@ -14,9 +14,9 @@ namespace DTO.Entities
 
         public virtual DbSet<Account> Accounts { get; set; }
         public virtual DbSet<Airport> Airports { get; set; }
-        public virtual DbSet<ChairBooked> ChairBookeds { get; set; }
         public virtual DbSet<City> Cities { get; set; }
         public virtual DbSet<Class> Classes { get; set; }
+        public virtual DbSet<ChairBooked> ChairBookeds { get; set; }
         public virtual DbSet<DefineSizeFlight> DefineSizeFlights { get; set; }
         public virtual DbSet<Flight> Flights { get; set; }
         public virtual DbSet<Passenger> Passengers { get; set; }

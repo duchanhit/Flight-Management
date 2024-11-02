@@ -38,10 +38,10 @@ namespace DTO.Entities
 
         public int? isPaid { get; set; }
 
+        public virtual Class Class { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ChairBooked> ChairBookeds { get; set; }
-
-        public virtual Class Class { get; set; }
 
         public virtual Flight Flight { get; set; }
 

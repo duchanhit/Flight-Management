@@ -72,7 +72,10 @@ namespace BUS
         {
             return _flightDAL.GetAirportCodeByName(airportName);
         }
-
+        public DataTable GetFlightsByCityIds(string cityId)
+        {
+            return _flightDAL.GetFlightsByCityId(cityId);
+        }
 
     }
 

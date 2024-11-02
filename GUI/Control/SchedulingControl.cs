@@ -48,13 +48,36 @@ namespace GUI.Control
 
         }
 
+        private void LoadTransitsForFlight(string flightId)
+        {
+            // Gọi phương thức GetTransitsByFlightId từ TransitBUS
+            List<Transit> transits = _transitBUS.GetTransitsByFlightId(flightId);
+
+            // Cập nhật dữ liệu vào dgvTransit
+            dgvTransit.DataSource = null;
+            dgvTransit.DataSource = transits;
+
+            // Đổi tên các cột cần hiển thị
+            dgvTransit.Columns["airportID"].HeaderText = "Mã Sân Bay";
+            dgvTransit.Columns["transitTime"].HeaderText = "Thời Gian Chờ";
+            dgvTransit.Columns["transitNote"].HeaderText = "Ghi Chú";
+
+            // Ẩn các cột không cần thiết
+            foreach (DataGridViewColumn column in dgvTransit.Columns)
+            {
+                if (column.Name != "airportID" && column.Name != "transitTime" && column.Name != "transitNote")
+                {
+                    column.Visible = false;
+                }
+            }
+        }
 
 
         private void LoadFlightData()
         {
             try
             {
-                // Fetch the flight data from the business layer (assuming it returns a DataTable)
+                
                 DataTable flightsTable = _flightBUS.GetFlightsWithAirportNames(); // Adjust this line based on your actual data retrieval method
 
                 // Store the original data to use for filtering and searching
@@ -271,6 +294,10 @@ namespace GUI.Control
             {
                 dgv.Columns["transitTime"].Width = 150;
             }
+            if (dgv.Columns["TotalSeat"] != null)
+            {
+                dgv.Columns["TotalSeat"].Width = 150;
+            }
         }
 
         private void LoadData()
@@ -319,6 +346,14 @@ namespace GUI.Control
             if (dgvFlight.Columns["DepartureDateTime"] != null)
             {
                 dgvFlight.Columns["DepartureDateTime"].Visible = false;
+            }
+            if (dgvFlight.Columns["SeatWidth"] != null)
+            {
+                dgvFlight.Columns["SeatWidth"].Visible = false;
+            }
+            if (dgvFlight.Columns["SeatHeight"] != null)
+            {
+                dgvFlight.Columns["SeatHeight"].Visible = false;
             }
         }
 
@@ -459,8 +494,15 @@ namespace GUI.Control
                     DestinationAP = txtDestinationAP.Text.Trim(),
                     TotalSeat = int.Parse(txtHeight.Text.Trim()) * int.Parse(txtWeight.Text.Trim()),
                     isActive = 1,
+                    Duration = dtpDuration.Value.TimeOfDay, // Lấy phần thời gian từ DateTimePicker
                     DepartureDateTime = null,
+                };
 
+                DefineSizeFlight newDefineSizeFlight = new DefineSizeFlight
+                {
+                    IdFlight = newFlight.FlightId,
+                    width = int.Parse(txtWeight.Text.Trim()),
+                    height = int.Parse(txtHeight.Text.Trim())
                 };
 
 
@@ -476,7 +518,7 @@ namespace GUI.Control
                 {
                     _transitBUS.AddTransit(transit);
                 }
-
+                _defineSizeFlightBUS.AddDefineSizeFlight(newDefineSizeFlight);
                 ShowAutoCloseMessage("Lưu dữ liệu thành công!", 1500);
                 ClearInput();
                 LoadData();
@@ -539,12 +581,13 @@ namespace GUI.Control
                     // Lấy dòng hiện tại mà người dùng click vào
                     DataGridViewRow selectedRow = dgvFlight.Rows[e.RowIndex];
 
-                    // Sử dụng đúng tên cột để binding dữ liệu từ DataGridView lên các TextBox
-                    txtOriginAP.Text = selectedRow.Cells["OriginAirportName"].Value?.ToString(); // Thay thế "OriginAP" bằng tên cột đúng
-                    txtDestinationAP.Text = selectedRow.Cells["DestinationAirportName"].Value?.ToString(); // Thay thế "DestinationAP" bằng tên cột đúng
-                    txtPrice.Text = selectedRow.Cells["Price"].Value?.ToString();
+                    // Gán dữ liệu từ các cột của DataGridView vào các TextBox theo đúng tên cột
+                    txtOriginAP.Text = selectedRow.Cells["OriginAP"].Value?.ToString(); // Binding OriginAirportName vào txtOriginAP
+                    txtDestinationAP.Text = selectedRow.Cells["DestinationAP"].Value?.ToString(); // Binding DestinationAirportName vào txtDestinationAP
+                    txtWeight.Text = selectedRow.Cells["SeatWidth"].Value?.ToString(); // Binding SeatWidth (số ghế ngang) vào txtWeight
+                    txtHeight.Text = selectedRow.Cells["SeatHeight"].Value?.ToString(); // Binding SeatHeight (số ghế dọc) vào txtHeight
 
-                    // Kiểm tra và gán giá trị cho Duration
+                    // Kiểm tra và gán giá trị cho Duration nếu có
                     if (TimeSpan.TryParse(selectedRow.Cells["Duration"].Value?.ToString(), out TimeSpan duration))
                     {
                         dtpDuration.Value = DateTime.Today.Add(duration); // Gán TimeSpan vào DateTimePicker
@@ -553,15 +596,25 @@ namespace GUI.Control
                     {
                         dtpDuration.Value = DateTime.Today; // Gán giá trị mặc định nếu không hợp lệ
                     }
+
+                    // Gán giá trị cho giá tiền (Price)
+                    txtPrice.Text = selectedRow.Cells["Price"].Value?.ToString();
+
+                    // Lấy FlightId từ dòng đã chọn và gọi phương thức LoadTransitsForFlight
+                    string flightId = selectedRow.Cells["FlightId"].Value?.ToString();
+                    if (!string.IsNullOrEmpty(flightId))
+                    {
+                        LoadTransitsForFlight(flightId); // Hiển thị danh sách transit của chuyến bay
+                    }
                 }
                 catch (Exception ex)
                 {
                     ShowErrorMessage(ex);
                 }
             }
-            #endregion
-        }
 
+        }
+        #endregion
         private void guna2HtmlLabel6_Click(object sender, EventArgs e)
         {
 
@@ -575,6 +628,15 @@ namespace GUI.Control
         private void guna2HtmlLabel3_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void MiniMize_Click(object sender, EventArgs e)
+        {
+            Form parentForm = this.FindForm();
+            if (parentForm != null)
+            {
+                parentForm.WindowState = FormWindowState.Minimized;
+            }
         }
     }
 }

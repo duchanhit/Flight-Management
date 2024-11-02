@@ -115,8 +115,16 @@ namespace GUI.Control
             dgvYearRevenue.Columns["Lợi nhuận (VNĐ)"].HeaderText = "Doanh Thu (VNĐ)";
             dgvYearRevenue.Columns["Tỷ lệ (%)"].HeaderText = "Tỷ lệ (%)";
         }
+
         #endregion
 
-
+        private void guna2Button8_Click(object sender, EventArgs e)
+        {
+            Form parentForm = this.FindForm();
+            if (parentForm != null)
+            {
+                parentForm.WindowState = FormWindowState.Minimized;
+            }
+        }
     }
 }

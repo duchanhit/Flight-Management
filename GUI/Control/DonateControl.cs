@@ -16,5 +16,14 @@ namespace GUI.Control
         {
             InitializeComponent();
         }
+
+        private void MiniMize_Click(object sender, EventArgs e)
+        {
+            Form parentForm = this.FindForm();
+            if (parentForm != null)
+            {
+                parentForm.WindowState = FormWindowState.Minimized;
+            }
+        }
     }
 }

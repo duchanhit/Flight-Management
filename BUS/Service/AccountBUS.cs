@@ -68,6 +68,17 @@ namespace BUS.Service
             AccountDAL accountDAL = new AccountDAL();
             return accountDAL.InsertAccount(userId, username, password, permissionId, gmail);
         }
+        public string GetPasswordByEmail(string email)
+        {
+            AccountDAL accountDAL = new AccountDAL();
+            var account = accountDAL.GetAll().SingleOrDefault(a => a.Gmail == email);
 
+            if (account != null)
+            {
+                return account.AccountPass; // Trả về mật khẩu nếu tài khoản tồn tại
+            }
+
+            return null; // Trả về null nếu tài khoản không tồn tại
+        }
     }
 }

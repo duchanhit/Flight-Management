@@ -163,5 +163,14 @@ namespace GUI.Control
             txtLatestBookingTime.Enabled = enabled;
             txtLatestCancelingTime.Enabled = enabled;
         }
+
+        private void guna2Button8_Click(object sender, EventArgs e)
+        {
+            Form parentForm = this.FindForm();
+            if (parentForm != null)
+            {
+                parentForm.WindowState = FormWindowState.Minimized;
+            }
+        }
     }
 }

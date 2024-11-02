@@ -21,12 +21,23 @@ namespace GUI
         ReportControl reportControl = new ReportControl();
         SettingControl settingControl = new SettingControl();
         DonateControl donateControl = new DonateControl();
+
+
+        public DashboardControl DashboardControlInstance { get; private set; }
         #region Methods
         public DashBoard()
         {
             InitializeComponent();
-
         }
+        public DashBoard(string username) // Constructor nhận tham số username
+        {
+            InitializeComponent();
+
+
+            this.Controls.Add(dashboardControl); // Thêm control vào form nếu cần
+            dashboardControl.Dock = DockStyle.Fill; // Đặt để nó chiếm toàn bộ form nếu cần
+        }
+
         private void ShowControl(UserControl controlToShow)
         {
             // Ẩn tất cả các UserControl

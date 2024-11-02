@@ -40,6 +40,54 @@ namespace DAL
             }
         }
 
+        public DataTable GetFlightsByCityId(string cityId)
+        {
+            DataTable flightsTable = new DataTable();
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = @"
+        SELECT 
+            f.FlightId,
+            f.OriginAP,
+            a1.AirportName AS OriginAirportName,
+            f.DestinationAP,
+            a2.AirportName AS DestinationAirportName,
+            f.Price,
+            f.Duration,
+            f.DepartureDateTime,
+            f.TotalSeat,
+            (SELECT COUNT(*) FROM Transit t WHERE t.FlightId = f.FlightId) AS TransitCount -- Đếm số trạm transit cho mỗi chuyến bay
+        FROM 
+            Flight f
+        INNER JOIN 
+            Airport a1 ON f.OriginAP = a1.AirportId
+        INNER JOIN 
+            City c1 ON a1.CityId = c1.CityId
+        INNER JOIN 
+            Airport a2 ON f.DestinationAP = a2.AirportId
+        INNER JOIN 
+            City c2 ON a2.CityId = c2.CityId
+        WHERE 
+            c1.CityId = @CityId OR c2.CityId = @CityId"; // So sánh CityId với cả thành phố xuất phát và điểm đến
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@CityId", cityId);
+
+                    connection.Open();
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        flightsTable.Load(reader);
+                    }
+                }
+            }
+
+            return flightsTable;
+        }
+
+
+
         // Thêm chuyến bay vào cơ sở dữ liệu
         public void Add(Flight flight)
         {

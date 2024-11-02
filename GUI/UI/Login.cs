@@ -1,5 +1,6 @@
 ﻿using BUS.Service;
 using DTO.Entities;
+using GUI.UI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace GUI
 {
@@ -22,6 +24,8 @@ namespace GUI
         public Login()
         {
             InitializeComponent();
+            txtUser.KeyDown += txtUser_KeyDown;
+            txtPassWord.KeyDown += txtPassWord_KeyDown;
         }
         private void EnqueueMessage(string message, int duration)
         {
@@ -171,7 +175,9 @@ namespace GUI
 
             if (isAuthenticated)
             {
-                DashBoard mainForm = new DashBoard();
+                UserName = txtUser.Text.Trim();
+
+                DashBoard mainForm = new DashBoard(UserName);
                 mainForm.Show();
                 this.Hide();
             }
@@ -183,6 +189,32 @@ namespace GUI
             }
            
         }
+
+        private void txtUser_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnLogin_Click(sender, e);
+            }
+        }
+
+        private void txtPassWord_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnLogin_Click(sender, e);
+            }
+        }
+
         #endregion
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            // Tạo một instance của form QuenMatKhau
+            QuenMatKhau frmQuenMatKhau = new QuenMatKhau();
+
+            // Hiển thị form QuenMatKhau dưới dạng dialog
+            frmQuenMatKhau.ShowDialog();
+        }
     }
 }

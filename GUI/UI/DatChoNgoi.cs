@@ -21,7 +21,7 @@ namespace GUI.UI
         private const int SeatWidth = 50;
         private const int SeatHeight = 50;
         private const int Spacing = 5; // Khoảng cách giữa các ghế
-
+        public event Action<string> SeatSelected;
         public DatChoNgoi()
         {
             InitializeComponent();
@@ -98,12 +98,15 @@ namespace GUI.UI
             // Hiển thị thông báo hoặc thực hiện hành động khi người dùng chọn ghế
             MessageBox.Show($"Bạn đã chọn ghế: {seatTag}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            // Lưu ghế được chọn vào cơ sở dữ liệu hoặc thực hiện các hành động khác
-            SaveSelectedSeat(seatTag);
+            // Kích hoạt sự kiện SeatSelected và truyền seatTag ra ngoài
+            SeatSelected?.Invoke(seatTag);
 
             // Đổi màu ghế thành xám để thể hiện ghế đã được đặt
             selectedButton.BackColor = Color.Gray;
             selectedButton.Enabled = false;
+
+            // Đóng form sau khi chọn ghế
+            this.Close();
         }
 
         private void SaveSelectedSeat(string seatTag)

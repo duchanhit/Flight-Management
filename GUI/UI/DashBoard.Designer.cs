@@ -33,7 +33,6 @@
             this.panelDashBoard = new System.Windows.Forms.Panel();
             this.sellTicketControl1 = new GUI.Control.SellTicketControl();
             this.donateControl1 = new GUI.Control.DonateControl();
-            this.flightControl1 = new GUI.Control.FlightControl();
             this.dashboardControl1 = new GUI.Control.DashboardControl();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.pannelSettingHighlight = new Guna.UI2.WinForms.Guna2Panel();
@@ -67,7 +66,6 @@
             // 
             this.panelDashBoard.Controls.Add(this.sellTicketControl1);
             this.panelDashBoard.Controls.Add(this.donateControl1);
-            this.panelDashBoard.Controls.Add(this.flightControl1);
             this.panelDashBoard.Controls.Add(this.dashboardControl1);
             this.panelDashBoard.Location = new System.Drawing.Point(161, 2);
             this.panelDashBoard.Margin = new System.Windows.Forms.Padding(4);
@@ -92,15 +90,6 @@
             this.donateControl1.Name = "donateControl1";
             this.donateControl1.Size = new System.Drawing.Size(95, 121);
             this.donateControl1.TabIndex = 11;
-            // 
-            // flightControl1
-            // 
-            this.flightControl1.Location = new System.Drawing.Point(149, 14);
-            this.flightControl1.Margin = new System.Windows.Forms.Padding(5);
-            this.flightControl1.Name = "flightControl1";
-            this.flightControl1.Size = new System.Drawing.Size(89, 110);
-            this.flightControl1.TabIndex = 10;
-            this.flightControl1.Load += new System.EventHandler(this.flightControl1_Load);
             // 
             // dashboardControl1
             // 
@@ -211,9 +200,9 @@
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.MaximumSize = new System.Drawing.Size(107, 62);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(84, 50);
+            this.label7.Size = new System.Drawing.Size(102, 50);
             this.label7.TabIndex = 17;
-            this.label7.Text = "HG Airlines";
+            this.label7.Text = "HanhGay Airlines";
             this.label7.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // pictureBox4

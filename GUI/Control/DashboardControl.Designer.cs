@@ -30,7 +30,7 @@
         {
             this.panelDashBoard = new System.Windows.Forms.Panel();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblUser = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
@@ -43,7 +43,7 @@
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2Panel6 = new Guna.UI2.WinForms.Guna2Panel();
             this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
+            this.lblWeather = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
@@ -72,14 +72,14 @@
             this.panelDashBoard.Location = new System.Drawing.Point(1, 0);
             this.panelDashBoard.Margin = new System.Windows.Forms.Padding(4);
             this.panelDashBoard.Name = "panelDashBoard";
-            this.panelDashBoard.Size = new System.Drawing.Size(964, 607);
+            this.panelDashBoard.Size = new System.Drawing.Size(968, 607);
             this.panelDashBoard.TabIndex = 17;
             this.panelDashBoard.Paint += new System.Windows.Forms.PaintEventHandler(this.panelDashBoard_Paint);
             // 
             // guna2Panel3
             // 
             this.guna2Panel3.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.guna2Panel3.Controls.Add(this.label2);
+            this.guna2Panel3.Controls.Add(this.lblUser);
             this.guna2Panel3.Controls.Add(this.label1);
             this.guna2Panel3.Controls.Add(this.pictureBox1);
             this.guna2Panel3.Location = new System.Drawing.Point(36, 91);
@@ -88,16 +88,16 @@
             this.guna2Panel3.Size = new System.Drawing.Size(421, 112);
             this.guna2Panel3.TabIndex = 10;
             // 
-            // label2
+            // lblUser
             // 
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(148, 64);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 16);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "label2";
+            this.lblUser.AutoSize = true;
+            this.lblUser.ForeColor = System.Drawing.Color.White;
+            this.lblUser.Location = new System.Drawing.Point(148, 64);
+            this.lblUser.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblUser.Name = "lblUser";
+            this.lblUser.Size = new System.Drawing.Size(108, 16);
+            this.lblUser.TabIndex = 2;
+            this.lblUser.Text = "Xin chào \"admin\"";
             // 
             // label1
             // 
@@ -107,9 +107,9 @@
             this.label1.Location = new System.Drawing.Point(148, 11);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(97, 20);
+            this.label1.Size = new System.Drawing.Size(59, 20);
             this.label1.TabIndex = 1;
-            this.label1.Text = "UserName";
+            this.label1.Text = "admin";
             // 
             // pictureBox1
             // 
@@ -194,6 +194,7 @@
             this.guna2Button8.Name = "guna2Button8";
             this.guna2Button8.Size = new System.Drawing.Size(29, 26);
             this.guna2Button8.TabIndex = 7;
+            this.guna2Button8.Click += new System.EventHandler(this.guna2Button8_Click);
             // 
             // guna2HtmlLabel1
             // 
@@ -224,7 +225,7 @@
             // 
             this.guna2Panel6.BackColor = System.Drawing.Color.Teal;
             this.guna2Panel6.Controls.Add(this.label8);
-            this.guna2Panel6.Controls.Add(this.label9);
+            this.guna2Panel6.Controls.Add(this.lblWeather);
             this.guna2Panel6.Controls.Add(this.label10);
             this.guna2Panel6.Controls.Add(this.pictureBox5);
             this.guna2Panel6.Location = new System.Drawing.Point(487, 91);
@@ -245,16 +246,15 @@
             this.label8.TabIndex = 3;
             this.label8.Text = "Thời Tiết";
             // 
-            // label9
+            // lblWeather
             // 
-            this.label9.AutoSize = true;
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(148, 64);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(44, 16);
-            this.label9.TabIndex = 2;
-            this.label9.Text = "label9";
+            this.lblWeather.ForeColor = System.Drawing.Color.White;
+            this.lblWeather.Location = new System.Drawing.Point(147, 53);
+            this.lblWeather.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblWeather.Name = "lblWeather";
+            this.lblWeather.Size = new System.Drawing.Size(280, 45);
+            this.lblWeather.TabIndex = 2;
+            this.lblWeather.Text = "label9";
             // 
             // label10
             // 
@@ -332,6 +332,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "DashboardControl";
             this.Size = new System.Drawing.Size(969, 610);
+            this.Load += new System.EventHandler(this.DashboardControl_Load);
             this.panelDashBoard.ResumeLayout(false);
             this.guna2Panel3.ResumeLayout(false);
             this.guna2Panel3.PerformLayout();
@@ -354,7 +355,7 @@
 
         private System.Windows.Forms.Panel panelDashBoard;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblUser;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel5;
@@ -367,7 +368,7 @@
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel6;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lblWeather;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.PictureBox pictureBox5;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel4;

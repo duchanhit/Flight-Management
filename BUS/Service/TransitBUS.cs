@@ -12,15 +12,18 @@ namespace BUS.Service
     public class TransitBUS
     {
         private readonly IRepository<Transit> _transitRepository;
-
+        private readonly TransitDAL _transitDAL;
         // Constructor Injection
+
         public TransitBUS(IRepository<Transit> transitRepository)
         {
             _transitRepository = transitRepository;
+            _transitDAL = new TransitDAL();
         }
         public TransitBUS()
         {
             _transitRepository = new TransitDAL();
+            _transitDAL = new TransitDAL();
         }
 
         // Method to get all transits
@@ -51,6 +54,10 @@ namespace BUS.Service
         public void DeleteTransit(string id)
         {
             _transitRepository.Delete(id);
+        }
+        public List<Transit> GetTransitsByFlightId(string flightId)
+        {
+            return _transitDAL.GetTransitsByFlightId(flightId);
         }
     }
 }

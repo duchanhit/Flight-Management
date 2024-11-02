@@ -64,6 +64,13 @@ namespace GUI.Control
                     isPaid = 1 // Đặt trạng thái đã thanh toán (1)
                 };
 
+
+                ChairBooked chairBooked = new ChairBooked
+                {
+
+
+                };
+
                 // Gọi TicketBUS để lưu vé và hành khách vào cơ sở dữ liệu
                 _ticketBUS.AddTicket(ticket, passenger);
 
@@ -111,6 +118,15 @@ namespace GUI.Control
             {
                 // Nếu người dùng đã chọn một FlightId, lấy giá trị từ SelectedFlightId của formTuyenBay
                 txtTuyenBay.Text = formTuyenBay.SelectedFlightId;
+            }
+        }
+
+        private void guna2Button8_Click(object sender, EventArgs e)
+        {
+            Form parentForm = this.FindForm();
+            if (parentForm != null)
+            {
+                parentForm.WindowState = FormWindowState.Minimized;
             }
         }
     }

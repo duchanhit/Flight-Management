@@ -3,6 +3,9 @@ using DTO;
 using DTO.Entities;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +14,18 @@ namespace DAL
 {
     public class TransitDAL : IRepository<Transit>
     {
+        private readonly string connectionString;
+        private readonly FlightModel _context;
+        private readonly string _connectionString;
+
+        // Constructor nhận connectionString
+        public TransitDAL()
+        {
+
+            connectionString = ConfigurationManager.ConnectionStrings["FlightModel"].ConnectionString;
+            _context = new FlightModel();
+        }
+
         public IEnumerable<Transit> GetAll()
         {
             using (FlightModel context = new FlightModel())
@@ -71,6 +86,58 @@ namespace DAL
                 }
             }
         }
+
+
+
+
+        public List<Transit> GetTransitsByFlightId(string flightId)
+        {
+            List<Transit> transitList = new List<Transit>();
+
+            using (var connection = new SqlConnection(connectionString))
+            {
+                string query = @"
+        SELECT 
+            transitID,
+            airportID,
+            transitTime,
+            transitNote,
+            flightID
+        FROM 
+            Transit
+        WHERE 
+            flightID = @flightId";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.Add("@flightId", SqlDbType.NVarChar).Value = (object)flightId ?? DBNull.Value;
+
+
+                    connection.Open();
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Transit transit = new Transit
+                            {
+                                transitID = reader["transitID"].ToString(),
+                                airportID = reader["airportID"].ToString(),
+                                transitTime = reader["transitTime"] as TimeSpan?,
+                                transitNote = reader["transitNote"].ToString(),
+                                flightID = reader["flightID"].ToString()
+                            };
+
+                            transitList.Add(transit);
+                        }
+                    }
+                }
+            }
+
+            return transitList;
+        }
+
+
+
     }
 
 }
